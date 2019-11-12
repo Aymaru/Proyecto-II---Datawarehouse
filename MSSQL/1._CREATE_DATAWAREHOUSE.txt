@@ -1,0 +1,145 @@
+Guia para creacion del Segmento de Bases de Datos
+
+Crear la base de datos.
+
+create database [Ventas_DataWareHouse]
+
+USE [Ventas_DataWareHouse]
+
+
+CREATE TABLE [dbo].[GrupoItems](
+    	[IdGrupo] [nvarchar](255) NULL,
+	[Categoria] [nvarchar](255) NULL,
+	[Division] [nvarchar](255) NULL
+)
+
+
+CREATE TABLE [dbo].[Items](
+    	[ID] [int] NULL,
+    	[IdItem] [int]  NOT NULL PRIMARY KEY,
+	[Descripcion] [nvarchar](255) NULL,
+	[Grupo] [nvarchar](255) NULL,
+	FOREIGN KEY ([Grupo]) REFERENCES [GrupoItems]([IdGrupo])
+)
+
+
+CREATE TABLE [dbo].[Zonas](
+    	[IdZona] [int] NOT NULL PRIMARY KEY,
+    	[Nombre] [nvarchar](255) NULL,
+	[Plazo] [int] NULL
+)
+
+CREATE TABLE [dbo].[Vendedores](
+    	[IdVendedor] [int] NOT NULL PRIMARY KEY,
+    	[Nombre] [int]  NULL,
+	[CantComision] [int] NULL,
+	[Bloqueado] [nvarchar](255) NULL,
+	[Activo] [nvarchar](255) NULL,
+	[Email] [nvarchar](255) NULL,
+	[Cobrador] [nvarchar](255) NULL,
+	[Promotor] [nvarchar](255) NULL,
+	[Tipo] [nvarchar](255) NULL,
+	[Canal] [nvarchar](255) NULL,
+	[Grupo] [nvarchar](255) NULL
+)
+
+CREATE TABLE [dbo].[Canal_Clientes](
+    	[IdCode] [int] NOT NULL PRIMARY KEY,
+    	[Nombre] [nvarchar](255) NOT NULL,
+	[Prioridad] [nvarchar](255) NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Clientes](
+    	[IdCliente] [nvarchar](255) NOT NULL PRIMARY KEY,
+    	[Nombre] [int]  NULL,
+	[Telefono] [nvarchar](255) NULL,
+	[CodigoPago] [nvarchar](255) NULL,
+	[LimiteCredito] [float] NULL,
+	[IdVendedor] [int] NULL,
+	[MonedaSN] [nvarchar](255) NULL,
+	[DestinoFactura] [nvarchar](255) NULL,
+	[Zona] [int] NOT NULL,
+	[Ruta] [nvarchar](255) NULL,
+	[Canal] [int] NULL
+)
+
+
+CREATE TABLE [dbo].[Vista_Ventas](
+    	[Factura] [int] NULL,
+    	[Fecha_Anno] [int]  NULL,
+	[Fecha_Mes] [int] NULL,
+	[Fecha_Dia] [int]  NULL,
+	[FechaV_Anno] [int]  NULL,
+	[FechaV_Mes] [int] NULL,
+	[FechaV_Dia] [int]  NULL,
+	[Cliente] [nvarchar](255) NULL,
+	[Item] [int]  NULL,
+	[Cantidad] [int]  NULL,
+	[Moneda] [nvarchar](255)] NULL,
+	[Precio] [money] NULL,
+	[Total] [money]  NULL,
+	[Almacen] [int] NULL,*
+	[Vendedor] [int] NULL,*
+	[TotalUSB] [float] NULL,
+	[Impuesto] [float]  NULL,
+	[ImpuestoUSB] [float]  NULL,
+	[TipoCambio] [int]  NULL,*
+	[Ganacia] [money] NULL,
+	[GanaciaUSB] [money] NULL,
+	FOREIGN KEY ([Item] ) REFERENCES [Items]([IdItem]),
+	FOREIGN KEY ([IdMarca]) REFERENCES [Marcas]([Cliente]),
+	FOREIGN KEY ([IdMarca]) REFERENCES [Marcas]([IdMarca]),
+)
+
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Diego Mora Rojas</Author>
+  <LastAuthor>Administrador</LastAuthor>
+  <Created>2019-10-29T05:12:34Z</Created>
+  <LastSaved>2019-11-12T06:48:16Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>5895</WindowHeight>
+  <WindowWidth>17970</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s63">
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s65">
+   <NumberFormat ss:Format="#,##0"/>
+  </Style>
+  <Style ss:ID="s66">
+   <NumberFormat ss:Format="Standard"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="201-300">
+
+
+
