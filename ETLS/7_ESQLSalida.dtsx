@@ -1,0 +1,1852 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2019 1:09:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SALASPC"
+  DTS:CreatorName="SALASPC\Administrador"
+  DTS:DTSID="{8E8293BE-1142-41EF-AE44-0B91610A5CF7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="7_ESQLSalida"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{56A415F1-593A-44B1-B3DC-E889B0602ACE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OTRO]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2297EB4A-C912-4A21-89A4-C28AF045203C}"
+      DTS:ObjectName="OTRO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="5130"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrador\Desktop\Proyecto-II---Datawarehouse\MYSQL\OTRO.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Factura"
+              DTS:DTSID="{ACFE4AA7-CD51-4181-BE3B-4C78DFC795FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha_Anno"
+              DTS:DTSID="{4FE4FBFD-8803-441A-8C8F-BA2CE2749112}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha_Mes"
+              DTS:DTSID="{C1414C11-63AB-415E-954F-E3AEFBB415F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha_Dia"
+              DTS:DTSID="{E9AD3D46-7CBA-4D09-A8AB-D548AC7FA8F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FechaV_Anno"
+              DTS:DTSID="{41714996-646F-45B2-B02E-B91802DB327A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FechaV_Mes"
+              DTS:DTSID="{78EE85D5-5E6C-4D58-8C2E-8F77B01A0836}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FechaV_Dia"
+              DTS:DTSID="{61897E15-C501-42B0-AAB5-45696B0E71CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cliente"
+              DTS:DTSID="{BC1FF422-FC3E-4BED-9F68-F48AABA204B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item"
+              DTS:DTSID="{B91E192B-5CDB-45BD-AE42-959BCE7E6636}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cantidad"
+              DTS:DTSID="{FEA10205-C0D3-4BF9-A47D-6120A60D57B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Moneda"
+              DTS:DTSID="{3BD96AAC-C723-4187-877C-64B637598754}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Precio"
+              DTS:DTSID="{F726D513-EADA-42CB-BC10-82226BA7E62A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total"
+              DTS:DTSID="{0134F64A-2A62-4018-B3EA-79EECD60B6B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Almacen"
+              DTS:DTSID="{7D2546BE-69C6-4718-BD1B-8EBA09298A81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vendedor"
+              DTS:DTSID="{4BB11F94-B5C2-4430-951B-BE139D8A8E74}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalUSB"
+              DTS:DTSID="{197514EA-3823-4327-8E20-A3E43AEBA18E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Impuesto"
+              DTS:DTSID="{13E5C6CB-F78A-4572-8196-21978D701630}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ImpuestoUSB"
+              DTS:DTSID="{4D50B476-6820-4855-95AD-A063FDDC8BED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TipoCambio"
+              DTS:DTSID="{82371D7B-D7E1-494C-AADB-93EC829DCC79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ganacia"
+              DTS:DTSID="{E47E7BFC-C7F5-471D-AEDF-3EDA1864C432}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GanaciaUSB"
+              DTS:DTSID="{B017E22B-506E-4E23-830F-826287E1C073}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{AE1C392B-51AC-486E-81AD-7EE00220C63C}"
+      DTS:ObjectName="SALASPC\ADMIN.Ventas_ProyectoFinal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SALASPC\ADMIN;Initial Catalog=Ventas_ProyectoFinal;Integrated Security=True;Application Name=SSIS-7_ESQLSalida-{AE1C392B-51AC-486E-81AD-7EE00220C63C}SALASPC\ADMIN.Ventas_ProyectoFinal;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SQL a TXT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E3DE2EC8-961A-4625-BA14-33530C08C21C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL a TXT">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SQL a TXT\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input].Columns[Division]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Division"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL a TXT\Conditional Split.Outputs[Madera]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Madera"
+                  synchronousInputId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]} == "FERRETERIA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Division == "FERRETERIA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL a TXT\Conditional Split.Outputs[Hogar]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Hogar"
+                  synchronousInputId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]} == "INDUSTRIAL"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Division == "INDUSTRIAL"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL a TXT\Conditional Split.Outputs[Condicional Madera Hogar]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Condicional Madera Hogar"
+                  synchronousInputId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL a TXT\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL a TXT\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Factura]"
+                      cachedDataType="i4"
+                      cachedName="Factura"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Factura]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Anno]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_Anno"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Anno]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Mes]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_Mes"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Mes]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Dia]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_Dia"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Dia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[FechaV_Anno]"
+                      cachedDataType="i4"
+                      cachedName="FechaV_Anno"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Anno]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[FechaV_Mes]"
+                      cachedDataType="i4"
+                      cachedName="FechaV_Mes"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Mes]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[FechaV_Dia]"
+                      cachedDataType="i4"
+                      cachedName="FechaV_Dia"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Dia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Cliente"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cliente]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Item]"
+                      cachedDataType="i4"
+                      cachedName="Item"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Item]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Moneda"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Moneda]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Precio]"
+                      cachedDataType="cy"
+                      cachedName="Precio"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Precio]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Total]"
+                      cachedDataType="cy"
+                      cachedName="Total"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Almacen]"
+                      cachedDataType="i4"
+                      cachedName="Almacen"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Almacen]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Vendedor]"
+                      cachedDataType="i4"
+                      cachedName="Vendedor"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Vendedor]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[TotalUSB]"
+                      cachedDataType="r8"
+                      cachedName="TotalUSB"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TotalUSB]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Impuesto]"
+                      cachedDataType="r8"
+                      cachedName="Impuesto"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Impuesto]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[ImpuestoUSB]"
+                      cachedDataType="r8"
+                      cachedName="ImpuestoUSB"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[ImpuestoUSB]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[TipoCambio]"
+                      cachedDataType="i4"
+                      cachedName="TipoCambio"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TipoCambio]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Ganacia]"
+                      cachedDataType="cy"
+                      cachedName="Ganacia"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Ganacia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[GanaciaUSB]"
+                      cachedDataType="cy"
+                      cachedName="GanaciaUSB"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[GanaciaUSB]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input].Columns[Division]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Division"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]"
+                      name="Copy of Factura"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Factura]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]"
+                      name="Copy of Fecha_Anno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Anno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]"
+                      name="Copy of Fecha_Mes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]"
+                      name="Copy of Fecha_Dia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Anno]"
+                      name="Copy of FechaV_Anno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Anno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Mes]"
+                      name="Copy of FechaV_Mes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Dia]"
+                      name="Copy of FechaV_Dia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]"
+                      name="Copy of Cliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]"
+                      name="Copy of Item"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Item]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cantidad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]"
+                      name="Copy of Moneda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Moneda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]"
+                      name="Copy of Precio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Precio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]"
+                      name="Copy of Total"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Total]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacen]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacen]"
+                      name="Copy of Almacen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Almacen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      name="Copy of Vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Vendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSB]"
+                      name="Copy of TotalUSB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TotalUSB]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]"
+                      name="Copy of Impuesto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Impuesto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSB]"
+                      name="Copy of ImpuestoUSB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[ImpuestoUSB]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TipoCambio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TipoCambio]"
+                      name="Copy of TipoCambio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TipoCambio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]"
+                      name="Copy of Ganacia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Ganacia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GanaciaUSB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GanaciaUSB]"
+                      name="Copy of GanaciaUSB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[GanaciaUSB]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Division]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Division]"
+                      name="Copy of Division"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL a TXT\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="5130"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL a TXT\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OTRO]"
+                  connectionManagerRefId="Package.ConnectionManagers[OTRO]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Factura]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Factura"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Factura]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Fecha_Anno]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Anno"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Anno]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Fecha_Mes]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Mes"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Mes]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Fecha_Dia]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Dia"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Dia]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of FechaV_Anno]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaV_Anno"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Anno]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Anno]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of FechaV_Mes]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaV_Mes"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Mes]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Mes]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of FechaV_Dia]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaV_Dia"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Dia]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaV_Dia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Cliente"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Cliente]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Item]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Item"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Item]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Cantidad"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Cantidad]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Moneda"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Moneda]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Precio]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Precio"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Precio]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Total]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Total"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Total]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Almacen]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Almacen"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Almacen]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacen]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Vendedor]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Vendedor"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Vendedor]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of TotalUSB]"
+                      cachedDataType="r8"
+                      cachedName="Copy of TotalUSB"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TotalUSB]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSB]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Impuesto]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Impuesto"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Impuesto]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of ImpuestoUSB]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ImpuestoUSB"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ImpuestoUSB]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSB]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of TipoCambio]"
+                      cachedDataType="i4"
+                      cachedName="Copy of TipoCambio"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TipoCambio]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TipoCambio]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Ganacia]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Ganacia"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Ganacia]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]" />
+                    <inputColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of GanaciaUSB]"
+                      cachedDataType="r8"
+                      cachedName="Copy of GanaciaUSB"
+                      externalMetadataColumnId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GanaciaUSB]"
+                      lineageId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GanaciaUSB]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Factura]"
+                      dataType="i4"
+                      name="Factura" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Anno]"
+                      dataType="i4"
+                      name="Fecha_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Mes]"
+                      dataType="i4"
+                      name="Fecha_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fecha_Dia]"
+                      dataType="i4"
+                      name="Fecha_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Anno]"
+                      dataType="i4"
+                      name="FechaV_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Mes]"
+                      dataType="i4"
+                      name="FechaV_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FechaV_Dia]"
+                      dataType="i4"
+                      name="FechaV_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Item]"
+                      dataType="i4"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      name="Moneda" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Precio]"
+                      dataType="cy"
+                      name="Precio" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Total]"
+                      dataType="cy"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Almacen]"
+                      dataType="i4"
+                      name="Almacen" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Vendedor]"
+                      dataType="i4"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TotalUSB]"
+                      dataType="r8"
+                      name="TotalUSB" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Impuesto]"
+                      dataType="r8"
+                      name="Impuesto" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ImpuestoUSB]"
+                      dataType="r8"
+                      name="ImpuestoUSB" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TipoCambio]"
+                      dataType="i4"
+                      name="TipoCambio" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Ganacia]"
+                      dataType="cy"
+                      name="Ganacia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GanaciaUSB]"
+                      dataType="cy"
+                      name="GanaciaUSB" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\SQL a TXT\SQL salida"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="SQL salida"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Ventas_Query"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL a TXT\SQL salida.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+                  connectionManagerRefId="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Factura]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Factura]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Factura]"
+                      name="Factura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Anno]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Anno]"
+                      name="Fecha_Anno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Mes]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Mes]"
+                      name="Fecha_Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Dia]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Fecha_Dia]"
+                      name="Fecha_Dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Anno]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Anno]"
+                      name="FechaV_Anno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Mes]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Mes]"
+                      name="FechaV_Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Dia]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[FechaV_Dia]"
+                      name="FechaV_Dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Cliente]"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cliente]"
+                      name="Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Item]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Item]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Item]"
+                      name="Item"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Cantidad]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Moneda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Moneda]"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Moneda]"
+                      name="Moneda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Precio]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Precio]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Precio]"
+                      name="Precio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Total]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Total]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Almacen]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Almacen]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Almacen]"
+                      name="Almacen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Vendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Vendedor]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Vendedor]"
+                      name="Vendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TotalUSB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[TotalUSB]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TotalUSB]"
+                      name="TotalUSB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Impuesto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Impuesto]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Impuesto]"
+                      name="Impuesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[ImpuestoUSB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[ImpuestoUSB]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[ImpuestoUSB]"
+                      name="ImpuestoUSB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TipoCambio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[TipoCambio]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[TipoCambio]"
+                      name="TipoCambio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Ganacia]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Ganacia]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Ganacia]"
+                      name="Ganacia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[GanaciaUSB]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[GanaciaUSB]"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[GanaciaUSB]"
+                      name="GanaciaUSB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Division]"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].Columns[Division]"
+                      name="Division"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Factura]"
+                      dataType="i4"
+                      name="Factura" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Anno]"
+                      dataType="i4"
+                      name="Fecha_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Mes]"
+                      dataType="i4"
+                      name="Fecha_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Fecha_Dia]"
+                      dataType="i4"
+                      name="Fecha_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Anno]"
+                      dataType="i4"
+                      name="FechaV_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Mes]"
+                      dataType="i4"
+                      name="FechaV_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[FechaV_Dia]"
+                      dataType="i4"
+                      name="FechaV_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Item]"
+                      dataType="i4"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      name="Moneda" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Precio]"
+                      dataType="cy"
+                      name="Precio" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Total]"
+                      dataType="cy"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Almacen]"
+                      dataType="i4"
+                      name="Almacen" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Vendedor]"
+                      dataType="i4"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[TotalUSB]"
+                      dataType="r8"
+                      name="TotalUSB" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Impuesto]"
+                      dataType="r8"
+                      name="Impuesto" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[ImpuestoUSB]"
+                      dataType="r8"
+                      name="ImpuestoUSB" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[TipoCambio]"
+                      dataType="i4"
+                      name="TipoCambio" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Ganacia]"
+                      dataType="cy"
+                      name="Ganacia" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[GanaciaUSB]"
+                      dataType="cy"
+                      name="GanaciaUSB" />
+                    <externalMetadataColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output].ExternalColumns[Division]"
+                      dataType="wstr"
+                      length="255"
+                      name="Division" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Factura]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Factura]"
+                      name="Factura" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Anno]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Anno]"
+                      name="Fecha_Anno" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Mes]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Mes]"
+                      name="Fecha_Mes" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Dia]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Fecha_Dia]"
+                      name="Fecha_Dia" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Anno]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Anno]"
+                      name="FechaV_Anno" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Mes]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Mes]"
+                      name="FechaV_Mes" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Dia]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[FechaV_Dia]"
+                      name="FechaV_Dia" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Cliente]"
+                      name="Cliente" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Item]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Item]"
+                      name="Item" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Cantidad]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Moneda]"
+                      name="Moneda" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Precio]"
+                      dataType="cy"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Precio]"
+                      name="Precio" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Total]"
+                      dataType="cy"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Almacen]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Almacen]"
+                      name="Almacen" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Vendedor]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Vendedor]"
+                      name="Vendedor" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[TotalUSB]"
+                      dataType="r8"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[TotalUSB]"
+                      name="TotalUSB" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Impuesto]"
+                      dataType="r8"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Impuesto]"
+                      name="Impuesto" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ImpuestoUSB]"
+                      dataType="r8"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ImpuestoUSB]"
+                      name="ImpuestoUSB" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[TipoCambio]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[TipoCambio]"
+                      name="TipoCambio" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Ganacia]"
+                      dataType="cy"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Ganacia]"
+                      name="Ganacia" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[GanaciaUSB]"
+                      dataType="cy"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[GanaciaUSB]"
+                      name="GanaciaUSB" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Division]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[Division]"
+                      name="Division" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SQL a TXT.Paths[ADO NET Source Output]"
+              endId="Package\SQL a TXT\Conditional Split.Inputs[Conditional Split Input]"
+              name="ADO NET Source Output"
+              startId="Package\SQL a TXT\SQL salida.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\SQL a TXT.Paths[Condicional Madera Hogar]"
+              endId="Package\SQL a TXT\Data Conversion.Inputs[Data Conversion Input]"
+              name="Condicional Madera Hogar"
+              startId="Package\SQL a TXT\Conditional Split.Outputs[Condicional Madera Hogar]" />
+            <path
+              refId="Package\SQL a TXT.Paths[Data Conversion Output]"
+              endId="Package\SQL a TXT\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\SQL a TXT\Data Conversion.Outputs[Data Conversion Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SQL a TXT"
+          TopLeft="338.5,170.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SQL a TXT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SQL a TXT\SQL salida"
+          TopLeft="191,69" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SQL a TXT\Data Conversion"
+          TopLeft="322,235" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SQL a TXT\Conditional Split"
+          TopLeft="404,74" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SQL a TXT\Flat File Destination"
+          TopLeft="320,317" />
+        <EdgeLayout
+          Id="Package\SQL a TXT.Paths[Data Conversion Output]"
+          TopLeft="405.25,277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL a TXT.Paths[Condicional Madera Hogar]"
+          TopLeft="483.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81,119"
+              Start="0,0"
+              End="-81,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.5"
+                    Point2="0,59.5"
+                    Point3="-4,59.5" />
+                  <mssgle:LineSegment
+                    End="-77,59.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77,59.5"
+                    Point2="-81,59.5"
+                    Point3="-81,63.5" />
+                  <mssgle:LineSegment
+                    End="-81,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.1712109375,64.5,117.342421875,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL a TXT.Paths[ADO NET Source Output]"
+          TopLeft="324,92.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80,0"
+              Start="0,0"
+              End="72.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="72.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL a TXT\SQL salida">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

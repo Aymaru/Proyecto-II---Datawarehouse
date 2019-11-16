@@ -1,0 +1,1542 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/11/2019 4:31:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SALASPC"
+  DTS:CreatorName="SALASPC\Administrador"
+  DTS:DTSID="{C513DDCC-1EF0-40E1-B5EC-896A2A016333}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="4_ESQL1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B30FAC08-66DE-4742-950A-C061E90C428E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{FE440F97-3098-4F5B-9FCB-3801A9E37996}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Administrador\Desktop\Proyecto-II---Datawarehouse\MSSQL\201-300.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{B70FBDD6-6AAA-4FC6-ADF6-0FB24F6E12D8}"
+      DTS:ObjectName="SALASPC\ADMIN.Ventas_ProyectoFinal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SALASPC\ADMIN;Initial Catalog=Ventas_ProyectoFinal;Integrated Security=True;Application Name=SSIS-4_ESQL1-{B70FBDD6-6AAA-4FC6-ADF6-0FB24F6E12D8}SALASPC\ADMIN.Ventas_ProyectoFinal;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\4ESQL1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{104F2E61-5612-4F4D-BD75-B0FEDEA5E262}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="4ESQL1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\4ESQL1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Factura]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Factura"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Factura]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Anno]"
+                      cachedDataType="r8"
+                      cachedName="Fecha_Anno"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Anno]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Mes]"
+                      cachedDataType="r8"
+                      cachedName="Fecha_Mes"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Mes]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha_Dia]"
+                      cachedDataType="r8"
+                      cachedName="Fecha_Dia"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Dia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[FechaVencimiento_Anno]"
+                      cachedDataType="r8"
+                      cachedName="FechaVencimiento_Anno"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Anno]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[FechaVencimiento_Mes]"
+                      cachedDataType="r8"
+                      cachedName="FechaVencimiento_Mes"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Mes]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[FechaVencimiento_Dia]"
+                      cachedDataType="r8"
+                      cachedName="FechaVencimiento_Dia"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Dia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Cliente"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cliente]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Item]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Item"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Item]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Cantidad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Cantidad"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Moneda"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Moneda]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Precio]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Precio"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Precio]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Total]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Total"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Almacén]"
+                      cachedDataType="r8"
+                      cachedName="Almacén"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Almacén]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Vendedor]"
+                      cachedDataType="r8"
+                      cachedName="Vendedor"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Vendedor]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[TotalUSD]"
+                      cachedDataType="r8"
+                      cachedName="TotalUSD"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[TotalUSD]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Impuesto]"
+                      cachedDataType="r8"
+                      cachedName="Impuesto"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Impuesto]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[ImpuestoUSD]"
+                      cachedDataType="r8"
+                      cachedName="ImpuestoUSD"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[ImpuestoUSD]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Tipo de cambio]"
+                      cachedDataType="r8"
+                      cachedName="Tipo de cambio"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Tipo de cambio]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[Ganacia]"
+                      cachedDataType="r8"
+                      cachedName="Ganacia"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Ganacia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input].Columns[GananciaUSD]"
+                      cachedDataType="r8"
+                      cachedName="GananciaUSD"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[GananciaUSD]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]"
+                      name="Copy of Factura"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Factura]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]"
+                      name="Copy of Fecha_Anno"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Anno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]"
+                      name="Copy of Fecha_Mes"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]"
+                      name="Copy of Fecha_Dia"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Anno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Anno]"
+                      name="Copy of FechaVencimiento_Anno"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Anno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Mes]"
+                      name="Copy of FechaVencimiento_Mes"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Dia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Dia]"
+                      name="Copy of FechaVencimiento_Dia"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="255"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]"
+                      name="Copy of Cliente"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]"
+                      name="Copy of Item"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Item]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cantidad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]"
+                      name="Copy of Moneda"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Moneda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]"
+                      name="Copy of Precio"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Precio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]"
+                      name="Copy of Total"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Total]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacén]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacén]"
+                      name="Copy of Almacén"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Almacén]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      name="Copy of Vendedor"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Vendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSD]"
+                      name="Copy of TotalUSD"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[TotalUSD]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]"
+                      name="Copy of Impuesto"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Impuesto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSD]"
+                      name="Copy of ImpuestoUSD"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[ImpuestoUSD]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tipo de cambio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tipo de cambio]"
+                      name="Copy of Tipo de cambio"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Tipo de cambio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]"
+                      name="Copy of Ganacia"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Ganacia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GananciaUSD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GananciaUSD]"
+                      name="Copy of GananciaUSD"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[GananciaUSD]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\4ESQL1\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'201-300$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\4ESQL1\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Factura]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Factura]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Factura]"
+                      name="Factura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Anno]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Anno]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Anno]"
+                      name="Fecha_Anno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Mes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Mes]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Mes]"
+                      name="Fecha_Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Dia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Dia]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Fecha_Dia]"
+                      name="Fecha_Dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Anno]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Anno]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Anno]"
+                      name="FechaVencimiento_Anno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Mes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Mes]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Mes]"
+                      name="FechaVencimiento_Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Dia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Dia]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[FechaVencimiento_Dia]"
+                      name="FechaVencimiento_Dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Cliente]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cliente]"
+                      name="Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Item]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Item]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Item]"
+                      name="Item"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cantidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Moneda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Moneda]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Moneda]"
+                      name="Moneda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Precio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Precio]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Precio]"
+                      name="Precio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Total]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total]"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Almacén]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Almacén]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Almacén]"
+                      name="Almacén"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Vendedor]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Vendedor]"
+                      name="Vendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[TotalUSD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[TotalUSD]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[TotalUSD]"
+                      name="TotalUSD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Impuesto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Impuesto]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Impuesto]"
+                      name="Impuesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[ImpuestoUSD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[ImpuestoUSD]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[ImpuestoUSD]"
+                      name="ImpuestoUSD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Tipo de cambio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipo de cambio]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Tipo de cambio]"
+                      name="Tipo de cambio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Ganacia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ganacia]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[Ganacia]"
+                      name="Ganacia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[GananciaUSD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[GananciaUSD]"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].Columns[GananciaUSD]"
+                      name="GananciaUSD"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Factura]"
+                      dataType="wstr"
+                      length="255"
+                      name="Factura" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Anno]"
+                      dataType="r8"
+                      name="Fecha_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Mes]"
+                      dataType="r8"
+                      name="Fecha_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha_Dia]"
+                      dataType="r8"
+                      name="Fecha_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Anno]"
+                      dataType="r8"
+                      name="FechaVencimiento_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Mes]"
+                      dataType="r8"
+                      name="FechaVencimiento_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[FechaVencimiento_Dia]"
+                      dataType="r8"
+                      name="FechaVencimiento_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Item]"
+                      dataType="wstr"
+                      length="255"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      name="Moneda" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Precio]"
+                      dataType="wstr"
+                      length="255"
+                      name="Precio" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total]"
+                      dataType="wstr"
+                      length="255"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Almacén]"
+                      dataType="r8"
+                      name="Almacén" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      dataType="r8"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[TotalUSD]"
+                      dataType="r8"
+                      name="TotalUSD" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Impuesto]"
+                      dataType="r8"
+                      name="Impuesto" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[ImpuestoUSD]"
+                      dataType="r8"
+                      name="ImpuestoUSD" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipo de cambio]"
+                      dataType="r8"
+                      name="Tipo de cambio" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ganacia]"
+                      dataType="r8"
+                      name="Ganacia" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output].ExternalColumns[GananciaUSD]"
+                      dataType="r8"
+                      name="GananciaUSD" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Factura]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Factura]"
+                      name="Factura" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Anno]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Anno]"
+                      name="Fecha_Anno" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Mes]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Mes]"
+                      name="Fecha_Mes" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Dia]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha_Dia]"
+                      name="Fecha_Dia" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Anno]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Anno]"
+                      name="FechaVencimiento_Anno" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Mes]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Mes]"
+                      name="FechaVencimiento_Mes" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Dia]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[FechaVencimiento_Dia]"
+                      name="FechaVencimiento_Dia" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Cliente]"
+                      name="Cliente" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Item]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Item]"
+                      name="Item" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Cantidad]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Moneda]"
+                      name="Moneda" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Precio]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Precio]"
+                      name="Precio" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Total]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Almacén]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Almacén]"
+                      name="Almacén" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Vendedor]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Vendedor]"
+                      name="Vendedor" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[TotalUSD]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[TotalUSD]"
+                      name="TotalUSD" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Impuesto]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Impuesto]"
+                      name="Impuesto" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ImpuestoUSD]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ImpuestoUSD]"
+                      name="ImpuestoUSD" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Tipo de cambio]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Tipo de cambio]"
+                      name="Tipo de cambio" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Ganacia]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[Ganacia]"
+                      name="Ganacia" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[GananciaUSD]"
+                      dataType="r8"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[GananciaUSD]"
+                      name="GananciaUSD" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\4ESQL1\SQL"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="SQL"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Vista_Ventas"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\4ESQL1\SQL.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+                  connectionManagerRefId="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Factura]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Factura"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Factura]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Factura]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Fecha_Anno]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Anno"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Anno]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Anno]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Fecha_Mes]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Mes"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Mes]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Mes]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Fecha_Dia]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Fecha_Dia"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Dia]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Fecha_Dia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of FechaVencimiento_Anno]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaVencimiento_Anno"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Anno]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Anno]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of FechaVencimiento_Mes]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaVencimiento_Mes"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Mes]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Mes]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of FechaVencimiento_Dia]"
+                      cachedDataType="i4"
+                      cachedName="Copy of FechaVencimiento_Dia"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Dia]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaVencimiento_Dia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Cliente"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Cliente]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cliente]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Item]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Item"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Item]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Cantidad"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Cantidad]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Moneda"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Moneda]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Moneda]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Precio]"
+                      cachedDataType="cy"
+                      cachedName="Copy of Precio"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Precio]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Precio]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Total]"
+                      cachedDataType="cy"
+                      cachedName="Copy of Total"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Total]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Total]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Almacén]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Almacén"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Almacen]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Almacén]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Vendedor]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Vendedor"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Vendedor]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of TotalUSD]"
+                      cachedDataType="r8"
+                      cachedName="Copy of TotalUSD"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[TotalUSB]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalUSD]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Impuesto]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Impuesto"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Impuesto]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Impuesto]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of ImpuestoUSD]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ImpuestoUSD"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[ImpuestoUSB]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ImpuestoUSD]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Tipo de cambio]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Tipo de cambio"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[TipoCambio]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tipo de cambio]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of Ganacia]"
+                      cachedDataType="cy"
+                      cachedName="Copy of Ganacia"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Ganacia]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ganacia]" />
+                    <inputColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].Columns[Copy of GananciaUSD]"
+                      cachedDataType="cy"
+                      cachedName="Copy of GananciaUSD"
+                      externalMetadataColumnId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[GanaciaUSB]"
+                      lineageId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GananciaUSD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Factura]"
+                      dataType="i4"
+                      name="Factura" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Anno]"
+                      dataType="i4"
+                      name="Fecha_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Mes]"
+                      dataType="i4"
+                      name="Fecha_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Fecha_Dia]"
+                      dataType="i4"
+                      name="Fecha_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Anno]"
+                      dataType="i4"
+                      name="FechaV_Anno" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Mes]"
+                      dataType="i4"
+                      name="FechaV_Mes" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[FechaV_Dia]"
+                      dataType="i4"
+                      name="FechaV_Dia" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Item]"
+                      dataType="i4"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Moneda]"
+                      dataType="wstr"
+                      length="255"
+                      name="Moneda" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Precio]"
+                      dataType="numeric"
+                      name="Precio"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Total]"
+                      dataType="numeric"
+                      name="Total"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Almacen]"
+                      dataType="i4"
+                      name="Almacen" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Vendedor]"
+                      dataType="i4"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[TotalUSB]"
+                      dataType="r8"
+                      name="TotalUSB" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Impuesto]"
+                      dataType="r8"
+                      name="Impuesto" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[ImpuestoUSB]"
+                      dataType="r8"
+                      name="ImpuestoUSB" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[TipoCambio]"
+                      dataType="i4"
+                      name="TipoCambio" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[Ganacia]"
+                      dataType="numeric"
+                      name="Ganacia"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input].ExternalColumns[GanaciaUSB]"
+                      dataType="numeric"
+                      name="GanaciaUSB"
+                      precision="19"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\4ESQL1\SQL.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\4ESQL1\SQL.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\SQL.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\4ESQL1\SQL.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\4ESQL1\SQL.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\4ESQL1.Paths[Data Conversion Output]"
+              endId="Package\4ESQL1\SQL.Inputs[ADO NET Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\4ESQL1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\4ESQL1.Paths[Excel Source Output]"
+              endId="Package\4ESQL1\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\4ESQL1\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="121,42"
+          Id="Package\4ESQL1"
+          TopLeft="251.5,66.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\4ESQL1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\4ESQL1\Data Conversion"
+          TopLeft="104,128" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\4ESQL1\Excel Source"
+          TopLeft="110,40" />
+        <NodeLayout
+          Size="101,42"
+          Id="Package\4ESQL1\SQL"
+          TopLeft="132,219" />
+        <EdgeLayout
+          Id="Package\4ESQL1.Paths[Excel Source Output]"
+          TopLeft="183.25,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\4ESQL1.Paths[Data Conversion Output]"
+          TopLeft="183.5,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\4ESQL1\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\4ESQL1\SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
