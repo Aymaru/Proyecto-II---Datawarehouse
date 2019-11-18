@@ -1,0 +1,1405 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2019 7:37:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-P0R7PMV"
+  DTS:CreatorName="ESTUDIANTES\ayma-93"
+  DTS:DTSID="{E6E6C9B5-C4DD-459B-8E9D-4C435603EDA6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="ETL Clientes a mongo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{3B2A12D6-3350-481C-8A8F-8752427447F7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BC1EA11C-262A-4720-B980-A2431621FDAE}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\DATOS MAESTROS.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MongoDB 1]"
+      DTS:CreationName="ZS-MONGODB"
+      DTS:DTSID="{C6CF8361-4D5B-4F36-BE0F-24A912675E8F}"
+      DTS:ObjectName="MongoDB 1">
+      <DTS:ObjectData>
+        <ConnectionManager
+          ConnectionString="Host=localhost:27017;Database=ventas;UserName=;Timeout=60;Options=connectTimeoutMS=60000;UseClientCertificate=False;CertificatePath=;CheckCertificateRevocation=True;AllowInvalidCertificate=False;CursorOptions=;ReadConcern=;RetainSameConnection=False"
+          Timeout="60"
+          RetryInterval="10"
+          MaxRetryOnError="3"
+          MaxParallelThreads="8"
+          ProgressUpdateInterval="4096" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{58D48210-D36C-4985-9566-71F7DB235A11}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Canal Clientes"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Canal Clientes"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">'CANAL CLIENTES$'</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Canal Clientes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Code]"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]"
+                      name="IDCanal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[NombreCanal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[NombreCanal]"
+                      name="NombreCanal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[Prioridad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Prioridad]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[Prioridad]"
+                      name="Prioridad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Code]"
+                      dataType="r8"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Prioridad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Prioridad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Code]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Prioridad]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[Prioridad]"
+                      name="Prioridad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Clientes"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Clientes"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">CLIENTES$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Clientes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Código SN]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCliente]"
+                      name="IDCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[NombreCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[NombreCliente]"
+                      name="NombreCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Teléfono 1]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Condicion_pago]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Código de condiciones de pago]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Condicion_pago]"
+                      name="Condicion_pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Limite_credito]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Límite de crédito]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Limite_credito]"
+                      name="Limite_credito"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDVendedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Vendedor]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDVendedor]"
+                      name="IDVendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Moneda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Moneda SN]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Moneda]"
+                      name="Moneda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Codigo_pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Destinatario de factura: País]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Codigo_pais]"
+                      name="Codigo_pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDZona]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Zona]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDZona]"
+                      name="IDZona"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Ruta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Ruta]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Ruta]"
+                      name="Ruta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[CANAL]"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]"
+                      name="IDCanal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Código SN]"
+                      dataType="wstr"
+                      length="255"
+                      name="Código SN" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Teléfono 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Teléfono 1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Código de condiciones de pago]"
+                      dataType="wstr"
+                      length="255"
+                      name="Código de condiciones de pago" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Límite de crédito]"
+                      dataType="wstr"
+                      length="255"
+                      name="Límite de crédito" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Moneda SN]"
+                      dataType="wstr"
+                      length="255"
+                      name="Moneda SN" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Destinatario de factura: País]"
+                      dataType="wstr"
+                      length="255"
+                      name="Destinatario de factura: País" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Zona]"
+                      dataType="wstr"
+                      length="255"
+                      name="Zona" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[Ruta]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ruta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[CANAL]"
+                      dataType="r8"
+                      name="CANAL" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[F12]"
+                      dataType="wstr"
+                      length="255"
+                      name="F12" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].ExternalColumns[F13]"
+                      dataType="wstr"
+                      length="255"
+                      name="F13" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Código SN]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Código SN]"
+                      name="Código SN" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Teléfono 1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Teléfono 1]"
+                      name="Teléfono 1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Código de condiciones de pago]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Código de condiciones de pago]"
+                      name="Código de condiciones de pago" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Límite de crédito]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Límite de crédito]"
+                      name="Límite de crédito" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Vendedor]"
+                      name="Vendedor" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Moneda SN]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Moneda SN]"
+                      name="Moneda SN" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Destinatario de factura: País]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Destinatario de factura: País]"
+                      name="Destinatario de factura: País" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Zona]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Zona]"
+                      name="Zona" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Ruta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[Ruta]"
+                      name="Ruta" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[CANAL]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[CANAL]"
+                      name="CANAL" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\JSON Generator Transform"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="JSON Generator Transform; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="The JSON generator transform can be used to create JSON document from single or multiple inputs. You can create simple or nested JSON document."
+              name="JSON Generator Transform"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Int32"
+                  description="Determines JSON format and output mode (e.g. one JSON for all input rows or one JSON for each input row)"
+                  expressionType="Notify"
+                  name="OutputMode"
+                  typeConverter="ZappySys.PowerPack.Transform.JsonGeneratorTransform.JsonOutputMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">2</property>
+                <property
+                  dataType="System.String"
+                  description="Defines shape of output JSON string"
+                  expressionType="Notify"
+                  name="LayoutInfo">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;settings ver="3"&gt;
+  &lt;dataset id="Clientes" main="True" inputid="525" readfrominput="True"&gt;&lt;/dataset&gt;
+  &lt;dataset id="CanalClientes" inputid="612" readfrominput="True"&gt;&lt;/dataset&gt;
+  &lt;dataset id="Zonas" inputid="629" readfrominput="True"&gt;&lt;/dataset&gt;
+  &lt;join parentid="Clientes" childid="CanalClientes"&gt;
+    &lt;key parent="IDCanal" child="IDCanal" /&gt;
+  &lt;/join&gt;
+  &lt;join parentid="Clientes" childid="Zonas"&gt;
+    &lt;key parent="IDZona" child="IDZona" /&gt;
+  &lt;/join&gt;
+  &lt;map src="IDCliente" name="IDCliente" /&gt;
+  &lt;map src="NombreCliente" name="NombreCliente" /&gt;
+  &lt;map src="Telefono" name="Telefono" /&gt;
+  &lt;map src="Condicion_pago" name="Condicion_pago" /&gt;
+  &lt;map src="Limite_credito" name="Limite_credito" /&gt;
+  &lt;map src="IDVendedor" name="IDVendedor" /&gt;
+  &lt;map src="Moneda" name="Moneda" /&gt;
+  &lt;map src="Codigo_pais" name="Codigo_pais" /&gt;
+  &lt;map src="Ruta" name="Ruta" /&gt;
+  &lt;map name="Canal" dataset="CanalClientes" parentdataset="Clientes" maptype="DocArray"&gt;
+    &lt;map src="IDCanal" name="IDCanal" /&gt;
+    &lt;map src="NombreCanal" name="NombreCanal" /&gt;
+    &lt;map src="Prioridad" name="Prioridad" /&gt;
+  &lt;/map&gt;
+  &lt;map name="Zona" dataset="Zonas" parentdataset="Clientes" maptype="DocArray"&gt;
+    &lt;map src="IDZona" name="IDZona" /&gt;
+    &lt;map src="NombreZona" name="NombreZona" /&gt;
+    &lt;map src="Plazo" name="Plazo" /&gt;
+  &lt;/map&gt;
+&lt;/settings&gt;</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Do not output attribute if value is NULL. By default null attribute is output as &quot;MyColname&quot; : null "
+                  expressionType="Notify"
+                  name="DoNotOutputNullAttribute">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to True if you dont want to output empty nodes of sub document (e.g nested property). This option is only applicable if you enabled DoNotOutputNullProperty. If all child peoprties are NULL for parent node then by default output contains empty nodes (e.g. CountryInfo: { CityInfo: { } } for Json --OR-- &lt;CountryInfo&gt;&lt;CityInfo /&gt;&lt;/CountryInfo&gt; for Xml). You can enable this option to avoid such empty nodes from the output."
+                  expressionType="Notify"
+                  name="DoNotOutputEmptyNestedAttribute">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to True if you dont want to output empty array nodes when no record found for that array (e.g. &quot;Orders&quot;: [ ] for JSON --OR-- &lt;Orders&gt;&lt;/Orders&gt; for Xml). You can enable this option to avoid such empty nodes from the output."
+                  expressionType="Notify"
+                  name="DoNotOutputEmptyArrayAttribute">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indent JSON Text generated by this transform (Pretty Print)"
+                  expressionType="Notify"
+                  name="IndentOutput">false</property>
+                <property
+                  dataType="System.String"
+                  description="Default output format for datetime columns"
+                  expressionType="Notify"
+                  name="DateTimeFormat">yyyy-MM-dd HH:mm:ss</property>
+                <property
+                  dataType="System.String"
+                  description="Culture setting for this task. This option is useful to control output format for certain data types (e.g. number, decimal) based on regional settings. In USA dot is used for decimal indicator but in Germany it may be comma. Leave this blank if you want to use system default settings."
+                  expressionType="Notify"
+                  name="Culture"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Document Header/Footer text come from upstream column rather than direct string"
+                  expressionType="Notify"
+                  name="UseColumnForHeaderFooter">false</property>
+                <property
+                  dataType="System.String"
+                  description="Header text for document (Added before each document in the output)"
+                  expressionType="Notify"
+                  name="DocumentHeader"></property>
+                <property
+                  dataType="System.String"
+                  description="Footer text for document (Added after each document in the output)"
+                  expressionType="Notify"
+                  name="DocumentFooter"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how many rows to include in each batch (Array records for single dataset array mode). 0=Include all in one batch. This setting is only valid for Mode=[Single Dataset Array]"
+                  expressionType="Notify"
+                  name="ArrayBatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies encoding for data. If you set CharacterSet property then Encoing is ignored."
+                  expressionType="Notify"
+                  name="Encoding"
+                  typeConverter="ZappySys.Common.EncodingType, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.JsonGeneratorTransform</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
+                  name="JsonInput2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Id for attached dataset with input. Use JSON Layout Editor to see attached dataset"
+                      expressionType="Notify"
+                      name="DatasetInputId">525</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[IDCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IDCliente"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[NombreCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreCliente"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[NombreCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telefono"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Telefono]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Condicion_pago]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Condicion_pago"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Condicion_pago]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Limite_credito]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Limite_credito"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Limite_credito]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[IDVendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IDVendedor"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDVendedor]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Moneda"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Moneda]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Codigo_pais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Codigo_pais"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Codigo_pais]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[IDZona]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IDZona"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDZona]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[Ruta]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ruta"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[Ruta]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2].Columns[IDCanal]"
+                      cachedDataType="r8"
+                      cachedName="IDCanal"
+                      lineageId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3]"
+                  name="JsonInput3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Id for attached dataset with input. Use JSON Layout Editor to see attached dataset"
+                      expressionType="Notify"
+                      name="DatasetInputId">612</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3].Columns[IDCanal]"
+                      cachedDataType="r8"
+                      cachedName="IDCanal"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[IDCanal]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3].Columns[NombreCanal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreCanal"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[NombreCanal]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3].Columns[Prioridad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Prioridad"
+                      lineageId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel].Columns[Prioridad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1]"
+                  name="JsonInput1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Id for attached dataset with input. Use JSON Layout Editor to see attached dataset"
+                      expressionType="Notify"
+                      name="DatasetInputId">629</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[IDZona]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IDZona"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[IDZona]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[NombreZona]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreZona"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[NombreZona]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[Plazo]"
+                      cachedDataType="r8"
+                      cachedName="Plazo"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[Plazo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput4]"
+                  name="JsonInput4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Outputs[JsonGeneratorTransformOutput]"
+                  errorOrTruncationOperation="Error"
+                  name="JsonGeneratorTransformOutput">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Outputs[JsonGeneratorTransformOutput].Columns[ZS_JSON_OUT]"
+                      dataType="nText"
+                      description="This output column contains generated JSON string from JSON generator Transform"
+                      lineageId="Package\Tarea Flujo de datos\JSON Generator Transform.Outputs[JsonGeneratorTransformOutput].Columns[ZS_JSON_OUT]"
+                      name="ZS_JSON_OUT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\MongoDB Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="MongoDB Destination; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="The MongoDB Destination is used to write NoSQL data to MongoDB collection. NoSQL table has no strict schema and each row may contain different number of attributes unlike traditional RDBMS table."
+              name="MongoDB Destination"
+              usesDispositions="true"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables use of custom lookup query for Update / Upsert or Delete Operation. By default JOIN condition for target record match is generated automatically based on columns you supply in ColumnsForLookup property. However in some cases you need to supply custom condition for lookup to perform complex operations, in such case enable this option. When you enable this option you must supply map __DOCUMENT__ input column. String you supply to this column should be in this format &lt;command&gt;&lt;query&gt;YOUR_LOOKUP_QUERY&lt;/query&gt;&lt;document&gt;YOUR_JSON_DOC&lt;/document&gt;&lt;/command&gt;. Lookup query in &lt;query&gt; tag can be either Mongo JSON format (e.g. { &quot;CustomerID&quot; : &quot;AAA&quot;, &quot;Orders.OrderID&quot; : { &quot;$ne&quot; : &quot;1000&quot; } }) or you can use ZappySys SQL query (e.g. select * from mytable where CustomerID='AAA' and [Orders.$.OrderID] != '1000' )"
+                  expressionType="Notify"
+                  name="EnableCustomLookupQuery">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Boolean"
+                  description="When this option is true then each batch is processed in bulk mode in first attempt and when it fails that particular batch is processed in row by row mode to detect bad record. By default when error occurs all records from that batch is rejected but when this option is true you can process all good records and only reject records causing error."
+                  expressionType="Notify"
+                  name="SwitchToRowByRowOnBatchFail">false</property>
+                <property
+                  dataType="System.String"
+                  description="Table name from where you want to read data"
+                  expressionType="Notify"
+                  name="TableName"
+                  typeConverter="ZappySys.PowerPack.Converters.TableEditor,ZappySys.PowerPack140.UI,Version=1.0.0.0,Culture=neutral,PublicKeyToken=1903265a93eae502">clientes</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates how many records are process in a single request. Setting this value to 0 will extract all records in single request."
+                  expressionType="Notify"
+                  name="BatchSize">500</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates Access Mode of data (e.g. Table or Sql Query)"
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="ZappySys.PowerPack.Common.DataAccessMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies SQL query to access data. This setting is ignored when access mode is set to Table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies operation for destination data load (e.g. Insert, Reload etc). Default operation is Insert (data always appended to target)."
+                  expressionType="Notify"
+                  name="Operation"
+                  typeConverter="ZappySys.PowerPack.Common.DestinationOperation, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">3</property>
+                <property
+                  dataType="System.String"
+                  description="Update/Upsert/Delete you will need JOIN columns. If you have not specified JOIN column in Mapping Editor then supply here. Specify comma separated list of target column names which can be used to lookup documents on target for selected Operation. Column names are case-sensitive. Make sure JOIN column name is correctly spelled. JOIN column can be part of supplied input DOCUMENT or it can be mapped separately as input column on Mapping Editor. When JOIN column is found inside nested sub document (i.e. not in first level) then you have to use hierarchy separator (&gt;) and server side path for same column (Use dot). Example: if you joining by two columns OrderID and ZipCode where ZipCode is found in nested sub document then use JOIN criteria like this (e.g. OrderID,LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode). If your JOIN condition contains column from Array then your condition may looks like this Orders.$.OrderID AS Orders.OrderID (assuming You have named your property in input document as Orders.$.OrderID). For more information about how to using $ inside Update document see this https://docs.mongodb.com/manual/reference/operator/update/positional/#op._S_"
+                  expressionType="Notify"
+                  name="ColumnsForLookup">IDCliente</property>
+                <property
+                  dataType="System.String"
+                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;•&#x9;op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;•&#x9;multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
+                  expressionType="Notify"
+                  name="LoadOptions">op=$set;multi=true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Metadata scan mode controls how data type and length is determined. By default few records scanned to determine datatype/length. Changing ScanMode affects length/datatype accuracy."
+                  expressionType="Notify"
+                  name="MetaDataScanMode"
+                  typeConverter="ZappySys.Common.Data.MetaDataScanMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="Length for all string column. This option is only valid for MetaDataScanMode=Custom"
+                  expressionType="Notify"
+                  name="MetaDataCustomLength">1000</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.MongoDBDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\MongoDB Destination.Connections[ZS-MONGODB]"
+                  connectionManagerID="Package.ConnectionManagers[MongoDB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[MongoDB 1]"
+                  description="Runtime connection for this component"
+                  name="ZS-MONGODB" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="MongoDBDestinationInput"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].Columns[ZS_JSON_OUT]"
+                      cachedDataType="nText"
+                      cachedName="ZS_JSON_OUT"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[__DOCUMENT__]"
+                      lineageId="Package\Tarea Flujo de datos\JSON Generator Transform.Outputs[JsonGeneratorTransformOutput].Columns[ZS_JSON_OUT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[__DOCUMENT__]"
+                      dataType="nText"
+                      description="This column is used to map input JSON Document. When this column is mapped input must contain JSON Document you want to load in target MongoDB collection. All other mappings are ignored when this column is mapped."
+                      name="__DOCUMENT__" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[IDCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="IDCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[NombreCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="NombreCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="12"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Condicion_pago]"
+                      dataType="wstr"
+                      length="12"
+                      name="Condicion_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Limite_credito]"
+                      dataType="wstr"
+                      length="12"
+                      name="Limite_credito" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[IDVendedor]"
+                      dataType="wstr"
+                      length="12"
+                      name="IDVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Moneda]"
+                      dataType="wstr"
+                      length="12"
+                      name="Moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Codigo_pais]"
+                      dataType="wstr"
+                      length="12"
+                      name="Codigo_pais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Ruta]"
+                      dataType="wstr"
+                      length="12"
+                      name="Ruta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Canal]"
+                      dataType="wstr"
+                      length="520"
+                      name="Canal" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput].ExternalColumns[Zona]"
+                      dataType="wstr"
+                      length="236"
+                      name="Zona" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="MongoDBDestination Error Output"
+                  synchronousInputId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Destination.Outputs[MongoDBDestination Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Zonas"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Zonas"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">ZONAS$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Zonas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[IDZona]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Code]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[IDZona]"
+                      name="IDZona"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[NombreZona]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[NombreZona]"
+                      name="NombreZona"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[Plazo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Plazo]"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].Columns[Plazo]"
+                      name="Plazo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Code]"
+                      dataType="r8"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel].ExternalColumns[Plazo]"
+                      dataType="r8"
+                      name="Plazo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Code]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Plazo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[Plazo]"
+                      name="Plazo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
+              endId="Package\Tarea Flujo de datos\MongoDB Destination.Inputs[MongoDBDestinationInput]"
+              name="JsonGeneratorTransformOutput"
+              startId="Package\Tarea Flujo de datos\JSON Generator Transform.Outputs[JsonGeneratorTransformOutput]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Clientes.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+              endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Canal Clientes.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+              endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Zonas.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="390.5,127.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Tarea Flujo de datos\Canal Clientes"
+          TopLeft="412,169" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Tarea Flujo de datos\Clientes"
+          TopLeft="172,154" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Tarea Flujo de datos\Zonas"
+          TopLeft="624,187" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Tarea Flujo de datos\JSON Generator Transform"
+          TopLeft="387,379" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Destination"
+          TopLeft="876,429" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
+          TopLeft="601,400">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="275,50"
+              Start="0,0"
+              End="267.5,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.5,0"
+                    Point2="137.5,0"
+                    Point3="137.5,4" />
+                  <mssgle:LineSegment
+                    End="137.5,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="137.5,46"
+                    Point2="137.5,50"
+                    Point3="141.5,50" />
+                  <mssgle:LineSegment
+                    End="267.5,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="231.5,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211,183"
+              Start="0,0"
+              End="211,175.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,116.498461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,116.498461538462"
+                    Point2="0,120.498461538462"
+                    Point3="4,120.498461538462" />
+                  <mssgle:LineSegment
+                    End="207,120.498461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="207,120.498461538462"
+                    Point2="211,120.498461538462"
+                    Point3="211,124.498461538462" />
+                  <mssgle:LineSegment
+                    End="211,175.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          TopLeft="490.75,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,168"
+              Start="0,0"
+              End="0,160.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,160.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+          TopLeft="679,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-133.5,150"
+              Start="0,0"
+              End="-133.5,142.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.7692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,94.7692307692308"
+                    Point2="0,98.7692307692308"
+                    Point3="-4,98.7692307692308" />
+                  <mssgle:LineSegment
+                    End="-129.5,98.7692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-129.5,98.7692307692308"
+                    Point2="-133.5,98.7692307692308"
+                    Point3="-133.5,102.769230769231" />
+                  <mssgle:LineSegment
+                    End="-133.5,142.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Canal Clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Zonas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

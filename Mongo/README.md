@@ -162,47 +162,68 @@ sh.addShard( "RS2/localhost:27721")
 
 sh.addShard( "RS3/localhost:27731")
 
-sh.enableSharding("<database>")
+sh.enableSharding("ventas")
 
-sh.shardCollection("<database>.<collection>", { <key> : <direction> } )
+sh.shardCollection("ventas.facturas", { idFactura : 1 } )
+sh.shardCollection("ventas.clientes", { IDCliente : 1 } )
+sh.shardCollection("ventas.vendedores", { IDVendedor : 1 } )
 
 
 .\mongod.exe  --port 27017 --dbpath "C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\Mongo\db\test" --bind_ip localhost --oplogSize 128
 
+================================================================================================================================
+
+Crear las colecciones facturas, cliente y vendedores en la base de datos ventas
+
+Desde powershell
+
+.\mongo.exe --host localhost --port 27700
+
+use ventas
+db.createCollection( "facturas")
+db.createCollection( "clientes")
+db.createCollection( "vendedores")
+db.facturas.createIndex( { "idFactura": 1, "item.idItem": 1 } )
+db.clientes.createIndex( { "IDCliente": 1 } )
+db.clientes.createIndex( { "IDVendedor": 1 } )
 
 ================================================================================================================================
 
 JSON Coleccion facturas
-db.createCollection( "facturas")
-db.createCollection( "clientes")
-db.createCollection( "vendedores")
-db.facturas.createIndex( { IDFactura: 1, IDItem: 1 } )
-db.clientes.createIndex( { IDCliente: 1 } )
-db.clientes.createIndex( { IDVendedor: 1 } )
 
 {
-    IDFactura : "xxx",
-    "Fecha" : "xxx",
-    "FechaVencimiento" : "xxx",
-    "IDCliente" : 6177838405041707531,
-    "IDItem" : "xxx",
-    "IDItemAdicional" : "xxx",
-    "Descripcion" : "xxx",
-    "IDGrupo" : "xxx",
-    "Categoria" : "xxx",
-    "Division" : "xxx",
-    "Cantidad" : "xxx",
-    "Moneda" : "xxx",
-    "Total" : "xxx",
-    "Almacén" : 4676559593582354717,
-    "IDVendedor" : "xxx",
-    "NombreVendedor" : "xxx",
-    "TotalUSD" : 1496103468423641205,
-    "Impuesto" : "xxx",
-    "ImpuestoUSD" : 9075952443653723659,
-    "Tipo de cambio" : 98759613624306653,
-    "Ganacia" : "xxx",
-    "GananciaUSD" : 3784213143901114513
+    "idFactura" : "xxx",
+    "fecha" : "xxx",
+    "fechaVencimiento" : "xxx",
+    "idCliente" : "xxx",
+    "idItem" : "xxx",
+    "item" : [
+        {
+            "idItem" : "xxx",
+            "idItemAdicional" : "xxx",
+            "descripcion" : "xxx",
+            "grupo" : [
+                {
+                    "idGrupo" : "xxx",
+                    "categoria" : "xxx",
+                    "division" : "xxx"
+                }
+            ]
+        }
+    ],
+    "cantidad" : "xxx",
+    "moneda" : "xxx",
+    "precio" : "xxx",
+    "total" : "xxx",
+    "almacén" : "xxx",
+    "idVendedor" : "xxx",
+    "totalUSD" : "xxx",
+    "impuesto" : "xxx",
+    "impuestoUSD" : "xxx",
+    "tipoCambio" : "xxx",
+    "ganacia" : "xxx",
+    "gananciaUSD" : "xxx",
+    "idItemNoReconocido" : 2
 }
 
 ================================================================================================================================
@@ -251,5 +272,3 @@ JSON Coleccion vendedores
     "Tipo" : "xxx",
     "Canal" : "xxx"
 }
-
-
