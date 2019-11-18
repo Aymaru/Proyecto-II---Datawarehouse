@@ -1,0 +1,3073 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/17/2019 6:50:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-P0R7PMV"
+  DTS:CreatorName="ESTUDIANTES\ayma-93"
+  DTS:DTSID="{F884046E-26CC-4115-B10D-56C356C0D889}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="ETL dimItems de mongo a DWV"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{5D867EE5-7C65-4FA7-8D02-2DFF57778B33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D378377E-166E-4054-97E6-89A4AF3F051F}"
+      DTS:ObjectName="DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-P0R7PMV\TEC_DB;Initial Catalog=DATAWAREHOUSE_Ventas;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MongoDB 1]"
+      DTS:CreationName="ZS-MONGODB"
+      DTS:DTSID="{4FBFCE9B-7C13-4773-86BD-A224C6E4A1FD}"
+      DTS:ObjectName="MongoDB 1">
+      <DTS:ObjectData>
+        <ConnectionManager
+          ConnectionString="Host=localhost:27017;Database=ventas;UserName=;Timeout=60;Options=connectTimeoutMS=60000;UseClientCertificate=False;CertificatePath=;CheckCertificateRevocation=True;AllowInvalidCertificate=False;CursorOptions=;ReadConcern=;RetainSameConnection=False"
+          Timeout="60"
+          RetryInterval="10"
+          MaxRetryOnError="3"
+          MaxParallelThreads="8"
+          ProgressUpdateInterval="4096" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{FD1141E0-7E05-45A0-A3CE-A370078D7249}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [DATAWAREHOUSE_Ventas].[dbo].[DWV_DIM_ITEM]
+   SET [iDItemAdicional] = ?
+      ,[descripcion] = ?
+      ,[grupo] = ?
+      ,[categoria] = ?
+      ,[division] = ?
+ WHERE [idDimItem] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[idItemAdicional]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItemAdicional"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemAdicional]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="grupo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[grupo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[division]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="division"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[division]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[idItem]"
+                      cachedDataType="i8"
+                      cachedName="idItem"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="250"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of idItem]"
+                      cachedDataType="i8"
+                      cachedName="Copy of idItem"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of idItem]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItemAdicional]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItemAdicional"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItemAdicional]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="grupo"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[grupo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[division]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="division"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[division]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[idDimItem]"
+                      cachedDataType="i8"
+                      cachedName="idDimItem"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[idDimItem]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
+                      name="idItem"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of idItem]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemAdicional]"
+                      name="idItemAdicional">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItemAdicional]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descripcion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[grupo]"
+                      name="grupo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[grupo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[categoria]"
+                      name="categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[division]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[division]"
+                      name="division">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[division]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]"
+                      name="idItemExistente">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[idDimItem]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[idItem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItem"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idItem]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idItem]"
+                      name="Copy of idItem"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DWV_DIM_ITEM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[idItem]"
+                      cachedDataType="i8"
+                      cachedName="idItem"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDimItem]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[idItemAdicional]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItemAdicional"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[iDItemAdicional]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemAdicional]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="grupo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[grupo]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[grupo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[categoria]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[division]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="division"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[division]"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[division]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDimItem]"
+                      dataType="i4"
+                      name="idDimItem" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[iDItemAdicional]"
+                      dataType="i4"
+                      name="iDItemAdicional" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
+                      dataType="wstr"
+                      length="250"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      name="grupo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[division]"
+                      dataType="wstr"
+                      length="50"
+                      name="division" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[idItemExistente]"
+                      cachedDataType="i8"
+                      cachedName="idItemExistente"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[AgregarItem]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="AgregarItem"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(idItemExistente)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[UpdateItem]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="UpdateItem"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(idItemExistente)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\JSON Parser Transform"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="JSON Parser Transform; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="Parse incoming JSON String into columns. You can also parse and transform single JSON record into multiple rows by filtering data based on JSON Path (e.g. $.Customer.Orders[*])"
+              name="JSON Parser Transform"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any numeric data types"
+                  expressionType="Notify"
+                  name="TreatBlankNumberAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for bool data types"
+                  expressionType="Notify"
+                  name="TreatBlankBoolAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any date/time data types"
+                  expressionType="Notify"
+                  name="TreatBlankDateAsNull">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Encoding of source file"
+                  expressionType="Notify"
+                  name="Encoding"
+                  typeConverter="ZappySys.Common.EncodingType, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Character set for text (e.g. utf-8 )"
+                  expressionType="Notify"
+                  name="CharacterSet"></property>
+                <property
+                  dataType="System.String"
+                  description="Sample JSON data used to parse output columns."
+                  expressionType="Notify"
+                  name="SampleData"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">{
+            "idItem" : "xxx",
+            "idItemAdicional" : "xxx",
+            "descripcion" : "xxx",
+            "grupo" : [
+                {
+                    "idGrupo" : "xxx",
+                    "categoria" : "xxx",
+                    "division" : "xxx"
+                }
+            ]
+        }</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Include all upstream parent columns into output except the one you selected to parse. By default only parsed columns from Input document is included in the output. If you wish to include all other upstream columns in the output too then check this option."
+                  expressionType="Notify"
+                  name="OutputAllUpstreamColumns">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="EmptyInputProcessingMode"
+                  typeConverter="ZappySys.Common.Data.EmptyInputProcessingMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="TreatEmptyInputAs">{ }</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum JSON records to fetch. Set this value to 0 for all records"
+                  expressionType="Notify"
+                  name="MaxRows">0</property>
+                <property
+                  dataType="System.String"
+                  description="Enter expression here to filter data.(Example:  $.Users[*].UserName ) This will fetch User names from users records"
+                  expressionType="Notify"
+                  name="Filter"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use this option to include parent properties (Non array) in the output along with Filtered Rows"
+                  expressionType="Notify"
+                  name="IncludeParentColumns">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="By default child and parent information is not included in the output if children not found for specified expression. For example if you want to extract all orders from all customers nodes then you can type $.Customers[*].Orders[*]. This will fetch all orders from all customers. By default customers records without orders wont be included in the output. If you want to include those customers where orders not found then check this option (Output null information for order attributes). This behavior is similar to LEFT OUTER JOIN in SQL (Left side is parent, right side is child). This option is ***resource intensive*** so only check if you really care about this behavior."
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWhenChildMissing">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to true if you want to output parent columns which are array. By default any parent column which is an array is not included in output. See also FilterForParentColumnsWithArrayType property if you set this property"
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWithArrayType">false</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to extract value form parent"
+                  expressionType="Notify"
+                  name="FilterForParentColumnsWithArrayType"></property>
+                <property
+                  dataType="System.String"
+                  description="Prefix for parent column name. This option is only valid if you have set IncludeParentColumns=True"
+                  expressionType="Notify"
+                  name="ParentColumnPrefix">P_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Throw error if property name specified in filter expression is missing. By default it will ignore any missing property errors."
+                  expressionType="Notify"
+                  name="ThrowErrorIfPropertyMissing">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="This property how many nested levels should be scanned to fetch various properties. 0=Scan all child levels."
+                  expressionType="Notify"
+                  name="MaxLevelsToScan">0</property>
+                <property
+                  dataType="System.String"
+                  description="List comma separated property names from JSON document which you want to exclude from output. Specify parent property name to exclude all child nodes."
+                  expressionType="Notify"
+                  name="ExcludedProperties"></property>
+                <property
+                  dataType="System.String"
+                  description="Property level separator used in generated property name (separator for outer properties - Above selected filter node). Use this if default separator is producing duplicate property name which is conflicting with existing name."
+                  expressionType="Notify"
+                  name="LevelSeparator">_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables deep array flattening for selected filtered hierarchy. When you turn on this property it will flatten each property of each array item and expose as column (e.g. If you have Filter set as $.customers[*] and for each customer you have an array of Addresses then you may see output columns like Addresses.1.City, Addresses.1.State, Addresses.2.City, Addresses.2.State .... Addresses.N.City, Addresses.N.State). You can control how many array items you want to flatten by setting MaxArrayItemsToFlatten property."
+                  expressionType="Notify"
+                  name="EnableArrayFlattening">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of array items to flatten. inner array flattening. Adjust this property to control how many columns being generated. This option is ignored if you set EnableArrayFlattening=false"
+                  expressionType="Notify"
+                  name="MaxArrayItemsToFlatten">10</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how custom date formatted strings are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateFormatString"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how date formatted strings, e.g. Date(1198908717056) and 2012-03-21T05:40Z, are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateParseHandling"
+                  typeConverter="ZappySys.Common.DateParseHandling, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indent JSON output so its easy to read."
+                  expressionType="Notify"
+                  name="IndentOutput">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output as raw JSON document rather than parsing individual fields. This option is helpful if you have documents stored in a file and you want to pass them downstream as raw JSON string rather than parsing into columns."
+                  expressionType="Notify"
+                  name="OutputRawDocument">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When this property is true then Column is converted to Row. Pivoted names will appear under  Pivot_Name column and values will appear under Pivot_Value field."
+                  expressionType="Notify"
+                  name="EnablePivot">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Array Transformation you want to apply. Useful for case when you have 2-Dimensional arrays with rows/columns in separate arrays."
+                  expressionType="Notify"
+                  name="ArrayTransformationType"
+                  typeConverter="ZappySys.Json.ArrayTransformType, ZappySys.Json, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to use to extract column names for array transformation."
+                  expressionType="Notify"
+                  name="ArrayTransColumnNameFilter"></property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression for row values (Not applicable for simple array transformation)."
+                  expressionType="Notify"
+                  name="ArrayTransRowValueFilter"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you have 2D array but don't have column list specified in a separate array then use this option (e.g. { arr: [[10,11],[21,22]] } )."
+                  expressionType="Notify"
+                  name="ArrayTransEnableCustomColumns">false</property>
+                <property
+                  dataType="System.String"
+                  description="When you have 2D array but don't have column list specified in a separate array then use specify column names here. Use comma separated list (e.g col1,col2,col3 ). Column name Order must match value order."
+                  expressionType="Notify"
+                  name="ArrayTransCustomColumns"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Metadata scan mode controls how data type and length is determined. By default few records scanned to determine datatype/length. Changing ScanMode affects length/datatype accuracy."
+                  expressionType="Notify"
+                  name="MetaDataScanMode"
+                  typeConverter="ZappySys.Common.Data.MetaDataScanMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="Length for all string column. This option is only valid for MetaDataScanMode=Custom"
+                  expressionType="Notify"
+                  name="MetaDataCustomLength">1000</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.JsonParserTransform</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform.Inputs[JsonParserTransformInput]"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformInput"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Inputs[JsonParserTransformInput].Columns[item]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="item"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[item]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput]"
+                  errorOrTruncationOperation="Error"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformOutput"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItem]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[idItem]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItem]"
+                      name="idItem" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[idItemAdicional]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]"
+                      name="idItemAdicional" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[descripcion]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[descripcion]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[grupo]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[grupo]"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[grupo]"
+                      name="grupo" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[idItem]"
+                      dataType="wstr"
+                      length="12"
+                      name="idItem" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[idItemAdicional]"
+                      dataType="wstr"
+                      length="12"
+                      name="idItemAdicional" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[descripcion]"
+                      dataType="wstr"
+                      length="12"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[grupo]"
+                      dataType="wstr"
+                      length="340"
+                      name="grupo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output]"
+                  isErrorOut="true"
+                  name="JsonParserTransform Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[idItem]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[idItem]"
+                      name="idItem" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[idItemAdicional]"
+                      name="idItemAdicional" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[descripcion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[grupo]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[grupo]"
+                      name="grupo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      name="ErrorRawData" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\JSON Parser Transform 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="JSON Parser Transform; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="Parse incoming JSON String into columns. You can also parse and transform single JSON record into multiple rows by filtering data based on JSON Path (e.g. $.Customer.Orders[*])"
+              name="JSON Parser Transform 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any numeric data types"
+                  expressionType="Notify"
+                  name="TreatBlankNumberAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for bool data types"
+                  expressionType="Notify"
+                  name="TreatBlankBoolAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any date/time data types"
+                  expressionType="Notify"
+                  name="TreatBlankDateAsNull">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Encoding of source file"
+                  expressionType="Notify"
+                  name="Encoding"
+                  typeConverter="ZappySys.Common.EncodingType, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Character set for text (e.g. utf-8 )"
+                  expressionType="Notify"
+                  name="CharacterSet"></property>
+                <property
+                  dataType="System.String"
+                  description="Sample JSON data used to parse output columns."
+                  expressionType="Notify"
+                  name="SampleData"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">{
+	"idGrupo" : "xxx",
+	"categoria" : "xxx",
+	"division" : "xxx"
+}</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Include all upstream parent columns into output except the one you selected to parse. By default only parsed columns from Input document is included in the output. If you wish to include all other upstream columns in the output too then check this option."
+                  expressionType="Notify"
+                  name="OutputAllUpstreamColumns">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="EmptyInputProcessingMode"
+                  typeConverter="ZappySys.Common.Data.EmptyInputProcessingMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="TreatEmptyInputAs">{ }</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum JSON records to fetch. Set this value to 0 for all records"
+                  expressionType="Notify"
+                  name="MaxRows">0</property>
+                <property
+                  dataType="System.String"
+                  description="Enter expression here to filter data.(Example:  $.Users[*].UserName ) This will fetch User names from users records"
+                  expressionType="Notify"
+                  name="Filter"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use this option to include parent properties (Non array) in the output along with Filtered Rows"
+                  expressionType="Notify"
+                  name="IncludeParentColumns">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="By default child and parent information is not included in the output if children not found for specified expression. For example if you want to extract all orders from all customers nodes then you can type $.Customers[*].Orders[*]. This will fetch all orders from all customers. By default customers records without orders wont be included in the output. If you want to include those customers where orders not found then check this option (Output null information for order attributes). This behavior is similar to LEFT OUTER JOIN in SQL (Left side is parent, right side is child). This option is ***resource intensive*** so only check if you really care about this behavior."
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWhenChildMissing">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to true if you want to output parent columns which are array. By default any parent column which is an array is not included in output. See also FilterForParentColumnsWithArrayType property if you set this property"
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWithArrayType">false</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to extract value form parent"
+                  expressionType="Notify"
+                  name="FilterForParentColumnsWithArrayType"></property>
+                <property
+                  dataType="System.String"
+                  description="Prefix for parent column name. This option is only valid if you have set IncludeParentColumns=True"
+                  expressionType="Notify"
+                  name="ParentColumnPrefix">P_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Throw error if property name specified in filter expression is missing. By default it will ignore any missing property errors."
+                  expressionType="Notify"
+                  name="ThrowErrorIfPropertyMissing">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="This property how many nested levels should be scanned to fetch various properties. 0=Scan all child levels."
+                  expressionType="Notify"
+                  name="MaxLevelsToScan">0</property>
+                <property
+                  dataType="System.String"
+                  description="List comma separated property names from JSON document which you want to exclude from output. Specify parent property name to exclude all child nodes."
+                  expressionType="Notify"
+                  name="ExcludedProperties"></property>
+                <property
+                  dataType="System.String"
+                  description="Property level separator used in generated property name (separator for outer properties - Above selected filter node). Use this if default separator is producing duplicate property name which is conflicting with existing name."
+                  expressionType="Notify"
+                  name="LevelSeparator">_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables deep array flattening for selected filtered hierarchy. When you turn on this property it will flatten each property of each array item and expose as column (e.g. If you have Filter set as $.customers[*] and for each customer you have an array of Addresses then you may see output columns like Addresses.1.City, Addresses.1.State, Addresses.2.City, Addresses.2.State .... Addresses.N.City, Addresses.N.State). You can control how many array items you want to flatten by setting MaxArrayItemsToFlatten property."
+                  expressionType="Notify"
+                  name="EnableArrayFlattening">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of array items to flatten. inner array flattening. Adjust this property to control how many columns being generated. This option is ignored if you set EnableArrayFlattening=false"
+                  expressionType="Notify"
+                  name="MaxArrayItemsToFlatten">10</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how custom date formatted strings are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateFormatString"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how date formatted strings, e.g. Date(1198908717056) and 2012-03-21T05:40Z, are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateParseHandling"
+                  typeConverter="ZappySys.Common.DateParseHandling, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indent JSON output so its easy to read."
+                  expressionType="Notify"
+                  name="IndentOutput">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output as raw JSON document rather than parsing individual fields. This option is helpful if you have documents stored in a file and you want to pass them downstream as raw JSON string rather than parsing into columns."
+                  expressionType="Notify"
+                  name="OutputRawDocument">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When this property is true then Column is converted to Row. Pivoted names will appear under  Pivot_Name column and values will appear under Pivot_Value field."
+                  expressionType="Notify"
+                  name="EnablePivot">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Array Transformation you want to apply. Useful for case when you have 2-Dimensional arrays with rows/columns in separate arrays."
+                  expressionType="Notify"
+                  name="ArrayTransformationType"
+                  typeConverter="ZappySys.Json.ArrayTransformType, ZappySys.Json, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to use to extract column names for array transformation."
+                  expressionType="Notify"
+                  name="ArrayTransColumnNameFilter"></property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression for row values (Not applicable for simple array transformation)."
+                  expressionType="Notify"
+                  name="ArrayTransRowValueFilter"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you have 2D array but don't have column list specified in a separate array then use this option (e.g. { arr: [[10,11],[21,22]] } )."
+                  expressionType="Notify"
+                  name="ArrayTransEnableCustomColumns">false</property>
+                <property
+                  dataType="System.String"
+                  description="When you have 2D array but don't have column list specified in a separate array then use specify column names here. Use comma separated list (e.g col1,col2,col3 ). Column name Order must match value order."
+                  expressionType="Notify"
+                  name="ArrayTransCustomColumns"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Metadata scan mode controls how data type and length is determined. By default few records scanned to determine datatype/length. Changing ScanMode affects length/datatype accuracy."
+                  expressionType="Notify"
+                  name="MetaDataScanMode"
+                  typeConverter="ZappySys.Common.Data.MetaDataScanMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="Length for all string column. This option is only valid for MetaDataScanMode=Custom"
+                  expressionType="Notify"
+                  name="MetaDataCustomLength">1000</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.JsonParserTransform</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput]"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformInput"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="grupo"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[grupo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[idItem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItem"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItem]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          expressionType="Notify"
+                          name="IncludeDownStream">true</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[idItemAdicional]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItemAdicional"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          expressionType="Notify"
+                          name="IncludeDownStream">true</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[descripcion]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          expressionType="Notify"
+                          name="IncludeDownStream">true</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput]"
+                  errorOrTruncationOperation="Error"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformOutput"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[descripcion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[descripcion]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[idItemAdicional]"
+                      name="idItemAdicional" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]"
+                      mappedColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[idItem]"
+                      name="idItem" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[grupo]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[idGrupo]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[grupo]"
+                      name="grupo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[categoria]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[categoria]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[division]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[division]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[division]"
+                      name="division" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[idGrupo]"
+                      dataType="wstr"
+                      length="12"
+                      name="idGrupo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="12"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].ExternalColumns[division]"
+                      dataType="wstr"
+                      length="12"
+                      name="division" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output]"
+                  isErrorOut="true"
+                  name="JsonParserTransform Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[descripcion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[idItemAdicional]"
+                      name="idItemAdicional" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[idItem]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[idItem]"
+                      name="idItem" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[grupo]"
+                      name="grupo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[division]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[division]"
+                      name="division" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      name="ErrorRawData" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\MongoDB Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="MongoDB Source; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="The MongoDB source is used to read NoSQL data from MongoDB. NoSQL table has no strict schema and each row may contain different number of attributes unlike traditional RDBMS table."
+              name="MongoDB Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.String"
+                  description="Table name from where you want to read data"
+                  expressionType="Notify"
+                  name="TableName"
+                  typeConverter="ZappySys.PowerPack.Converters.TableEditor,ZappySys.PowerPack140.UI,Version=1.0.0.0,Culture=neutral,PublicKeyToken=1903265a93eae502">facturas</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates how many records are process in a single request. Setting this value to 0 will extract all records in single request."
+                  expressionType="Notify"
+                  name="BatchSize">500</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates Access Mode of data (e.g. Table or Sql Query)"
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="ZappySys.PowerPack.Common.DataAccessMode, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies SQL query to access data. This setting is ignored when access mode is set to Table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from facturas</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how you want to output columns. If you select RAW JSON Document mode then only single document will output for each record in DT_NTEXT datatype"
+                  expressionType="Notify"
+                  name="OutputMode"
+                  typeConverter="ZappySys.Common.Util.JsonColumnOutputMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indent JSON output so its easy to read."
+                  expressionType="Notify"
+                  name="IndentOutput">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how custom date formatted strings are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateFormatString"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how date formatted strings, e.g. Date(1198908717056) and 2012-03-21T05:40Z, are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateParseHandling"
+                  typeConverter="ZappySys.Common.DateParseHandling, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="This option allows you to extract array content and sub documents of array."
+                  expressionType="Notify"
+                  name="EnableJsonPath">false</property>
+                <property
+                  dataType="System.String"
+                  description="Enter expression here to filter data.(Example:  $.Users[*].UserName ) This will fetch User names from users records"
+                  expressionType="Notify"
+                  name="Filter"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use this option to include parent properties (Non array) in the output along with Filtered Rows"
+                  expressionType="Notify"
+                  name="IncludeParentColumns">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="By default child and parent information is not included in the output if children not found for specified expression. For example if you want to extract all orders from all customers nodes then you can type $.Customers[*].Orders[*]. This will fetch all orders from all customers. By default customers records without orders wont be included in the output. If you want to include those customers where orders not found then check this option (Output null information for order attributes). This behavior is similar to LEFT OUTER JOIN in SQL (Left side is parent, right side is child). This option is ***resource intensive*** so only check if you really care about this behavior."
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWhenChildMissing">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to true if you want to output parent columns which are array. By default any parent column which is an array is not included in output. See also FilterForParentColumnsWithArrayType property if you set this property"
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWithArrayType">false</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to extract value form parent"
+                  expressionType="Notify"
+                  name="FilterForParentColumnsWithArrayType"></property>
+                <property
+                  dataType="System.String"
+                  description="Prefix for parent column name. This option is only valid if you have set IncludeParentColumns=True"
+                  expressionType="Notify"
+                  name="ParentColumnPrefix">P_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Throw error if property name specified in filter expression is missing. By default it will ignore any missing property errors."
+                  expressionType="Notify"
+                  name="ThrowErrorIfPropertyMissing">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="This property how many nested levels should be scanned to fetch various properties. 0=Scan all child levels."
+                  expressionType="Notify"
+                  name="MaxLevelsToScan">0</property>
+                <property
+                  dataType="System.String"
+                  description="List comma separated property names from JSON document which you want to exclude from output. Specify parent property name to exclude all child nodes."
+                  expressionType="Notify"
+                  name="ExcludedProperties"></property>
+                <property
+                  dataType="System.String"
+                  description="Property level separator used in generated property name (separator for outer properties - Above selected filter node). Use this if default separator is producing duplicate property name which is conflicting with existing name."
+                  expressionType="Notify"
+                  name="LevelSeparator">_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables deep array flattening for selected filtered hierarchy. When you turn on this property it will flatten each property of each array item and expose as column (e.g. If you have Filter set as $.customers[*] and for each customer you have an array of Addresses then you may see output columns like Addresses.1.City, Addresses.1.State, Addresses.2.City, Addresses.2.State .... Addresses.N.City, Addresses.N.State). You can control how many array items you want to flatten by setting MaxArrayItemsToFlatten property."
+                  expressionType="Notify"
+                  name="EnableArrayFlattening">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of array items to flatten. inner array flattening. Adjust this property to control how many columns being generated. This option is ignored if you set EnableArrayFlattening=false"
+                  expressionType="Notify"
+                  name="MaxArrayItemsToFlatten">10</property>
+                <property
+                  dataType="System.Int32"
+                  description="Metadata scan mode controls how data type and length is determined. By default few records scanned to determine datatype/length. Changing ScanMode affects length/datatype accuracy."
+                  expressionType="Notify"
+                  name="MetaDataScanMode"
+                  typeConverter="ZappySys.Common.Data.MetaDataScanMode, ZappySys.Common, Version=1.0.2019.11015, Culture=neutral, PublicKeyToken=1903265a93eae502">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="Length for all string column. This option is only valid for MetaDataScanMode=Custom"
+                  expressionType="Notify"
+                  name="MetaDataCustomLength">1000</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.MongoDBSource</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\MongoDB Source.Connections[ZS-MONGODB]"
+                  connectionManagerID="Package.ConnectionManagers[MongoDB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[MongoDB 1]"
+                  description="Runtime connection for this component"
+                  name="ZS-MONGODB" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput]"
+                  errorOrTruncationOperation="Error"
+                  errorRowDisposition="FailComponent"
+                  name="MongoDBSourceOutput"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[item]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[item]"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[item]"
+                      name="item" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[_id]"
+                      dataType="str"
+                      length="96"
+                      name="_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idFactura]"
+                      dataType="wstr"
+                      length="36"
+                      name="idFactura" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idItem]"
+                      dataType="wstr"
+                      length="28"
+                      name="idItem" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[almacén]"
+                      dataType="wstr"
+                      length="8"
+                      name="almacén" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[fecha]"
+                      dataType="wstr"
+                      length="76"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[fechaVencimiento]"
+                      dataType="wstr"
+                      length="76"
+                      name="fechaVencimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[ganacia]"
+                      dataType="i4"
+                      name="ganacia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[gananciaUSD]"
+                      dataType="i4"
+                      name="gananciaUSD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idItemNoReconocido]"
+                      dataType="i4"
+                      name="idItemNoReconocido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idVendedor]"
+                      dataType="wstr"
+                      length="8"
+                      name="idVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuesto]"
+                      dataType="i4"
+                      name="impuesto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuestoUSD]"
+                      dataType="i4"
+                      name="impuestoUSD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[item]"
+                      dataType="wstr"
+                      length="832"
+                      name="item" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[moneda]"
+                      dataType="wstr"
+                      length="12"
+                      name="moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[precio]"
+                      dataType="i4"
+                      name="precio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[tipoCambio]"
+                      dataType="i4"
+                      name="tipoCambio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[total]"
+                      dataType="i4"
+                      name="total" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[totalUSD]"
+                      dataType="i4"
+                      name="totalUSD" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output]"
+                  isErrorOut="true"
+                  name="MongoDBSource Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[item]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[item]"
+                      name="item" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idItemAdicional]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItemAdicional"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idItem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idItem"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="grupo"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[grupo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[categoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[division]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="division"
+                      lineageId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[division]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of idItem]"
+                      cachedDataType="i8"
+                      cachedName="Copy of idItem"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idItem]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItemAdicional]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItemAdicional]"
+                      name="idItemAdicional">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItemAdicional]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem]"
+                      name="idItem">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[idItem]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[grupo]"
+                      name="grupo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[grupo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[categoria]"
+                      name="categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[division]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[division]"
+                      name="division">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[division]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of idItem]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of idItem]"
+                      name="Copy of idItem"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idItem]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[idDimItem]"
+                      cachedDataType="i8"
+                      cachedName="idDimItem"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idDimItem]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[iDItemAdicional]"
+                      cachedDataType="i4"
+                      cachedName="iDItemAdicional"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[iDItemAdicional]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="descripcion"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="grupo"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[grupo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="categoria"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[division]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="division"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[division]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[idDimItem]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[idDimItem]"
+                      name="idDimItem"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idDimItem]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[iDItemAdicional]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[iDItemAdicional]"
+                      name="iDItemAdicional">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[iDItemAdicional]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[descripcion]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[grupo]"
+                      name="grupo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[grupo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[categoria]"
+                      name="categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[division]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[division]"
+                      name="division">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[division]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DWV_DIM_ITEM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idDimItem]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[idDimItem]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idDimItem]"
+                      name="idDimItem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[iDItemAdicional]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[iDItemAdicional]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[iDItemAdicional]"
+                      name="iDItemAdicional"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[descripcion]"
+                      length="250"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[grupo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[grupo]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[grupo]"
+                      name="grupo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[categoria]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[division]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[division]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[division]"
+                      name="division"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[idDimItem]"
+                      dataType="i4"
+                      name="idDimItem" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[iDItemAdicional]"
+                      dataType="i4"
+                      name="iDItemAdicional" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[descripcion]"
+                      dataType="wstr"
+                      length="250"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      name="grupo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[division]"
+                      dataType="wstr"
+                      length="50"
+                      name="division" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[idDimItem]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[idDimItem]"
+                      name="idDimItem" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[iDItemAdicional]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[iDItemAdicional]"
+                      name="iDItemAdicional" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[descripcion]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[grupo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[grupo]"
+                      name="grupo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[division]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[division]"
+                      name="division" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[AgregarItem]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="AgregarItem"
+              startId="Package\Tarea Flujo de datos\División condicional.Outputs[AgregarItem]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[JsonParserTransformOutput]"
+              endId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Inputs[JsonParserTransformInput]"
+              name="JsonParserTransformOutput"
+              startId="Package\Tarea Flujo de datos\JSON Parser Transform.Outputs[JsonParserTransformOutput]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[JsonParserTransformOutput1]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="JsonParserTransformOutput"
+              startId="Package\Tarea Flujo de datos\JSON Parser Transform 1.Outputs[JsonParserTransformOutput]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[MongoDBSourceOutput]"
+              endId="Package\Tarea Flujo de datos\JSON Parser Transform.Inputs[JsonParserTransformInput]"
+              name="MongoDBSourceOutput"
+              startId="Package\Tarea Flujo de datos\MongoDB Source.Outputs[MongoDBSourceOutput]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
+              endId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+              endId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+              endId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[UpdateItem]"
+              endId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="UpdateItem"
+              startId="Package\Tarea Flujo de datos\División condicional.Outputs[UpdateItem]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="224,115" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
+          TopLeft="249,379" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Tarea Flujo de datos\JSON Parser Transform"
+          TopLeft="341,71" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="141,286" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Tarea Flujo de datos\Origen de OLE DB"
+          TopLeft="548,199" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="73,174" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos\División condicional"
+          TopLeft="276,471" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Source"
+          TopLeft="38,56" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Tarea Flujo de datos\JSON Parser Transform 1"
+          TopLeft="299,172" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Tarea Flujo de datos\Comando de OLE DB"
+          TopLeft="505,551" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="600,448" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="438,276" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[UpdateItem]"
+          TopLeft="364,513">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="233.5,38"
+              Start="0,0"
+              End="233.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="229.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="229.5,19"
+                    Point2="233.5,19"
+                    Point3="233.5,23" />
+                  <mssgle:LineSegment
+                    End="233.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="90.28798828125,24,52.9240234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="633,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-131,35"
+              Start="0,0"
+              End="-131,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="-4,17.5" />
+                  <mssgle:LineSegment
+                    End="-127,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-127,17.5"
+                    Point2="-131,17.5"
+                    Point3="-131,21.5" />
+                  <mssgle:LineSegment
+                    End="-131,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          TopLeft="502,318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-123.666666666667,61"
+              Start="0,0"
+              End="-123.666666666667,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3036437246964" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.3036437246964"
+                    Point2="0,36.3036437246964"
+                    Point3="-4,36.3036437246964" />
+                  <mssgle:LineSegment
+                    End="-119.666666666667,36.3036437246964" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-119.666666666667,36.3036437246964"
+                    Point2="-123.666666666667,36.3036437246964"
+                    Point3="-123.666666666667,40.3036437246964" />
+                  <mssgle:LineSegment
+                    End="-123.666666666667,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="200.5,328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.166666666667,51"
+              Start="0,0"
+              End="115.166666666667,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3522267206478" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.3522267206478"
+                    Point2="0,30.3522267206478"
+                    Point3="4,30.3522267206478" />
+                  <mssgle:LineSegment
+                    End="111.166666666667,30.3522267206478" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.166666666667,30.3522267206478"
+                    Point2="115.166666666667,30.3522267206478"
+                    Point3="115.166666666667,34.3522267206478" />
+                  <mssgle:LineSegment
+                    End="115.166666666667,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="163,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.5,70"
+              Start="0,0"
+              End="37.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="33.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.5,35"
+                    Point2="37.5,35"
+                    Point3="37.5,39" />
+                  <mssgle:LineSegment
+                    End="37.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
+          TopLeft="347,421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,50"
+              Start="0,0"
+              End="17,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="13,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,25"
+                    Point2="17,25"
+                    Point3="17,29" />
+                  <mssgle:LineSegment
+                    End="17,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[MongoDBSourceOutput]"
+          TopLeft="204,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137,15"
+              Start="0,0"
+              End="129.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.5,0"
+                    Point2="68.5,0"
+                    Point3="68.5,4" />
+                  <mssgle:LineSegment
+                    End="68.5,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.5,11"
+                    Point2="68.5,15"
+                    Point3="72.5,15" />
+                  <mssgle:LineSegment
+                    End="129.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[JsonParserTransformOutput1]"
+          TopLeft="299,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-46,0"
+              Start="0,0"
+              End="-38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[JsonParserTransformOutput]"
+          TopLeft="439.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37.5,59"
+              Start="0,0"
+              End="-37.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="-4,29.5" />
+                  <mssgle:LineSegment
+                    End="-33.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.5,29.5"
+                    Point2="-37.5,29.5"
+                    Point3="-37.5,33.5" />
+                  <mssgle:LineSegment
+                    End="-37.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[AgregarItem]"
+          TopLeft="452,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,-23"
+              Start="0,0"
+              End="140.5,-23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,0"
+                    Point2="74,0"
+                    Point3="74,-4" />
+                  <mssgle:LineSegment
+                    End="74,-19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74,-19"
+                    Point2="74,-23"
+                    Point3="78,-23" />
+                  <mssgle:LineSegment
+                    End="140.5,-23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="45.5388671875,1,56.922265625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
