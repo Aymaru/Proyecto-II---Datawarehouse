@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SALASPC"
   DTS:CreatorName="SALASPC\Administrador"
-  DTS:DTSID="{4380C149-4BEE-41B0-BC6D-C1C180212F06}"
+  DTS:DTSID="{6446C3A0-4A9D-4261-9888-0BA71F5D268C}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="5130"
-  DTS:ObjectName="11_ETLs Maestros MySql"
+  DTS:ObjectName="ETL Datos Maestros a mysql"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{EA97091D-3136-4A10-B626-CAF0434A654C}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{DCB06CFA-31D5-47A6-AF6C-59C6D0D16009}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACi8cA3ZpjxSTNDpix+kPgrHJLz0KkmjmLBlZXcddPEhAAAAAAOgAAAAAIAACAAAAA6HuIPyP+U1Mi/g3KQJrXD5pVj/ASL2FrIrqz8lp8bzhAAAABEzY6hPoQAFKD8I9o6kFVBQAAAAK2MtkSLC6yNdY9JYA3yRl0uPqsNUGY9ibbdb/UlLfiFY447ZQfxgvfyotTRMTCTI6zX6rbyKE+WZ1MaBU7Vthk</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABtb4hGdDR7uyQtz/eAW7KwIZZV5p+6j3YxcOM3nT956AAAAAAOgAAAAAIAACAAAACUCqXU2oVKQexQU8Ea8CZ2aZ4hFP0bo3tvLE4HgYO4axAAAAByzLcqlMj9OSRMAh/6VbDlQAAAADiYdvG1crSBP9xf/lNeuOtTqZhm423F0gcy25aWH3FWjT4SYyXYDyMiT30zIxpCusd9cDQ1qU17RmWqBhCs1rM</Property>
           <Property
             Name="ConnectionString">database=ventas_proyectofinal;port=3307;rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -1748,18 +1748,18 @@
                       externalMetadataColumnId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Canal]"
                       lineageId="Package\Insertar Cliente\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Canal]" />
                     <inputColumn
+                      refId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[LímiteCrédito]"
+                      cachedDataType="r4"
+                      cachedName="LímiteCrédito"
+                      externalMetadataColumnId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[LimiteCredito]"
+                      lineageId="Package\Insertar Cliente\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[LímiteCrédito]" />
+                    <inputColumn
                       refId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[DestinatarioFactura]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="DestinatarioFactura"
                       externalMetadataColumnId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[DestinoFactura]"
                       lineageId="Package\Insertar Cliente\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[DestinatarioFactura]" />
-                    <inputColumn
-                      refId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[LímiteCrédito]"
-                      cachedDataType="r4"
-                      cachedName="LímiteCrédito"
-                      externalMetadataColumnId="Package\Insertar Cliente\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[LimiteCredito]"
-                      lineageId="Package\Insertar Cliente\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[LímiteCrédito]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10711,29 +10711,29 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="177,42"
-          Id="Package\Insertar GrupoItems"
-          TopLeft="124.5,45.5" />
+          Size="191,42"
+          Id="Package\Insertar Canal Clientes"
+          TopLeft="357,328" />
         <NodeLayout
           Size="154,42"
           Id="Package\Insertar Cliente"
           TopLeft="694,323" />
         <NodeLayout
+          Size="177,42"
+          Id="Package\Insertar GrupoItems"
+          TopLeft="124.5,45.5" />
+        <NodeLayout
           Size="146,42"
           Id="Package\Insertar Items"
           TopLeft="693,481" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Insertar Zonas"
-          TopLeft="383,50" />
         <NodeLayout
           Size="167,42"
           Id="Package\Insertar Vendedor"
           TopLeft="370,198" />
         <NodeLayout
-          Size="191,42"
-          Id="Package\Insertar Canal Clientes"
-          TopLeft="357,328" />
+          Size="150,42"
+          Id="Package\Insertar Zonas"
+          TopLeft="383,50" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="301.5,68.75">
@@ -10847,6 +10847,563 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Insertar Canal Clientes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Insertar Canal Clientes\C5"
+          TopLeft="96.444444444444,138.555555555556" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Insertar Canal Clientes\Canales Clientes"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Insertar Canal Clientes\Ordenar 3"
+          TopLeft="85.111111111111,205.666666666667" />
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[Excel Source Output]"
+          TopLeft="141.972222222222,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.555555555556"
+              Start="0,0"
+              End="0,29.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[Data Conversion Output]"
+          TopLeft="146.027777777777,180.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.111111111111"
+              Start="0,0"
+              End="0,17.611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Insertar Canal Clientes\CData MySQL Destination"
+          TopLeft="196,598" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Insertar Canal Clientes\CData MySQL Destination 1"
+          TopLeft="560,443" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Insertar Canal Clientes\Combinación de mezcla"
+          TopLeft="202,328" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Insertar Canal Clientes\División condicional"
+          TopLeft="218,437" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Insertar Canal Clientes\Ordenar"
+          TopLeft="384,210" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Insertar Canal Clientes\CData MySQL Source"
+          TopLeft="345,66" />
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[CData MySQL Source Output]"
+          TopLeft="441.25,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,102"
+              Start="0,0"
+              End="0,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[Salida de ordenación]"
+          TopLeft="149.111111111111,247.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.555555555556,80.333333333333"
+              Start="0,0"
+              End="119.555555555556,72.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.8097165991901" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.8097165991901"
+                    Point2="0,47.8097165991901"
+                    Point3="4,47.8097165991901" />
+                  <mssgle:LineSegment
+                    End="115.555555555556,47.8097165991901" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.555555555556,47.8097165991901"
+                    Point2="119.555555555556,47.8097165991901"
+                    Point3="119.555555555556,51.8097165991901" />
+                  <mssgle:LineSegment
+                    End="119.555555555556,72.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[Salida de ordenación1]"
+          TopLeft="443.5,252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112.166666666667,76"
+              Start="0,0"
+              End="-112.166666666667,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2307692307692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2307692307692"
+                    Point2="0,45.2307692307692"
+                    Point3="-4,45.2307692307692" />
+                  <mssgle:LineSegment
+                    End="-108.166666666667,45.2307692307692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108.166666666667,45.2307692307692"
+                    Point2="-112.166666666667,45.2307692307692"
+                    Point3="-112.166666666667,49.2307692307692" />
+                  <mssgle:LineSegment
+                    End="-112.166666666667,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[Salida de combinación de mezcla]"
+          TopLeft="303,370">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[InsertarCanalCliente]"
+          TopLeft="394,461">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166,0"
+              Start="0,0"
+              End="158.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="158.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="33.99205078125,5,90.5158984375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Canal Clientes.Paths[UpdateCanalCliente]"
+          TopLeft="303,479">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,119"
+              Start="0,0"
+              End="0,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.48529296875,49.9453125,86.9705859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Canal Clientes\CData MySQL Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Canal Clientes\CData MySQL Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Canal Clientes\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insertar Cliente">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Insertar Cliente\Clientes"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Insertar Cliente\C6"
+          TopLeft="72.777777777778,144.333333333333" />
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[Excel Source Output]"
+          TopLeft="119.388888888889,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.333333333333"
+              Start="0,0"
+              End="0,34.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Insertar Cliente\Ordenar"
+          TopLeft="59,213" />
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[Data Conversion Output]"
+          TopLeft="118.888888888889,186.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.666666666667"
+              Start="0,0"
+              End="0,19.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Insertar Cliente\CData MySQL Source"
+          TopLeft="283,52" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Insertar Cliente\CData MySQL Destination 1"
+          TopLeft="178,549" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Insertar Cliente\División condicional"
+          TopLeft="191,403" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Insertar Cliente\Combinación de mezcla"
+          TopLeft="178,303" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Insertar Cliente\Ordenar 1"
+          TopLeft="312,168" />
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[CData MySQL Source Output]"
+          TopLeft="376.5,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[Salida de ordenación]"
+          TopLeft="118.5,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157.5,48"
+              Start="0,0"
+              End="157.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="153.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153.5,24"
+                    Point2="157.5,24"
+                    Point3="157.5,28" />
+                  <mssgle:LineSegment
+                    End="157.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[Salida de ordenación1]"
+          TopLeft="376,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-68.6666666666667,93"
+              Start="0,0"
+              End="-68.6666666666667,85.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.3481781376518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.3481781376518"
+                    Point2="0,55.3481781376518"
+                    Point3="-4,55.3481781376518" />
+                  <mssgle:LineSegment
+                    End="-64.6666666666667,55.3481781376518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-64.6666666666667,55.3481781376518"
+                    Point2="-68.6666666666667,55.3481781376518"
+                    Point3="-68.6666666666667,59.3481781376518" />
+                  <mssgle:LineSegment
+                    End="-68.6666666666667,85.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[Salida de combinación de mezcla]"
+          TopLeft="277.5,345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[UpdateCliente]"
+          TopLeft="282.75,445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.29529296875,42.4453125,62.5905859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Insertar Cliente\CData MySQL Destination"
+          TopLeft="525,409" />
+        <EdgeLayout
+          Id="Package\Insertar Cliente.Paths[InsertarCliente]"
+          TopLeft="367,427">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158,0"
+              Start="0,0"
+              End="150.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="150.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="42.18205078125,5,66.1358984375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Cliente\Clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Cliente\CData MySQL Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Cliente\CData MySQL Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Cliente\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Insertar GrupoItems">
     <LayoutInfo>
@@ -11131,264 +11688,27 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\Insertar Cliente">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Insertar Cliente\Clientes"
-          TopLeft="60,60" />
-        <NodeLayout
-          Size="93,42"
-          Id="Package\Insertar Cliente\C6"
-          TopLeft="72.777777777778,144.333333333333" />
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[Excel Source Output]"
-          TopLeft="119.388888888889,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.333333333333"
-              Start="0,0"
-              End="0,34.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Insertar Cliente\Ordenar"
-          TopLeft="59,213" />
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[Data Conversion Output]"
-          TopLeft="118.888888888889,186.333333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.666666666667"
-              Start="0,0"
-              End="0,19.166666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.166666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Insertar Cliente\CData MySQL Source"
-          TopLeft="283,52" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\Insertar Cliente\CData MySQL Destination"
-          TopLeft="516,406" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Insertar Cliente\CData MySQL Destination 1"
-          TopLeft="178,549" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Insertar Cliente\División condicional"
-          TopLeft="191,403" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Insertar Cliente\Combinación de mezcla"
-          TopLeft="178,303" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Insertar Cliente\Ordenar 1"
-          TopLeft="312,168" />
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[CData MySQL Source Output]"
-          TopLeft="376.5,94">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,74"
-              Start="0,0"
-              End="0,66.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[Salida de ordenación]"
-          TopLeft="118.5,255">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="157.5,48"
-              Start="0,0"
-              End="157.5,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="153.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="153.5,24"
-                    Point2="157.5,24"
-                    Point3="157.5,28" />
-                  <mssgle:LineSegment
-                    End="157.5,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[Salida de ordenación1]"
-          TopLeft="376,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-68.6666666666667,93"
-              Start="0,0"
-              End="-68.6666666666667,85.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.3481781376518" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.3481781376518"
-                    Point2="0,55.3481781376518"
-                    Point3="-4,55.3481781376518" />
-                  <mssgle:LineSegment
-                    End="-64.6666666666667,55.3481781376518" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-64.6666666666667,55.3481781376518"
-                    Point2="-68.6666666666667,55.3481781376518"
-                    Point3="-68.6666666666667,59.3481781376518" />
-                  <mssgle:LineSegment
-                    End="-68.6666666666667,85.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[Salida de combinación de mezcla]"
-          TopLeft="277.5,345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[InsertarCliente]"
-          TopLeft="367,425.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="149,0"
-              Start="0,0"
-              End="141.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="141.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="37.68205078125,5,66.1358984375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Cliente.Paths[UpdateCliente]"
-          TopLeft="282.75,445">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,104"
-              Start="0,0"
-              End="0,96.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,96.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.29529296875,42.4453125,62.5905859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insertar Cliente\Clientes">
+    design-time-name="Package\Insertar GrupoItems\CData MySQL Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar GrupoItems\CData MySQL Destination 1">
+    <Properties>
       <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar GrupoItems\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -11640,6 +11960,314 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Items\CData MySQL Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Items\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Items\CData MySQL Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insertar Vendedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Insertar Vendedor\Vendedores"
+          TopLeft="63,60.888888888889" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Insertar Vendedor\C4"
+          TopLeft="93,152" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Insertar Vendedor\Ordenar 2"
+          TopLeft="76.111111111111,229.555555555556" />
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[Excel Source Output]"
+          TopLeft="135.75,102.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.111111111111"
+              Start="0,0"
+              End="0,41.611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[Data Conversion Output]"
+          TopLeft="139.805555555555,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.555555555556"
+              Start="0,0"
+              End="0,28.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Insertar Vendedor\CData MySQL Source"
+          TopLeft="312,151" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Insertar Vendedor\CData MySQL Destination"
+          TopLeft="225,541" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Insertar Vendedor\Combinación de mezcla"
+          TopLeft="228,324" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Insertar Vendedor\División condicional"
+          TopLeft="235,425" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Insertar Vendedor\Ordenar"
+          TopLeft="348,236" />
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[CData MySQL Source Output]"
+          TopLeft="406.75,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[Salida de ordenación]"
+          TopLeft="140.111111111111,271.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="154.555555555556,52.444444444444"
+              Start="0,0"
+              End="154.555555555556,44.944444444444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2118758434545" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2118758434545"
+                    Point2="0,31.2118758434545"
+                    Point3="4,31.2118758434545" />
+                  <mssgle:LineSegment
+                    End="150.555555555556,31.2118758434545" />
+                  <mssgle:CubicBezierSegment
+                    Point1="150.555555555556,31.2118758434545"
+                    Point2="154.555555555556,31.2118758434545"
+                    Point3="154.555555555556,35.2118758434545" />
+                  <mssgle:LineSegment
+                    End="154.555555555556,44.944444444444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[Salida de ordenación1]"
+          TopLeft="407.5,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.1666666666667,46"
+              Start="0,0"
+              End="-50.1666666666667,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3765182186235"
+                    Point2="0,27.3765182186235"
+                    Point3="-4,27.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-46.1666666666667,27.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.1666666666667,27.3765182186235"
+                    Point2="-50.1666666666667,27.3765182186235"
+                    Point3="-50.1666666666667,31.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-50.1666666666667,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[Salida de combinación de mezcla]"
+          TopLeft="324.5,366">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[UpdateVendedor]"
+          TopLeft="326,467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.46763671875,27.4453125,74.9352734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Insertar Vendedor\CData MySQL Destination 1"
+          TopLeft="513,437" />
+        <EdgeLayout
+          Id="Package\Insertar Vendedor.Paths[InsertarVendedor]"
+          TopLeft="411,446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102,12"
+              Start="0,0"
+              End="94.5,12">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47,0"
+                    Point2="51,0"
+                    Point3="51,4" />
+                  <mssgle:LineSegment
+                    End="51,8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51,8"
+                    Point2="51,12"
+                    Point3="55,12" />
+                  <mssgle:LineSegment
+                    End="94.5,12" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.75970703125,-15.7490234375,78.4805859375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Vendedor\CData MySQL Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Vendedor\CData MySQL Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insertar Vendedor\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Insertar Zonas">
     <LayoutInfo>
@@ -11992,514 +12620,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\Insertar Vendedor">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Insertar Vendedor\Vendedores"
-          TopLeft="63,60.888888888889" />
-        <NodeLayout
-          Size="93,42"
-          Id="Package\Insertar Vendedor\C4"
-          TopLeft="93,152" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Insertar Vendedor\Ordenar 2"
-          TopLeft="76.111111111111,229.555555555556" />
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[Excel Source Output]"
-          TopLeft="135.75,102.888888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.111111111111"
-              Start="0,0"
-              End="0,41.611111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.611111111111" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[Data Conversion Output]"
-          TopLeft="139.805555555555,194">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.555555555556"
-              Start="0,0"
-              End="0,28.055555555556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.055555555556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Insertar Vendedor\CData MySQL Source"
-          TopLeft="312,151" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\Insertar Vendedor\CData MySQL Destination"
-          TopLeft="225,541" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Insertar Vendedor\Combinación de mezcla"
-          TopLeft="228,324" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Insertar Vendedor\División condicional"
-          TopLeft="235,425" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Insertar Vendedor\Ordenar"
-          TopLeft="348,236" />
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[CData MySQL Source Output]"
-          TopLeft="406.75,193">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43"
-              Start="0,0"
-              End="0,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[Salida de ordenación]"
-          TopLeft="140.111111111111,271.555555555556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="154.555555555556,52.444444444444"
-              Start="0,0"
-              End="154.555555555556,44.944444444444">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.2118758434545" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.2118758434545"
-                    Point2="0,31.2118758434545"
-                    Point3="4,31.2118758434545" />
-                  <mssgle:LineSegment
-                    End="150.555555555556,31.2118758434545" />
-                  <mssgle:CubicBezierSegment
-                    Point1="150.555555555556,31.2118758434545"
-                    Point2="154.555555555556,31.2118758434545"
-                    Point3="154.555555555556,35.2118758434545" />
-                  <mssgle:LineSegment
-                    End="154.555555555556,44.944444444444" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[Salida de ordenación1]"
-          TopLeft="407.5,278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-50.1666666666667,46"
-              Start="0,0"
-              End="-50.1666666666667,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3765182186235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3765182186235"
-                    Point2="0,27.3765182186235"
-                    Point3="-4,27.3765182186235" />
-                  <mssgle:LineSegment
-                    End="-46.1666666666667,27.3765182186235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46.1666666666667,27.3765182186235"
-                    Point2="-50.1666666666667,27.3765182186235"
-                    Point3="-50.1666666666667,31.3765182186235" />
-                  <mssgle:LineSegment
-                    End="-50.1666666666667,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[Salida de combinación de mezcla]"
-          TopLeft="324.5,366">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[UpdateVendedor]"
-          TopLeft="326,467">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,74"
-              Start="0,0"
-              End="0,66.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.46763671875,27.4453125,74.9352734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Insertar Vendedor\CData MySQL Destination 1"
-          TopLeft="513,437" />
-        <EdgeLayout
-          Id="Package\Insertar Vendedor.Paths[InsertarVendedor]"
-          TopLeft="411,446">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102,12"
-              Start="0,0"
-              End="94.5,12">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="47,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47,0"
-                    Point2="51,0"
-                    Point3="51,4" />
-                  <mssgle:LineSegment
-                    End="51,8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="51,8"
-                    Point2="51,12"
-                    Point3="55,12" />
-                  <mssgle:LineSegment
-                    End="94.5,12" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="11.75970703125,-15.7490234375,78.4805859375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Insertar Canal Clientes">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="93,42"
-          Id="Package\Insertar Canal Clientes\C5"
-          TopLeft="96.444444444444,138.555555555556" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Insertar Canal Clientes\Canales Clientes"
-          TopLeft="60,60" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Insertar Canal Clientes\Ordenar 3"
-          TopLeft="85.111111111111,205.666666666667" />
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[Excel Source Output]"
-          TopLeft="141.972222222222,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.555555555556"
-              Start="0,0"
-              End="0,29.055555555556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.055555555556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[Data Conversion Output]"
-          TopLeft="146.027777777777,180.555555555556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.111111111111"
-              Start="0,0"
-              End="0,17.611111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.611111111111" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="208,42"
-          Id="Package\Insertar Canal Clientes\CData MySQL Destination"
-          TopLeft="196,598" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Insertar Canal Clientes\CData MySQL Destination 1"
-          TopLeft="560,443" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Insertar Canal Clientes\Combinación de mezcla"
-          TopLeft="202,328" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Insertar Canal Clientes\División condicional"
-          TopLeft="218,437" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Insertar Canal Clientes\Ordenar"
-          TopLeft="384,210" />
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Insertar Canal Clientes\CData MySQL Source"
-          TopLeft="345,66" />
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[CData MySQL Source Output]"
-          TopLeft="441.25,108">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,102"
-              Start="0,0"
-              End="0,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[Salida de ordenación]"
-          TopLeft="149.111111111111,247.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="119.555555555556,80.333333333333"
-              Start="0,0"
-              End="119.555555555556,72.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.8097165991901" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.8097165991901"
-                    Point2="0,47.8097165991901"
-                    Point3="4,47.8097165991901" />
-                  <mssgle:LineSegment
-                    End="115.555555555556,47.8097165991901" />
-                  <mssgle:CubicBezierSegment
-                    Point1="115.555555555556,47.8097165991901"
-                    Point2="119.555555555556,47.8097165991901"
-                    Point3="119.555555555556,51.8097165991901" />
-                  <mssgle:LineSegment
-                    End="119.555555555556,72.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[Salida de ordenación1]"
-          TopLeft="443.5,252">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-112.166666666667,76"
-              Start="0,0"
-              End="-112.166666666667,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.2307692307692" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.2307692307692"
-                    Point2="0,45.2307692307692"
-                    Point3="-4,45.2307692307692" />
-                  <mssgle:LineSegment
-                    End="-108.166666666667,45.2307692307692" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-108.166666666667,45.2307692307692"
-                    Point2="-112.166666666667,45.2307692307692"
-                    Point3="-112.166666666667,49.2307692307692" />
-                  <mssgle:LineSegment
-                    End="-112.166666666667,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[Salida de combinación de mezcla]"
-          TopLeft="303,370">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67"
-              Start="0,0"
-              End="0,59.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[InsertarCanalCliente]"
-          TopLeft="394,461">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="166,0"
-              Start="0,0"
-              End="158.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="158.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="33.99205078125,5,90.5158984375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insertar Canal Clientes.Paths[UpdateCanalCliente]"
-          TopLeft="303,479">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,119"
-              Start="0,0"
-              End="0,111.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,111.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-43.48529296875,49.9453125,86.9705859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Insertar Zonas\Zonas">
     <Properties>
@@ -12514,31 +12634,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insertar GrupoItems\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar GrupoItems\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar GrupoItems\CData MySQL Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Zonas\CData MySQL Destination">
+    design-time-name="Package\Insertar Zonas\CData MySQL Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12554,103 +12650,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insertar Zonas\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Vendedor\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Vendedor\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Vendedor\CData MySQL Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Canal Clientes\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Canal Clientes\CData MySQL Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Canal Clientes\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Cliente\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Cliente\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Cliente\CData MySQL Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Items\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Items\CData MySQL Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insertar Items\CData MySQL Source">
+    design-time-name="Package\Insertar Zonas\CData MySQL Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
