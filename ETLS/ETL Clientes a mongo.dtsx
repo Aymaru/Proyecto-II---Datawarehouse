@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Clientes a mongo"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{3B2A12D6-3350-481C-8A8F-8752427447F7}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{6D693E4A-57FF-4E31-97EF-3FF8CB15A8F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\DATOS MAESTROS.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\DATOS MAESTROS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -876,7 +876,7 @@
                   name="ColumnsForLookup">IDCliente</property>
                 <property
                   dataType="System.String"
-                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;•&#x9;op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;•&#x9;multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
+                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;• op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;• multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
                   expressionType="Notify"
                   name="LoadOptions">op=$set;multi=true</property>
                 <property
@@ -1216,51 +1216,73 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
-          Id="Package\Tarea Flujo de datos\Canal Clientes"
-          TopLeft="412,169" />
+          Size="186,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Destination"
+          TopLeft="876,429" />
         <NodeLayout
           Size="119,42"
           Id="Package\Tarea Flujo de datos\Clientes"
           TopLeft="172,154" />
         <NodeLayout
-          Size="110,42"
-          Id="Package\Tarea Flujo de datos\Zonas"
-          TopLeft="624,187" />
-        <NodeLayout
           Size="214,42"
           Id="Package\Tarea Flujo de datos\JSON Generator Transform"
           TopLeft="387,379" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Tarea Flujo de datos\MongoDB Destination"
-          TopLeft="876,429" />
+          Size="151,42"
+          Id="Package\Tarea Flujo de datos\Canal Clientes"
+          TopLeft="412,169" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Tarea Flujo de datos\Zonas"
+          TopLeft="624,187" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
-          TopLeft="601,400">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+          TopLeft="679,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="275,50"
+              EndConnector="-133.5,150"
               Start="0,0"
-              End="267.5,50">
+              End="-133.5,142.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="133.5,0" />
+                    End="0,94.7692307692308" />
                   <mssgle:CubicBezierSegment
-                    Point1="133.5,0"
-                    Point2="137.5,0"
-                    Point3="137.5,4" />
+                    Point1="0,94.7692307692308"
+                    Point2="0,98.7692307692308"
+                    Point3="-4,98.7692307692308" />
                   <mssgle:LineSegment
-                    End="137.5,46" />
+                    End="-129.5,98.7692307692308" />
                   <mssgle:CubicBezierSegment
-                    Point1="137.5,46"
-                    Point2="137.5,50"
-                    Point3="141.5,50" />
+                    Point1="-129.5,98.7692307692308"
+                    Point2="-133.5,98.7692307692308"
+                    Point3="-133.5,102.769230769231" />
                   <mssgle:LineSegment
-                    End="267.5,50" />
+                    End="-133.5,142.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          TopLeft="490.75,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,168"
+              Start="0,0"
+              End="0,160.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,160.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1304,53 +1326,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
-          TopLeft="490.75,211">
+          Id="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
+          TopLeft="601,400">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,168"
+              EndConnector="275,50"
               Start="0,0"
-              End="0,160.5">
+              End="267.5,50">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,160.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
-          TopLeft="679,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133.5,150"
-              Start="0,0"
-              End="-133.5,142.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,94.7692307692308" />
+                    End="133.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,94.7692307692308"
-                    Point2="0,98.7692307692308"
-                    Point3="-4,98.7692307692308" />
+                    Point1="133.5,0"
+                    Point2="137.5,0"
+                    Point3="137.5,4" />
                   <mssgle:LineSegment
-                    End="-129.5,98.7692307692308" />
+                    End="137.5,46" />
                   <mssgle:CubicBezierSegment
-                    Point1="-129.5,98.7692307692308"
-                    Point2="-133.5,98.7692307692308"
-                    Point3="-133.5,102.769230769231" />
+                    Point1="137.5,46"
+                    Point2="137.5,50"
+                    Point3="141.5,50" />
                   <mssgle:LineSegment
-                    End="-133.5,142.5" />
+                    End="267.5,50" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1363,7 +1363,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Canal Clientes">
+    design-time-name="Package\Tarea Flujo de datos\Zonas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1389,7 +1389,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Zonas">
+    design-time-name="Package\Tarea Flujo de datos\Canal Clientes">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

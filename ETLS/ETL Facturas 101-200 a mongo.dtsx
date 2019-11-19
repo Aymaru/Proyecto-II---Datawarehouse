@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 101-200 a mongo"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{BCA475D4-D6B5-4D52-87B7-1DB4AE401BDA}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{A1AF7C72-9407-485A-9BB1-8A73D455A10D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2159,12 +2159,6 @@
                       cachedName="cantidad"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[moneda]"
-                      cachedDataType="wstr"
-                      cachedLength="12"
-                      cachedName="moneda"
-                      lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
-                    <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[precio]"
                       cachedDataType="decimal"
                       cachedName="precio"
@@ -2222,6 +2216,12 @@
                       cachedLength="255"
                       cachedName="idItemExistente"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]" />
+                    <inputColumn
+                      refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="moneda"
+                      lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4805,6 +4805,10 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="223,42"
+          Id="Package\Importar Ventas a Mongo\JSON Generator Transform 1"
+          TopLeft="241,623" />
+        <NodeLayout
           Size="106,42"
           Id="Package\Importar Ventas a Mongo\Items 1 1"
           TopLeft="70,641" />
@@ -4821,13 +4825,17 @@
           Id="Package\Importar Ventas a Mongo\División condicional"
           TopLeft="157,408" />
         <NodeLayout
+          Size="196,42"
+          Id="Package\Importar Ventas a Mongo\Combinación de mezcla"
+          TopLeft="151,334" />
+        <NodeLayout
           Size="186,42"
           Id="Package\Importar Ventas a Mongo\MongoDB Destination"
           TopLeft="592,612" />
         <NodeLayout
-          Size="196,42"
-          Id="Package\Importar Ventas a Mongo\Combinación de mezcla"
-          TopLeft="151,334" />
+          Size="214,42"
+          Id="Package\Importar Ventas a Mongo\JSON Generator Transform"
+          TopLeft="445,459" />
         <NodeLayout
           Size="128,42"
           Id="Package\Importar Ventas a Mongo\Ordenar 1"
@@ -4840,10 +4848,6 @@
           Size="106,42"
           Id="Package\Importar Ventas a Mongo\Items"
           TopLeft="312,159" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\Importar Ventas a Mongo\JSON Generator Transform"
-          TopLeft="445,459" />
         <NodeLayout
           Size="180,42"
           Id="Package\Importar Ventas a Mongo\Conversión de datos"
@@ -4861,17 +4865,13 @@
           Id="Package\Importar Ventas a Mongo\Items 1"
           TopLeft="504,156" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\Importar Ventas a Mongo\Ordenar"
-          TopLeft="91,252" />
-        <NodeLayout
-          Size="223,42"
-          Id="Package\Importar Ventas a Mongo\JSON Generator Transform 1"
-          TopLeft="241,623" />
-        <NodeLayout
           Size="168,42"
           Id="Package\Importar Ventas a Mongo\Columna derivada"
           TopLeft="167,509" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Importar Ventas a Mongo\Ordenar"
+          TopLeft="91,252" />
         <EdgeLayout
           Id="Package\Importar Ventas a Mongo.Paths[Salida de origen de Excel4]"
           TopLeft="259.5,729">
@@ -5090,6 +5090,40 @@
                     Point3="-38.6666666666667,23.6396761133603" />
                   <mssgle:LineSegment
                     End="-38.6666666666667,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importar Ventas a Mongo.Paths[Salida de conversión de datos]"
+          TopLeft="159,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,58"
+              Start="0,0"
+              End="-8.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
+                  <mssgle:LineSegment
+                    End="-4.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,29"
+                    Point2="-8.5,29"
+                    Point3="-8.5,33" />
+                  <mssgle:LineSegment
+                    End="-8.5,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5348,40 +5382,6 @@
             <mssgm:EdgeLabel
               BoundingBox="42.49404296875,-15.451171875,27.0119140625,9.451171875"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Importar Ventas a Mongo.Paths[Salida de conversión de datos]"
-          TopLeft="159,194">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8.5,58"
-              Start="0,0"
-              End="-8.5,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="-4,29" />
-                  <mssgle:LineSegment
-                    End="-4.5,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.5,29"
-                    Point2="-8.5,29"
-                    Point3="-8.5,33" />
-                  <mssgle:LineSegment
-                    End="-8.5,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

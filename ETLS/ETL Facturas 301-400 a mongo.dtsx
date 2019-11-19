@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 301-400 a mongo"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{2600B470-82CD-4ABF-B095-CFFDFBE425CA}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{9318B559-0939-47CE-AA33-57153D038BE2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -81,6 +81,12 @@
                       cachedDataType="date"
                       cachedName="Copy of FechaVence"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of FechaVence]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Copy of IDItem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of IDItem"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDItem]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -179,6 +185,29 @@
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
                           name="FriendlyExpression">YEAR([Copy of FechaVence])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[idItem_nuevo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="54"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[idItem_nuevo]"
+                      name="idItem_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">"0000" + #{Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDItem]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"0000" + [Copy of IDItem]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -450,93 +479,93 @@
                   name="Entrada izquierda de combinación de mezcla">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItem]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItem_nuevo]"
                       cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="idItem"
+                      cachedLength="54"
+                      cachedName="idItem_nuevo"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem]" />
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem_nuevo]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFactura]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDFactura]"
                       cachedDataType="wstr"
                       cachedLength="36"
-                      cachedName="idFactura"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]" />
+                      cachedName="IDFactura"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDFactura]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCliente]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha factura]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fecha factura"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha factura]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha vencimiento factura]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fecha vencimiento factura"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha vencimiento factura]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDCliente]"
                       cachedDataType="i8"
-                      cachedName="idCliente"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]" />
+                      cachedName="IDCliente"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[moneda]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Cantidad]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Moneda]"
                       cachedDataType="wstr"
                       cachedLength="28"
-                      cachedName="moneda"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[moneda]" />
+                      cachedName="Moneda"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Moneda]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[almacén]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Total]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Total"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Almacén]"
                       cachedDataType="i8"
-                      cachedName="almacén"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[almacén]" />
+                      cachedName="Almacén"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idVendedor]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of IDVendedor]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="idVendedor"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]" />
+                      cachedName="Copy of IDVendedor"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IDVendedor]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cantidad]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of TotalUSD]"
                       cachedDataType="decimal"
-                      cachedName="cantidad"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]" />
+                      cachedName="Copy of TotalUSD"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[total]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Impuesto]"
                       cachedDataType="decimal"
-                      cachedName="total"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[total]" />
+                      cachedName="Copy of Impuesto"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[totalUSD]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ImpuestoUSD]"
                       cachedDataType="decimal"
-                      cachedName="totalUSD"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]" />
+                      cachedName="Copy of ImpuestoUSD"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuesto]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Tipo de cambio]"
                       cachedDataType="decimal"
-                      cachedName="impuesto"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]" />
+                      cachedName="Copy of Tipo de cambio"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
-                      cachedName="impuestoUSD"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoCambio]"
-                      cachedDataType="decimal"
-                      cachedName="tipoCambio"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ganacia]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Ganacia]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="ganacia"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]" />
+                      cachedName="Copy of Ganacia"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Ganacia]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[gananciaUSD]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GananciaUSD]"
                       cachedDataType="decimal"
-                      cachedName="gananciaUSD"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fecha"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaVencimiento]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fechaVencimiento"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]" />
+                      cachedName="Copy of GananciaUSD"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -563,21 +592,6 @@
                   name="Salida de combinación de mezcla">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
-                      name="idItem"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItem]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFactura]"
                       dataType="wstr"
                       length="36"
@@ -588,166 +602,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFactura]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]"
-                      dataType="i8"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]"
-                      name="idCliente">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCliente]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]"
-                      dataType="wstr"
-                      length="28"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]"
-                      name="moneda">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[moneda]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]"
-                      dataType="i8"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]"
-                      name="almacén">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[almacén]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]"
-                      name="idVendedor">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idVendedor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
-                      name="cantidad">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cantidad]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
-                      name="total">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[total]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
-                      name="totalUSD">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[totalUSD]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
-                      name="impuesto">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuesto]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
-                      name="impuestoUSD">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuestoUSD]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
-                      name="tipoCambio">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoCambio]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
-                      name="ganacia">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ganacia]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
-                      name="gananciaUSD">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[gananciaUSD]}</property>
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDFactura]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -761,7 +616,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]}</property>
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha factura]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -775,7 +630,181 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaVencimiento]}</property>
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha vencimiento factura]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]"
+                      name="idCliente">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDCliente]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
+                      dataType="wstr"
+                      length="54"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]"
+                      name="idItem"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idItem_nuevo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
+                      name="cantidad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Cantidad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]"
+                      dataType="wstr"
+                      length="28"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]"
+                      name="moneda">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Moneda]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
+                      name="total">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]"
+                      dataType="i8"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]"
+                      name="almacén">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Almacén]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]"
+                      name="idVendedor">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of IDVendedor]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
+                      name="totalUSD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of TotalUSD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
+                      name="impuesto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Impuesto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
+                      name="impuestoUSD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ImpuestoUSD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
+                      name="tipoCambio">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Tipo de cambio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
+                      name="ganacia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Ganacia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
+                      dataType="decimal"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
+                      name="gananciaUSD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GananciaUSD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3165,7 +3194,7 @@
                   expressionType="Notify"
                   name="LayoutInfo">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;settings ver="3"&gt;
-  &lt;dataset id="facturas" main="True" inputid="1778" readfrominput="True"&gt;&lt;/dataset&gt;
+  &lt;dataset id="facturas" main="True" inputid="1117" readfrominput="True"&gt;&lt;/dataset&gt;
   &lt;dataset id="items" inputid="1971" readfrominput="True"&gt;&lt;/dataset&gt;
   &lt;dataset id="grupoitems" inputid="1978" readfrominput="True"&gt;&lt;/dataset&gt;
   &lt;join parentid="facturas" childid="items"&gt;
@@ -3189,9 +3218,11 @@
       &lt;map src="Division" name="division" datatype="String" /&gt;
     &lt;/map&gt;
   &lt;/map&gt;
-  &lt;map src="moneda" name="moneda" /&gt;
-  &lt;map src="cantidad" name="cantidad" /&gt;
-  &lt;map src="total" name="total" /&gt;
+  &lt;map src="cantidad" name="cantidad" datatype="Number" /&gt;
+  &lt;map src="moneda" name="moneda" datatype="String" /&gt;
+  &lt;map src="total" name="total" datatype="Number" /&gt;
+  &lt;map src="almacén" name="almacén" datatype="Number" /&gt;
+  &lt;map src="idVendedor" name="idVendedor" datatype="String" /&gt;
   &lt;map src="totalUSD" name="totalUSD" /&gt;
   &lt;map src="impuesto" name="impuesto" /&gt;
   &lt;map src="impuestoUSD" name="impuestoUSD" /&gt;
@@ -3261,114 +3292,6 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1]"
-                  name="JsonInput1">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Id for attached dataset with input. Use JSON Layout Editor to see attached dataset"
-                      expressionType="Notify"
-                      name="DatasetInputId">1778</property>
-                  </properties>
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idItem]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="idItem"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idFactura]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="idFactura"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFactura]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idCliente]"
-                      cachedDataType="i8"
-                      cachedName="idCliente"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[moneda]"
-                      cachedDataType="wstr"
-                      cachedLength="28"
-                      cachedName="moneda"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[almacén]"
-                      cachedDataType="i8"
-                      cachedName="almacén"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idVendedor]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="idVendedor"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[cantidad]"
-                      cachedDataType="decimal"
-                      cachedName="cantidad"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[total]"
-                      cachedDataType="decimal"
-                      cachedName="total"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[totalUSD]"
-                      cachedDataType="decimal"
-                      cachedName="totalUSD"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuesto]"
-                      cachedDataType="decimal"
-                      cachedName="impuesto"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
-                      cachedName="impuestoUSD"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[tipoCambio]"
-                      cachedDataType="decimal"
-                      cachedName="tipoCambio"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[ganacia]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ganacia"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
-                      cachedName="gananciaUSD"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[fecha]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fecha"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[fechaVencimiento]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fechaVencimiento"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaVencimiento]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idItemExistente]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="idItemExistente"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
                   refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
                   name="JsonInput2">
                   <properties>
@@ -3435,6 +3358,114 @@
                       cachedLength="255"
                       cachedName="Division"
                       lineageId="Package\Tarea Flujo de datos\Grupo Items.Outputs[Salida de origen de Excel].Columns[Division]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1]"
+                  name="JsonInput1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Id for attached dataset with input. Use JSON Layout Editor to see attached dataset"
+                      expressionType="Notify"
+                      name="DatasetInputId">1117</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idFactura]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="idFactura"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFactura]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fecha"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[fechaVencimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fechaVencimiento"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaVencimiento]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idCliente]"
+                      cachedDataType="i8"
+                      cachedName="idCliente"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idItem]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="idItem"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[cantidad]"
+                      cachedDataType="decimal"
+                      cachedName="cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[moneda]"
+                      cachedDataType="wstr"
+                      cachedLength="28"
+                      cachedName="moneda"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[total]"
+                      cachedDataType="decimal"
+                      cachedName="total"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[almacén]"
+                      cachedDataType="i8"
+                      cachedName="almacén"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacén]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idVendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="idVendedor"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[totalUSD]"
+                      cachedDataType="decimal"
+                      cachedName="totalUSD"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuesto]"
+                      cachedDataType="decimal"
+                      cachedName="impuesto"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuestoUSD]"
+                      cachedDataType="decimal"
+                      cachedName="impuestoUSD"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[tipoCambio]"
+                      cachedDataType="decimal"
+                      cachedName="tipoCambio"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[ganacia]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ganacia"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[gananciaUSD]"
+                      cachedDataType="decimal"
+                      cachedName="gananciaUSD"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[idItemExistente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="idItemExistente"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItemExistente]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3607,29 +3638,51 @@
                   </properties>
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[idItem]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="idItem"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
-                    <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[idFactura]"
                       cachedDataType="wstr"
                       cachedLength="36"
                       cachedName="idFactura"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFactura]" />
                     <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fecha"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[fechaVencimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="fechaVencimiento"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaVencimiento]" />
+                    <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[idCliente]"
                       cachedDataType="i8"
                       cachedName="idCliente"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[idItem]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="idItem"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[cantidad]"
+                      cachedDataType="decimal"
+                      cachedName="cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[moneda]"
                       cachedDataType="wstr"
                       cachedLength="28"
                       cachedName="moneda"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[total]"
+                      cachedDataType="decimal"
+                      cachedName="total"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[almacén]"
                       cachedDataType="i8"
@@ -3641,16 +3694,6 @@
                       cachedLength="50"
                       cachedName="idVendedor"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[cantidad]"
-                      cachedDataType="decimal"
-                      cachedName="cantidad"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[total]"
-                      cachedDataType="decimal"
-                      cachedName="total"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[totalUSD]"
                       cachedDataType="decimal"
@@ -3682,18 +3725,6 @@
                       cachedDataType="decimal"
                       cachedName="gananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[fecha]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fecha"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[fechaVencimiento]"
-                      cachedDataType="wstr"
-                      cachedLength="152"
-                      cachedName="fechaVencimiento"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaVencimiento]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[idItemExistente]"
                       cachedDataType="wstr"
@@ -3864,7 +3895,7 @@
                   description="Specifies operation for destination data load (e.g. Insert, Reload etc). Default operation is Insert (data always appended to target)."
                   expressionType="Notify"
                   name="Operation"
-                  typeConverter="ZappySys.PowerPack.Common.DestinationOperation, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                  typeConverter="ZappySys.PowerPack.Common.DestinationOperation, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">3</property>
                 <property
                   dataType="System.String"
                   description="Update/Upsert/Delete you will need JOIN columns. If you have not specified JOIN column in Mapping Editor then supply here. Specify comma separated list of target column names which can be used to lookup documents on target for selected Operation. Column names are case-sensitive. Make sure JOIN column name is correctly spelled. JOIN column can be part of supplied input DOCUMENT or it can be mapped separately as input column on Mapping Editor. When JOIN column is found inside nested sub document (i.e. not in first level) then you have to use hierarchy separator (&gt;) and server side path for same column (Use dot). Example: if you joining by two columns OrderID and ZipCode where ZipCode is found in nested sub document then use JOIN criteria like this (e.g. OrderID,LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode). If your JOIN condition contains column from Array then your condition may looks like this Orders.$.OrderID AS Orders.OrderID (assuming You have named your property in input document as Orders.$.OrderID). For more information about how to using $ inside Update document see this https://docs.mongodb.com/manual/reference/operator/update/positional/#op._S_"
@@ -3872,7 +3903,7 @@
                   name="ColumnsForLookup">idFactura,idItem</property>
                 <property
                   dataType="System.String"
-                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;•&#x9;op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;•&#x9;multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
+                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;• op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;• multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
                   expressionType="Notify"
                   name="LoadOptions">op=$set;multi=true</property>
                 <property
@@ -4115,7 +4146,7 @@
                   description="Specifies operation for destination data load (e.g. Insert, Reload etc). Default operation is Insert (data always appended to target)."
                   expressionType="Notify"
                   name="Operation"
-                  typeConverter="ZappySys.PowerPack.Common.DestinationOperation, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">0</property>
+                  typeConverter="ZappySys.PowerPack.Common.DestinationOperation, ZappySys.PowerPack140, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1903265a93eae502">3</property>
                 <property
                   dataType="System.String"
                   description="Update/Upsert/Delete you will need JOIN columns. If you have not specified JOIN column in Mapping Editor then supply here. Specify comma separated list of target column names which can be used to lookup documents on target for selected Operation. Column names are case-sensitive. Make sure JOIN column name is correctly spelled. JOIN column can be part of supplied input DOCUMENT or it can be mapped separately as input column on Mapping Editor. When JOIN column is found inside nested sub document (i.e. not in first level) then you have to use hierarchy separator (&gt;) and server side path for same column (Use dot). Example: if you joining by two columns OrderID and ZipCode where ZipCode is found in nested sub document then use JOIN criteria like this (e.g. OrderID,LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode). If your JOIN condition contains column from Array then your condition may looks like this Orders.$.OrderID AS Orders.OrderID (assuming You have named your property in input document as Orders.$.OrderID). For more information about how to using $ inside Update document see this https://docs.mongodb.com/manual/reference/operator/update/positional/#op._S_"
@@ -4123,7 +4154,7 @@
                   name="ColumnsForLookup">idFactura,idItem</property>
                 <property
                   dataType="System.String"
-                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;•&#x9;op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;•&#x9;multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
+                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;• op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;• multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
                   expressionType="Notify"
                   name="LoadOptions">op=$set;multi=true</property>
                 <property
@@ -4327,12 +4358,11 @@
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idFactura]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[IDFactura]"
                       cachedDataType="wstr"
                       cachedLength="36"
                       cachedName="IDFactura"
-                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[IDFactura]"
-                      name="idFactura">
+                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[IDFactura]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4345,11 +4375,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idCliente]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[IDCliente]"
                       cachedDataType="i8"
                       cachedName="IDCliente"
-                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[IDCliente]"
-                      name="idCliente">
+                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[IDCliente]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4362,12 +4391,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[moneda]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Moneda]"
                       cachedDataType="wstr"
                       cachedLength="28"
                       cachedName="Moneda"
-                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[Moneda]"
-                      name="moneda">
+                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[Moneda]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4380,11 +4408,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[almacén]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Almacén]"
                       cachedDataType="i8"
                       cachedName="Almacén"
-                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[Almacén]"
-                      name="almacén">
+                      lineageId="Package\Tarea Flujo de datos\CSV Source (Web API or File).Outputs[CsvSourceOutput].Columns[Almacén]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4397,12 +4424,157 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idItem]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of IDVendedor]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="Copy of IDItem"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDItem]"
-                      name="idItem">
+                      cachedName="Copy of IDVendedor"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDVendedor]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Cantidad]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Cantidad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Total]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Total"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of TotalUSD]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of TotalUSD"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Impuesto]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Impuesto"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of ImpuestoUSD]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of ImpuestoUSD"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Tipo de cambio]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of Tipo de cambio"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Tipo de cambio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Ganacia]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Ganacia"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of GananciaUSD]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of GananciaUSD"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idItem_nuevo]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="idItem_nuevo"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[idItem_nuevo]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4415,167 +4587,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[idVendedor]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of IDVendedor"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDVendedor]"
-                      name="idVendedor">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[cantidad]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of Cantidad"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Cantidad]"
-                      name="cantidad">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[total]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of Total"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]"
-                      name="total">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[totalUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of TotalUSD"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]"
-                      name="totalUSD">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[impuesto]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of Impuesto"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]"
-                      name="impuesto">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of ImpuestoUSD"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSD]"
-                      name="impuestoUSD">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[tipoCambio]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of Tipo de cambio"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Tipo de cambio]"
-                      name="tipoCambio">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[ganacia]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of Ganacia"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]"
-                      name="ganacia">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of GananciaUSD"
-                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
-                      name="gananciaUSD">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[fecha]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[fecha factura]"
                       cachedDataType="wstr"
                       cachedLength="152"
                       cachedName="fecha factura"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha factura]"
-                      name="fecha">
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha factura]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4588,12 +4604,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[fechaVencimiento]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[fecha vencimiento factura]"
                       cachedDataType="wstr"
                       cachedLength="152"
                       cachedName="fecha vencimiento factura"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha vencimiento factura]"
-                      name="fechaVencimiento">
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fecha vencimiento factura]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4616,11 +4631,11 @@
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDFactura]"
                       dataType="wstr"
                       length="36"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]"
-                      name="idFactura">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDFactura]"
+                      name="IDFactura">
                       <properties>
                         <property
                           containsID="true"
@@ -4630,10 +4645,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]"
                       dataType="i8"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]"
-                      name="idCliente">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]"
+                      name="IDCliente">
                       <properties>
                         <property
                           containsID="true"
@@ -4643,11 +4658,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[moneda]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Moneda]"
                       dataType="wstr"
                       length="28"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[moneda]"
-                      name="moneda">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Moneda]"
+                      name="Moneda">
                       <properties>
                         <property
                           containsID="true"
@@ -4657,10 +4672,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[almacén]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]"
                       dataType="i8"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[almacén]"
-                      name="almacén">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]"
+                      name="Almacén">
                       <properties>
                         <property
                           containsID="true"
@@ -4670,26 +4685,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IDVendedor]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem]"
-                      name="idItem"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IDItem]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]"
-                      name="idVendedor">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IDVendedor]"
+                      name="Copy of IDVendedor">
                       <properties>
                         <property
                           containsID="true"
@@ -4699,10 +4699,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]"
-                      name="cantidad">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad">
                       <properties>
                         <property
                           containsID="true"
@@ -4712,10 +4712,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[total]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[total]"
-                      name="total">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]"
+                      name="Copy of Total">
                       <properties>
                         <property
                           containsID="true"
@@ -4725,10 +4725,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
-                      name="totalUSD">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
+                      name="Copy of TotalUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -4738,10 +4738,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
-                      name="impuesto">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
+                      name="Copy of Impuesto">
                       <properties>
                         <property
                           containsID="true"
@@ -4751,10 +4751,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
-                      name="impuestoUSD">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]"
+                      name="Copy of ImpuestoUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -4764,10 +4764,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]"
-                      name="tipoCambio">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]"
+                      name="Copy of Tipo de cambio">
                       <properties>
                         <property
                           containsID="true"
@@ -4777,11 +4777,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]"
-                      name="ganacia">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
+                      name="Copy of Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -4791,10 +4791,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
                       dataType="decimal"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
-                      name="gananciaUSD">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
+                      name="Copy of GananciaUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -4804,11 +4804,26 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem_nuevo]"
+                      dataType="wstr"
+                      length="54"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[idItem_nuevo]"
+                      name="idItem_nuevo"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[idItem_nuevo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha factura]"
                       dataType="wstr"
                       length="152"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
-                      name="fecha">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha factura]"
+                      name="fecha factura">
                       <properties>
                         <property
                           containsID="true"
@@ -4818,11 +4833,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]"
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha vencimiento factura]"
                       dataType="wstr"
                       length="152"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]"
-                      name="fechaVencimiento">
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[fecha vencimiento factura]"
+                      name="fecha vencimiento factura">
                       <properties>
                         <property
                           containsID="true"
@@ -5027,17 +5042,17 @@
               name="noexiste"
               startId="Package\Tarea Flujo de datos\División condicional.Outputs[noexiste]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
-              name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
-            <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
               endId="Package\Tarea Flujo de datos\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada 2.Outputs[Salida de columna derivada]" />
@@ -5068,19 +5083,9 @@
               startId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-              endId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
-              name="Salida de origen de Excel"
-              startId="Package\Tarea Flujo de datos\Items.Outputs[Salida de origen de Excel]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput3]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Grupo Items 1.Outputs[Salida de origen de Excel]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
-              endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
-              name="Salida de origen de Excel"
-              startId="Package\Tarea Flujo de datos\Items 1.Outputs[Salida de origen de Excel]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3]"
@@ -5091,6 +5096,16 @@
               endId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput2]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Items 2.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
+              endId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Items.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+              endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Items 1.Outputs[Salida de origen de Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5121,25 +5136,49 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items"
-          TopLeft="601,129" />
+          Size="139,42"
+          Id="Package\Tarea Flujo de datos\Grupo Items 1"
+          TopLeft="50,638" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos\Conversión de datos"
-          TopLeft="368,27" />
+          Size="223,42"
+          Id="Package\Tarea Flujo de datos\JSON Generator Transform 1"
+          TopLeft="278,618" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Tarea Flujo de datos\JSON Generator Transform"
+          TopLeft="567,450" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Tarea Flujo de datos\CSV Source (Web API or File)"
+          TopLeft="63,28" />
         <NodeLayout
           Size="177,42"
           Id="Package\Tarea Flujo de datos\Columna derivada 1"
           TopLeft="73,206" />
         <NodeLayout
+          Size="195,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Destination 1"
+          TopLeft="579,635" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Destination"
+          TopLeft="766,552" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="368,27" />
+        <NodeLayout
           Size="139,42"
           Id="Package\Tarea Flujo de datos\Grupo Items"
           TopLeft="886,375" />
         <NodeLayout
-          Size="226,42"
-          Id="Package\Tarea Flujo de datos\CSV Source (Web API or File)"
-          TopLeft="63,28" />
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items 1"
+          TopLeft="652,320" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada 2"
+          TopLeft="295,501" />
         <NodeLayout
           Size="189,42"
           Id="Package\Tarea Flujo de datos\Conversión de datos 1"
@@ -5148,6 +5187,146 @@
           Size="168,42"
           Id="Package\Tarea Flujo de datos\Columna derivada"
           TopLeft="372,112" />
+        <NodeLayout
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items 2"
+          TopLeft="54,491" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
+          TopLeft="107,533">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="246.666666666667,85"
+              Start="0,0"
+              End="246.666666666667,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.6366874443455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.6366874443455"
+                    Point2="0,50.6366874443455"
+                    Point3="4,50.6366874443455" />
+                  <mssgle:LineSegment
+                    End="242.666666666667,50.6366874443455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="242.666666666667,50.6366874443455"
+                    Point2="246.666666666667,50.6366874443455"
+                    Point3="246.666666666667,54.6366874443455" />
+                  <mssgle:LineSegment
+                    End="246.666666666667,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+          TopLeft="955.5,417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-247.166666666667,33"
+              Start="0,0"
+              End="-247.166666666667,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6530612244898" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.6530612244898"
+                    Point2="0,19.6530612244898"
+                    Point3="-4,19.6530612244898" />
+                  <mssgle:LineSegment
+                    End="-243.166666666667,19.6530612244898" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-243.166666666667,19.6530612244898"
+                    Point2="-247.166666666667,19.6530612244898"
+                    Point3="-247.166666666667,23.6530612244898" />
+                  <mssgle:LineSegment
+                    End="-247.166666666667,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          TopLeft="705,362">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31,88"
+              Start="0,0"
+              End="-31,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="-4,44" />
+                  <mssgle:LineSegment
+                    End="-27,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27,44"
+                    Point2="-31,44"
+                    Point3="-31,48" />
+                  <mssgle:LineSegment
+                    End="-31,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="189,659">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89,-20"
+              Start="0,0"
+              End="81.5,-20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.5,0"
+                    Point2="44.5,0"
+                    Point3="44.5,-4" />
+                  <mssgle:LineSegment
+                    End="44.5,-16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.5,-16"
+                    Point2="44.5,-20"
+                    Point3="48.5,-20" />
+                  <mssgle:LineSegment
+                    End="81.5,-20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
           TopLeft="457,69">
@@ -5193,6 +5372,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+          TopLeft="383.5,543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.8333333333333,75"
+              Start="0,0"
+              End="41.8333333333333,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6794300979519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.6794300979519"
+                    Point2="0,44.6794300979519"
+                    Point3="4,44.6794300979519" />
+                  <mssgle:LineSegment
+                    End="37.8333333333333,44.6794300979519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.8333333333333,44.6794300979519"
+                    Point2="41.8333333333333,44.6794300979519"
+                    Point3="41.8333333333333,48.6794300979519" />
+                  <mssgle:LineSegment
+                    End="41.8333333333333,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
           TopLeft="372,133.5">
           <EdgeLayout.Curve>
@@ -5206,522 +5419,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-106.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[CsvSourceOutput]"
-          TopLeft="289,48.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="79,0"
-              Start="0,0"
-              End="71.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="71.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items 1"
-          TopLeft="652,320" />
-        <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items 2"
-          TopLeft="54,491" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Tarea Flujo de datos\Grupo Items 1"
-          TopLeft="50,638" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Tarea Flujo de datos\Ordenar"
-          TopLeft="135,284" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
-          TopLeft="366,265" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-          TopLeft="654,171">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-224,94"
-              Start="0,0"
-              End="-224,86.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43"
-                    Point2="0,47"
-                    Point3="-4,47" />
-                  <mssgle:LineSegment
-                    End="-220,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-220,47"
-                    Point2="-224,47"
-                    Point3="-224,51" />
-                  <mssgle:LineSegment
-                    End="-224,86.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-          TopLeft="161.5,248">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33,36"
-              Start="0,0"
-              End="33,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="4,18" />
-                  <mssgle:LineSegment
-                    End="29,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29,18"
-                    Point2="33,18"
-                    Point3="33,22" />
-                  <mssgle:LineSegment
-                    End="33,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
-          TopLeft="242,363" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Tarea Flujo de datos\División condicional"
-          TopLeft="270,440" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\Tarea Flujo de datos\JSON Generator Transform"
-          TopLeft="567,450" />
-        <NodeLayout
-          Size="223,42"
-          Id="Package\Tarea Flujo de datos\JSON Generator Transform 1"
-          TopLeft="278,618" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Tarea Flujo de datos\MongoDB Destination"
-          TopLeft="766,552" />
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Tarea Flujo de datos\MongoDB Destination 1"
-          TopLeft="579,635" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-          TopLeft="194.5,326">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="145.5,37"
-              Start="0,0"
-              End="145.5,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="4,18.5" />
-                  <mssgle:LineSegment
-                    End="141.5,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="141.5,18.5"
-                    Point2="145.5,18.5"
-                    Point3="145.5,22.5" />
-                  <mssgle:LineSegment
-                    End="145.5,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
-          TopLeft="430,307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-58.6666666666667,56"
-              Start="0,0"
-              End="-58.6666666666667,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.3279352226721" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.3279352226721"
-                    Point2="0,33.3279352226721"
-                    Point3="-4,33.3279352226721" />
-                  <mssgle:LineSegment
-                    End="-54.6666666666667,33.3279352226721" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54.6666666666667,33.3279352226721"
-                    Point2="-58.6666666666667,33.3279352226721"
-                    Point3="-58.6666666666667,37.3279352226721" />
-                  <mssgle:LineSegment
-                    End="-58.6666666666667,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
-          TopLeft="340,405">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18,35"
-              Start="0,0"
-              End="18,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="4,17.5" />
-                  <mssgle:LineSegment
-                    End="14,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14,17.5"
-                    Point2="18,17.5"
-                    Point3="18,21.5" />
-                  <mssgle:LineSegment
-                    End="18,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[existe]"
-          TopLeft="446,461">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121,10"
-              Start="0,0"
-              End="113.5,10">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="56.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.5,0"
-                    Point2="60.5,0"
-                    Point3="60.5,4" />
-                  <mssgle:LineSegment
-                    End="60.5,6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.5,6"
-                    Point2="60.5,10"
-                    Point3="64.5,10" />
-                  <mssgle:LineSegment
-                    End="113.5,10" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="46.99404296875,-15.451171875,27.0119140625,9.451171875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
-          TopLeft="705,362">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-31,88"
-              Start="0,0"
-              End="-31,80.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40"
-                    Point2="0,44"
-                    Point3="-4,44" />
-                  <mssgle:LineSegment
-                    End="-27,44" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-27,44"
-                    Point2="-31,44"
-                    Point3="-31,48" />
-                  <mssgle:LineSegment
-                    End="-31,80.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
-          TopLeft="955.5,417">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-247.166666666667,33"
-              Start="0,0"
-              End="-247.166666666667,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.6530612244898" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.6530612244898"
-                    Point2="0,19.6530612244898"
-                    Point3="-4,19.6530612244898" />
-                  <mssgle:LineSegment
-                    End="-243.166666666667,19.6530612244898" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-243.166666666667,19.6530612244898"
-                    Point2="-247.166666666667,19.6530612244898"
-                    Point3="-247.166666666667,23.6530612244898" />
-                  <mssgle:LineSegment
-                    End="-247.166666666667,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
-          TopLeft="674,492">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="185,60"
-              Start="0,0"
-              End="185,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="181,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="181,30"
-                    Point2="185,30"
-                    Point3="185,34" />
-                  <mssgle:LineSegment
-                    End="185,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada 2"
-          TopLeft="288,530" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[noexiste]"
-          TopLeft="358,482">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.5,48"
-              Start="0,0"
-              End="18.5,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="14.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.5,24"
-                    Point2="18.5,24"
-                    Point3="18.5,28" />
-                  <mssgle:LineSegment
-                    End="18.5,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-9.57296875,29,37.6459375,9.470703125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
-          TopLeft="376.5,572">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13,46"
-              Start="0,0"
-              End="13,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="4,23" />
-                  <mssgle:LineSegment
-                    End="9,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9,23"
-                    Point2="13,23"
-                    Point3="13,27" />
-                  <mssgle:LineSegment
-                    End="13,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
-          TopLeft="107,533">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="246.666666666667,85"
-              Start="0,0"
-              End="246.666666666667,77.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.6366874443455" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.6366874443455"
-                    Point2="0,50.6366874443455"
-                    Point3="4,50.6366874443455" />
-                  <mssgle:LineSegment
-                    End="242.666666666667,50.6366874443455" />
-                  <mssgle:CubicBezierSegment
-                    Point1="242.666666666667,50.6366874443455"
-                    Point2="246.666666666667,50.6366874443455"
-                    Point3="246.666666666667,54.6366874443455" />
-                  <mssgle:LineSegment
-                    End="246.666666666667,77.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
-          TopLeft="189,659">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="89,-20"
-              Start="0,0"
-              End="81.5,-20">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="40.5,0"
-                    Point2="44.5,0"
-                    Point3="44.5,-4" />
-                  <mssgle:LineSegment
-                    End="44.5,-16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.5,-16"
-                    Point2="44.5,-20"
-                    Point3="48.5,-20" />
-                  <mssgle:LineSegment
-                    End="81.5,-20" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5764,11 +5461,323 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[JsonGeneratorTransformOutput]"
+          TopLeft="674,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185,60"
+              Start="0,0"
+              End="185,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="181,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181,30"
+                    Point2="185,30"
+                    Point3="185,34" />
+                  <mssgle:LineSegment
+                    End="185,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[CsvSourceOutput]"
+          TopLeft="289,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,0"
+              Start="0,0"
+              End="71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items"
+          TopLeft="479,172" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="126,278" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+          TopLeft="161.5,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,30"
+              Start="0,0"
+              End="24,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="20,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,15"
+                    Point2="24,15"
+                    Point3="24,19" />
+                  <mssgle:LineSegment
+                    End="24,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="360,254" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
+          TopLeft="532,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-108,40"
+              Start="0,0"
+              End="-108,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-104,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-104,20"
+                    Point2="-108,20"
+                    Point3="-108,24" />
+                  <mssgle:LineSegment
+                    End="-108,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
+          TopLeft="216,342" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="245,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.6666666666667,43"
+              Start="0,0"
+              End="37.6666666666667,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.6666666666667,0"
+                    Point2="37.6666666666667,0"
+                    Point3="37.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="37.6666666666667,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          TopLeft="424,296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.6666666666667,46"
+              Start="0,0"
+              End="-78.6666666666667,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3765182186235"
+                    Point2="0,27.3765182186235"
+                    Point3="-4,27.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-74.6666666666667,27.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.6666666666667,27.3765182186235"
+                    Point2="-78.6666666666667,27.3765182186235"
+                    Point3="-78.6666666666667,31.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-78.6666666666667,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos\División condicional"
+          TopLeft="278,422" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
+          TopLeft="314,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,38"
+              Start="0,0"
+              End="52,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="48,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48,19"
+                    Point2="52,19"
+                    Point3="52,23" />
+                  <mssgle:LineSegment
+                    End="52,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[existe]"
+          TopLeft="454,443">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,28"
+              Start="0,0"
+              End="105.5,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.5,0"
+                    Point2="56.5,0"
+                    Point3="56.5,4" />
+                  <mssgle:LineSegment
+                    End="56.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5,24"
+                    Point2="56.5,28"
+                    Point3="60.5,28" />
+                  <mssgle:LineSegment
+                    End="105.5,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="42.99404296875,-15.451171875,27.0119140625,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[noexiste]"
+          TopLeft="366,464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,37"
+              Start="0,0"
+              End="17.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="13.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,18.5"
+                    Point2="17.5,18.5"
+                    Point3="17.5,22.5" />
+                  <mssgle:LineSegment
+                    End="17.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.07296875,23.5,37.6459375,9.470703125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Items">
+    design-time-name="Package\Tarea Flujo de datos\Grupo Items 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5782,6 +5791,32 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Grupo Items">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Items 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Items 2">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
