@@ -1,32 +1,32 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/13/2019 2:38:48 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SALASPC"
   DTS:CreatorName="SALASPC\Administrador"
-  DTS:DTSID="{EE4307D7-BD51-4B78-A524-67AAA7860226}"
+  DTS:DTSID="{C1856C19-4579-4556-9FBB-B6C9BEFD3FF2}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="5130"
   DTS:ObjectName="9_EMySQL2"
   DTS:PackageType="5"
   DTS:VersionBuild="35"
-  DTS:VersionGUID="{23BE6526-D648-4F3B-9026-EEC2B56D71BD}">
+  DTS:VersionGUID="{7BB5A09E-892D-43D5-BC90-807FD25819B7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[CData MySQL Connection Manager]"
       DTS:CreationName="CDATA_MYSQL"
-      DTS:DTSID="{8DAF8968-CC4D-41AD-94B3-4E89A27F2057}"
+      DTS:DTSID="{8243AA57-D5E9-4061-905A-1C6B89B14189}"
       DTS:ObjectName="CData MySQL Connection Manager">
       <DTS:ObjectData>
         <MySQLConnectionManager>
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfC29nriwFE2eu7eteu16swAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAwog7B9XHMHUdr+4Gj/JnGFjveBGaFsbd3i3LfFdTsrQAAAAAOgAAAAAIAACAAAACoJK7FqKw8219Km7JUK0LM5gZYRhwxTJKpC2hMERHCSxAAAABBxADJmW2dVnv1SKjYjYH6QAAAAMzo7AryumeGKZaJ4puJQOMS5xFC5wkfl1bI0w/rrk9mee6YVY+DK00YDgk7S1NlK/UUCq3RTG0tnjnEreMSchw</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADduIIhP92AfZjoRarb7L2HSbp0AaE5DPTcsqvaRukBYgAAAAAOgAAAAAIAACAAAACm697vNXZLjorjbVoOx+26U3ZOUhxMwjn4iJeFfNT6kxAAAABa8cU7LHuMvhVq6++6EddqQAAAANqg88y5b2l6MRAwUH9v3MwLT0tnqq9Potnb4JUokL+NNyGMCX5CbZWqERNLq5522RXnLChzKAx0yXr3yXuuUMw</Property>
           <Property
             Name="ConnectionString">rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -35,14 +35,14 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[CData MySQL Connection Manager 1]"
       DTS:CreationName="CDATA_MYSQL"
-      DTS:DTSID="{823BC700-7595-4FA9-87E8-D2027F54F00C}"
+      DTS:DTSID="{130CD49E-EC07-4101-9A49-72C9BEA2006B}"
       DTS:ObjectName="CData MySQL Connection Manager 1">
       <DTS:ObjectData>
         <MySQLConnectionManager>
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfC29nriwFE2eu7eteu16swAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACJrtQI2feR6RR5aJLEqtg1I9nTSf3/zDLwZGvMNKSZ/AAAAAAOgAAAAAIAACAAAADpSTzZPt2Uxl6F0tiTiZtU8eKXA21p+3s98PwywUhAfhAAAADavMePpxDThWcUvUNXw1swQAAAAGt6B0YnwIf21ddPU3Ikzz2apmJy9e3GcJEFTh9zUQAAtWT/jQmQeEsWe1rZDO+xaCe+gyl4TDp0xcfSr9OQhcY</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAvJMnO6aNW1oOEy9au8DmeLrH9tBy5D1W+mqZL+h2nLwAAAAAOgAAAAAIAACAAAACupE3oIiU5rJPJNtA5/O8C6ujz7spkJNehgYYyIkClKBAAAABlX7LdwGVID2icpCyYAp18QAAAALM3MEGTSO9n97uzOmoUNWuYh6wd9QUkZX/wElygfGUY9fAGOCE+FIgz4HXVR+TccONJsHtpnlvB1Q+caugEDLA</Property>
           <Property
             Name="ConnectionString">rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -51,7 +51,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{DC87A15F-F572-43B5-92B0-9D26F6A88A91}"
+      DTS:DTSID="{3ADC59AF-F750-4110-80D5-431C3D26EDBC}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -65,7 +65,7 @@
       DTS:refId="Package\9EMySQL2"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{F5D96CF6-D95F-4317-BACE-8CCB2F6E226D}"
+      DTS:DTSID="{683B3D21-08D4-4E25-A7CE-44233AF868DE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="9EMySQL2">

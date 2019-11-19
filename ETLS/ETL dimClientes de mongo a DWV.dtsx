@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/17/2019 6:50:12 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{4FD82D41-EFC5-4A52-AD25-56A9C7B905F3}"
+  DTS:DTSID="{5BAD166D-0101-44DC-A713-65686C0A6C08}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL dimClientes de mongo a DWV"
   DTS:PackageType="5"
   DTS:VersionBuild="21"
-  DTS:VersionGUID="{61B1558D-9F0A-4E9E-B051-AE5A41DF05C8}">
+  DTS:VersionGUID="{E1DCDC21-9D21-4E5F-8E9F-ADAD1F575CC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{618A9F08-0664-4CD7-894A-F2FD250C9268}"
+      DTS:DTSID="{93228EF4-E474-4B9C-897B-EBCCA54C0DAE}"
       DTS:ObjectName="DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{D8169856-6AC5-4775-AF66-886FBB78088B}"
+      DTS:DTSID="{9F5EAF48-BFA6-475D-8CEA-B72C9CFF833F}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{8974583D-6524-4F75-A44B-2BAAC6803570}"
+      DTS:DTSID="{FB275409-9E7B-4881-B9A3-C06A82C7BE63}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Flujo de datos"
@@ -7902,32 +7902,32 @@
               name="MongoDBSourceOutput"
               startId="Package\Tarea Flujo de datos\MongoDB Source 1.Outputs[MongoDBSourceOutput]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-              endId="Package\Tarea Flujo de datos\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos 3.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
               endId="Package\Tarea Flujo de datos\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada 2.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
-              endId="Package\Tarea Flujo de datos\Conversión de datos 3.Inputs[Entrada de conversión de datos]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
+              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
               endId="Package\Tarea Flujo de datos\División condicional 1.Inputs[Entrada de división condicional]"
               name="Salida de combinación de mezcla"
               startId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos3]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
               endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de conversión de datos"
               startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
               endId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 5]"
               name="Salida de conversión de datos"
               startId="Package\Tarea Flujo de datos\Conversión de datos 2.Outputs[Salida de conversión de datos]" />
@@ -7937,7 +7937,7 @@
               name="Salida de conversión de datos"
               startId="Package\Tarea Flujo de datos\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos3]"
               endId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2]"
               name="Salida de conversión de datos"
               startId="Package\Tarea Flujo de datos\Conversión de datos 3.Outputs[Salida de conversión de datos]" />
@@ -8396,7 +8396,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
           TopLeft="496.5,438">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8430,7 +8430,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos3]"
           TopLeft="490,525">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8536,7 +8536,7 @@
           Id="Package\Tarea Flujo de datos\Ordenar"
           TopLeft="586,645" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos3]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
           TopLeft="626,619">
           <EdgeLayout.Curve>
             <mssgle:Curve

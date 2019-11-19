@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/13/2019 11:37:32 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SALASPC"
   DTS:CreatorName="SALASPC\Administrador"
-  DTS:DTSID="{819CC978-279F-4140-BC28-38032CC3852C}"
+  DTS:DTSID="{BFB7C10B-1A82-4795-AA5B-815DE58BE576}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="5130"
   DTS:ObjectName="12_ETLs Maestros SQL"
   DTS:PackageType="5"
   DTS:VersionBuild="10"
-  DTS:VersionGUID="{5AFF0030-E78A-436C-8E4F-E1FCB9EEF817}">
+  DTS:VersionGUID="{C68E7EB9-A77E-4865-931B-ACEE92DC1DD4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{E5FDEAF2-4964-417B-B709-8D7176A1C7D3}"
+      DTS:DTSID="{4FDAACBC-138F-48BC-93E4-00DBCE0FC99E}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,11 +29,11 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SALASPC\ADMIN.Ventas_ProyectoFinal]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{2389EC88-5A4A-4815-80E0-E33A566A7B2C}"
+      DTS:DTSID="{D03B8C9A-8642-4D94-BD67-84493594AC25}"
       DTS:ObjectName="SALASPC\ADMIN.Ventas_ProyectoFinal">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=SALASPC\ADMIN;Initial Catalog=Ventas_ProyectoFinal;Integrated Security=True;Application Name=SSIS-12_ETLs Maestros SQL-{2389EC88-5A4A-4815-80E0-E33A566A7B2C}SALASPC\ADMIN.Ventas_ProyectoFinal;" />
+          DTS:ConnectionString="Data Source=SALASPC\ADMIN;Initial Catalog=Ventas_ProyectoFinal;Integrated Security=True;Application Name=SSIS-12_ETLs Maestros SQL-{D03B8C9A-8642-4D94-BD67-84493594AC25}SALASPC\ADMIN.Ventas_ProyectoFinal;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -43,7 +43,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{48223980-CBF3-4D33-BE85-7F16F7113AC6}"
+      DTS:DTSID="{86399C70-DC4F-4F13-B316-568E01BE1EBE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task">

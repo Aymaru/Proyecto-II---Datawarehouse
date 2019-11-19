@@ -1,35 +1,35 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/14/2019 8:17:19 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{93803BBB-55BB-42DC-A774-67198BBB0340}"
+  DTS:DTSID="{355CD026-07C3-4B75-9A2C-B7AF533F2B5E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Vendedores a mongo"
   DTS:PackageType="5"
   DTS:VersionBuild="9"
-  DTS:VersionGUID="{54CEAE71-2688-4CED-BA07-04300306C478}">
+  DTS:VersionGUID="{7717348F-22F5-4491-AA92-146BB2B149A1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{127B458D-54FC-48CE-9D5F-AF7B7B84E72E}"
+      DTS:DTSID="{BD6AA8AF-A3B3-4CA9-9AD3-7FEF240399D8}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\DATOS MAESTROS.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\DATOS MAESTROS.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{55839B6A-958B-43BA-ACD1-E51717864EB1}"
+      DTS:DTSID="{88A4462D-D6CB-4834-9A59-ED57E965D47C}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{D12CFD72-7AAB-4255-BD5D-9F8F1EEAF665}"
+      DTS:DTSID="{FA8514D1-F502-4676-84F6-9A12BEF8EA73}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Flujo de datos">
@@ -332,7 +332,7 @@
                   name="ColumnsForLookup">IDVendedor</property>
                 <property
                   dataType="System.String"
-                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;•&#x9;op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;•&#x9;multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
+                  description="Load options can be used to provide additional instruction for Update/Upsert/Delete operations.&#xA;Syntax: &lt;option1&gt;=&lt;value1&gt;;&lt;option2&gt;=&lt;value2&gt;.....&lt;optionN&gt;=&lt;valueN&gt;&#xA;Following options are supported right now for MongoDB update/upsert/delete operations &#xA;• op : [Default Value = $set] Use this option to specify additional update operator (e.g. none, $set, $push, $pull, $inc, $mul, $rename etc.). If you set op=none then you have to supply update operator along with your input document mapped to input column __DOCUMENT__ e.g. {$set : {..your document..} } . For more info visit https://docs.mongodb.org/manual/reference/operator/update/&#xA;• multi : [Default Value = true] Set this to true if you want to affect more than one records for matching input lookup keys. If you just want to update one record if multiple records returned then set this to false. &#xA;&#xA;For Update/Upsert/Delete you will need JOIN columns (set as different property) Make sure JOIN column name is correctly spelled, its found inside supplied DOCUMENT or mapped separately as input column. Also make sure its named correctly (its case-sensitive). If you are using column alias then check syntax (JOIN with alias must be like this yourColumnNameFromInputDoc AS yourColumnNameFromServerDoc). If you are joining sub document column which is nested then specify JOIN condition like this LocationInfo &gt; ZipInfo &gt; ZipCode AS LocationInfo.ZipInfo.ZipCode&#xA;"
                   expressionType="Notify"
                   name="LoadOptions">op=$set;multi=true</property>
                 <property

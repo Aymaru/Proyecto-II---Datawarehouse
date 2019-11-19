@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/15/2019 1:10:23 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{93AB3A7C-0356-414C-BAF3-458604B6D0FF}"
+  DTS:DTSID="{BDA48FD8-FEE0-4322-BDC7-84634910A757}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 301-400 a mongo"
   DTS:PackageType="5"
   DTS:VersionBuild="40"
-  DTS:VersionGUID="{9318B559-0939-47CE-AA33-57153D038BE2}">
+  DTS:VersionGUID="{E632139F-E935-4F33-8FE1-F5DD4DEC53A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{576D2042-310A-4D74-B4D2-54A0A35F294C}"
+      DTS:DTSID="{B2FE8FD1-730E-41C2-9EB9-D9A936392D69}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{D947A35B-BEF7-4CEC-BCC5-733E05A67F45}"
+      DTS:DTSID="{D3E5BCAE-E3B4-4F0D-BB33-BD8DDB8B07CF}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{A4ED77EA-16E6-4669-8F71-D46E0273E4EB}"
+      DTS:DTSID="{FDF11204-F4D0-40C0-9714-F833B4A12D2F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Flujo de datos"
@@ -5047,12 +5047,12 @@
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
               endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada 2.Outputs[Salida de columna derivada]" />
@@ -5087,22 +5087,22 @@
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Grupo Items 1.Outputs[Salida de origen de Excel]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput3]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Grupo Items.Outputs[Salida de origen de Excel]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput2]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Items 2.Outputs[Salida de origen de Excel]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
               endId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Items.Outputs[Salida de origen de Excel]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
               endId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput2]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Items 1.Outputs[Salida de origen de Excel]" />
@@ -5192,7 +5192,7 @@
           Id="Package\Tarea Flujo de datos\Items 2"
           TopLeft="54,491" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
           TopLeft="107,533">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5226,7 +5226,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
           TopLeft="955.5,417">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5260,7 +5260,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
           TopLeft="705,362">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5372,7 +5372,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
           TopLeft="383.5,543">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5526,7 +5526,7 @@
           Id="Package\Tarea Flujo de datos\Ordenar"
           TopLeft="126,278" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
           TopLeft="161.5,248">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5564,7 +5564,7 @@
           Id="Package\Tarea Flujo de datos\Ordenar 1"
           TopLeft="360,254" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
           TopLeft="532,214">
           <EdgeLayout.Curve>
             <mssgle:Curve

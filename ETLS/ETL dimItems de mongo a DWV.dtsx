@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/17/2019 6:50:12 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{F884046E-26CC-4115-B10D-56C356C0D889}"
+  DTS:DTSID="{74C13654-B931-4C5B-803D-B37363CE1629}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL dimItems de mongo a DWV"
   DTS:PackageType="5"
   DTS:VersionBuild="9"
-  DTS:VersionGUID="{5D867EE5-7C65-4FA7-8D02-2DFF57778B33}">
+  DTS:VersionGUID="{B2C1E636-5F9B-42FD-9260-264570F4B980}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D378377E-166E-4054-97E6-89A4AF3F051F}"
+      DTS:DTSID="{3E3CF838-E872-401B-8AAB-7205CFAECFBE}"
       DTS:ObjectName="DESKTOP-P0R7PMV\TEC_DB.DATAWAREHOUSE_Ventas">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{4FBFCE9B-7C13-4773-86BD-A224C6E4A1FD}"
+      DTS:DTSID="{319FA519-A7DE-4DCF-BAFD-EE86B496779D}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{FD1141E0-7E05-45A0-A3CE-A370078D7249}"
+      DTS:DTSID="{9F4FFA1F-F075-48B5-A9FD-86551ACCA9AB}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Flujo de datos"

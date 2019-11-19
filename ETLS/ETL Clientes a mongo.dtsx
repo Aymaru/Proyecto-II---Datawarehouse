@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/14/2019 7:37:14 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{E6E6C9B5-C4DD-459B-8E9D-4C435603EDA6}"
+  DTS:DTSID="{58F62FC7-833A-45C7-B23E-81B27D9BF4F4}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Clientes a mongo"
   DTS:PackageType="5"
   DTS:VersionBuild="10"
-  DTS:VersionGUID="{6D693E4A-57FF-4E31-97EF-3FF8CB15A8F9}">
+  DTS:VersionGUID="{40825177-A50F-4581-9E4F-A30151AD11F3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{BC1EA11C-262A-4720-B980-A2431621FDAE}"
+      DTS:DTSID="{CBCF31F2-B4AE-45BA-92D5-2A37CF807861}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{C6CF8361-4D5B-4F36-BE0F-24A912675E8F}"
+      DTS:DTSID="{AE89BAE4-C017-411C-A92C-84D340993EB8}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{58D48210-D36C-4985-9566-71F7DB235A11}"
+      DTS:DTSID="{999E9B5F-677C-4C9F-9FAE-D234A22B45EC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Flujo de datos">

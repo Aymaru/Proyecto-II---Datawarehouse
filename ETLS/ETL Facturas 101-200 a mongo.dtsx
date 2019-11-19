@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/12/2019 10:53:37 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-P0R7PMV"
   DTS:CreatorName="ESTUDIANTES\ayma-93"
-  DTS:DTSID="{76143C05-9E08-4BFD-93E5-F826F1692308}"
+  DTS:DTSID="{891AEB58-67F1-4129-9425-CEFD96B45B65}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 101-200 a mongo"
   DTS:PackageType="5"
   DTS:VersionBuild="51"
-  DTS:VersionGUID="{A1AF7C72-9407-485A-9BB1-8A73D455A10D}">
+  DTS:VersionGUID="{B1DAED35-B6F6-44D5-8BC2-9ED38F8B5F58}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{672E90CF-9778-41AC-AC1E-7BB5F7738BA6}"
+      DTS:DTSID="{FAB45CBD-360D-439E-97C1-106068130EBB}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MongoDB 1]"
       DTS:CreationName="ZS-MONGODB"
-      DTS:DTSID="{2838F595-F517-40F0-B5BA-BA2C1397A6A2}"
+      DTS:DTSID="{DB900B94-2DBC-455F-8201-395266EAFA7F}"
       DTS:ObjectName="MongoDB 1">
       <DTS:ObjectData>
         <ConnectionManager
@@ -48,7 +48,7 @@
       DTS:refId="Package\Importar Ventas a Mongo"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{1A9D97E7-BD11-46E5-96F3-775C43CFC8DA}"
+      DTS:DTSID="{C58C08B5-36B6-4B81-B50F-14421B01F1F5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Importar Ventas a Mongo">
