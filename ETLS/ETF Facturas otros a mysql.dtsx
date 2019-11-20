@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="ETF Facturas otros a mysql"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{EF1C9E33-D423-470E-80C7-8BAE4F0E96DD}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{C7027547-146D-4670-8FAB-37680EC25244}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAkLw4zsGdVWzyoAHEHCtitzHwQuIIhh7Hfz2spnV8dZQAAAAAOgAAAAAIAACAAAADyXiVQo2zq47A7pwccxs0eJ+EvDdsjNchFOunhARiVMhAAAABLvI2xQrSItMR27IO7zfcUQAAAAPXAMq+1ovQxxxxrgJUoYYyKq/WS9YMqsuCQPgZgiQZFGKgUgEXhvGBmP2bM5b/wUJPQ0TD5M2NOcxtHsVl0vAg</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABfvt22Dv0I/Li+rifN69RJ/tl6cNq9eeTkUvyzOZuaLQAAAAAOgAAAAAIAACAAAACqQBFfk5HQzNXX7jEoakOaH+siWDc6g1wb/C34EROjhRAAAABg2okHVg0k4fDLrcDb0vrHQAAAACNXte/ZA+2p/k3OemdExnNL1mGxG3x13n9Vj5kgx4ieWIeS0UkUl9dzXXBltG9XSQW69gZP3UZ+rfITiXTVMfs</Property>
           <Property
             Name="ConnectionString">database=ventas_proyectofinal;port=3307;rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -438,16 +438,14 @@
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TipoCambio]" />
                     <inputColumn
                       refId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Ganacia"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]" />
                     <inputColumn
                       refId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[GanaciaUSB]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="GanaciaUSB"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GanaciaUSB]" />
                   </inputColumns>
@@ -548,18 +546,14 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -780,16 +774,14 @@
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TipoCambio]" />
                     <inputColumn
                       refId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Ganacia"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]" />
                     <inputColumn
                       refId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[GanaciaUSB]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="GanaciaUSB"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GanaciaUSB]" />
                     <inputColumn
@@ -896,18 +888,14 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1159,23 +1147,19 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
                       name="Ganacia"
-                      precision="13"
-                      scale="4"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
                       name="GanaciaUSB"
-                      precision="13"
-                      scale="4"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1264,16 +1248,12 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
-                      dataType="numeric"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      dataType="r8"
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      dataType="r8"
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1385,18 +1365,14 @@
                       name="TipoCambio" />
                     <outputColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <outputColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                     <outputColumn
                       refId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1553,15 +1529,13 @@
                       lineageId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of TipoCambio]" />
                     <inputColumn
                       refId="Package\8EMySQL1\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of Ganacia"
-                      cachedPrecision="18"
                       lineageId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]" />
                     <inputColumn
                       refId="Package\8EMySQL1\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GanaciaUSB]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of GanaciaUSB"
-                      cachedPrecision="18"
                       lineageId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GanaciaUSB]" />
                   </inputColumns>
                   <externalMetadataColumns />
@@ -1859,10 +1833,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]"
-                      name="Ganacia"
-                      precision="18">
+                      name="Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -1873,10 +1846,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GanaciaUSB]"
-                      name="GanaciaUSB"
-                      precision="18">
+                      name="GanaciaUSB">
                       <properties>
                         <property
                           containsID="true"
@@ -2470,12 +2442,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]"
                       name="Copy of Ganacia"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -2491,12 +2462,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GanaciaUSB]"
                       name="Copy of GanaciaUSB"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3001,10 +2971,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\8EMySQL1\Ordenar.Inputs[Entrada de ordenación].Columns[Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Ganacia"
-                      cachedPrecision="13"
-                      cachedScale="4"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]">
                       <properties>
                         <property
@@ -3019,10 +2987,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\8EMySQL1\Ordenar.Inputs[Entrada de ordenación].Columns[GanaciaUSB]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="GanaciaUSB"
-                      cachedPrecision="13"
-                      cachedScale="4"
                       lineageId="Package\8EMySQL1\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]">
                       <properties>
                         <property
@@ -3312,11 +3278,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Ordenar.Outputs[Salida de ordenación].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Ordenar.Outputs[Salida de ordenación].Columns[Ganacia]"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4">
+                      name="Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -3327,11 +3291,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Ordenar.Outputs[Salida de ordenación].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Ordenar.Outputs[Salida de ordenación].Columns[GanaciaUSB]"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4">
+                      name="GanaciaUSB">
                       <properties>
                         <property
                           containsID="true"
@@ -3676,9 +3638,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\8EMySQL1\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of Ganacia"
-                      cachedPrecision="18"
                       lineageId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]">
                       <properties>
                         <property
@@ -3693,9 +3654,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\8EMySQL1\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of GanaciaUSB]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of GanaciaUSB"
-                      cachedPrecision="18"
                       lineageId="Package\8EMySQL1\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GanaciaUSB]">
                       <properties>
                         <property
@@ -3972,10 +3932,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
-                      name="Copy of Ganacia"
-                      precision="18">
+                      name="Copy of Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -3986,10 +3945,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\8EMySQL1\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GanaciaUSB]"
-                      name="Copy of GanaciaUSB"
-                      precision="18">
+                      name="Copy of GanaciaUSB">
                       <properties>
                         <property
                           containsID="true"

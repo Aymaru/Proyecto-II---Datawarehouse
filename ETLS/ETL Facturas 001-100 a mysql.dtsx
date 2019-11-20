@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{50F30930-5D30-4623-9527-9E332E814F51}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{3A0B560D-1A19-4E82-BD75-CF6128DE9D0D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAALOcMxiXJ2LVFGYeJ5PvL9IZ0s8QtXH9AmiAPn+KpL3AAAAAAOgAAAAAIAACAAAACLYtQwUGzxmyDXqPjRoCIKv5VN9kK6OqR+pKJABlb8NRAAAAB+Ur2IP4W2pEmqg84Fmjw0QAAAAKYuxDnW4tCDpy3c/YuOUD7GUX7hAd/FOiBjIoZwdk2Hn/Ta7082tOMkdG8Wm1/U0n6SKJxjueCjqZNZWDFGQA8</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABzxDQhJbUF6NnGfBV6X1YDxzl/XGP26cxbOyuv2jvrEQAAAAAOgAAAAAIAACAAAABfBXO/xZC6UjldXOq+hbQ+sLlatL+cr0dl0kngm2KK3RAAAACUAPAZZb4ReaCgZXMY02VmQAAAAJfe9xOk8r1bw8RcZ0FPGuJcGTte67M8iDLSJMiLspgHS04abHp7HkQ779ZtDh+xS1hJbsDZyeYsMC9N0faEtBU</Property>
           <Property
             Name="ConnectionString">database=ventas_proyectofinal;port=3307;rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -39,7 +39,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\MYSQL\EXCEL 000-100.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ayma-93\Documents\TEC\Semestre II - 2019\Bases de Datos II\Proyectos\Proyecto-II---Datawarehouse\MYSQL\EXCEL 000-100.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -209,9 +209,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Ganacia"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]" />
                     <inputColumn
@@ -247,9 +246,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[GananciaUSD]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="GananciaUSD"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]" />
                   </inputColumns>
@@ -350,18 +348,14 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -551,9 +545,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Ganacia"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]" />
                     <inputColumn
@@ -595,9 +588,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[GananciaUSD]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="GananciaUSD"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]" />
                   </inputColumns>
@@ -698,18 +690,14 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       length="255"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -961,23 +949,19 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
                       name="Ganacia"
-                      precision="13"
-                      scale="4"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
                       name="GanaciaUSB"
-                      precision="13"
-                      scale="4"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1066,16 +1050,12 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
-                      dataType="numeric"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      dataType="r8"
+                      name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
-                      dataType="numeric"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      dataType="r8"
+                      name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1187,18 +1167,14 @@
                       name="TipoCambio" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
-                      name="Ganacia"
-                      precision="13"
-                      scale="4" />
+                      name="Ganacia" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
-                      name="GanaciaUSB"
-                      precision="13"
-                      scale="4" />
+                      name="GanaciaUSB" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1550,15 +1526,13 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of Ganacia"
-                      cachedPrecision="18"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GananciaUSD]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of GananciaUSD"
-                      cachedPrecision="18"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]" />
                   </inputColumns>
                   <externalMetadataColumns />
@@ -1856,10 +1830,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganacia]"
-                      name="Ganacia"
-                      precision="18">
+                      name="Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -1870,10 +1843,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]"
-                      name="GananciaUSD"
-                      precision="18">
+                      name="GananciaUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -2267,12 +2239,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]"
                       name="Copy of Ganacia"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -2288,12 +2259,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
-                      dataType="numeric"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
                       name="Copy of GananciaUSD"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3015,9 +2985,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Ganacia]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of Ganacia"
-                      cachedPrecision="18"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganacia]">
                       <properties>
                         <property
@@ -3032,9 +3001,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of GananciaUSD]"
-                      cachedDataType="numeric"
+                      cachedDataType="r8"
                       cachedName="Copy of GananciaUSD"
-                      cachedPrecision="18"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]">
                       <properties>
                         <property
@@ -3311,10 +3279,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganacia]"
-                      name="Copy of Ganacia"
-                      precision="18">
+                      name="Copy of Ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -3325,10 +3292,9 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
-                      dataType="numeric"
+                      dataType="r8"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
-                      name="Copy of GananciaUSD"
-                      precision="18">
+                      name="Copy of GananciaUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -3831,59 +3797,13 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Tarea Flujo de datos\Origen de Excel"
-          TopLeft="160,13" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos\Conversión de datos"
-          TopLeft="141,271" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\Tarea Flujo de datos\CData MySQL Destination"
-          TopLeft="884,376" />
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Tarea Flujo de datos\CData MySQL Source"
-          TopLeft="557,58" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Tarea Flujo de datos\CData MySQL Destination 1"
-          TopLeft="540,486" />
-        <NodeLayout
           Size="119,42"
           Id="Package\Tarea Flujo de datos\Ordenar"
           TopLeft="585,168" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
-          TopLeft="373,267" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Tarea Flujo de datos\División condicional"
-          TopLeft="564,381" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[CData MySQL Source Output]"
-          TopLeft="647.75,100">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68"
-              Start="0,0"
-              End="0,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="141,271" />
         <NodeLayout
           Size="168,42"
           Id="Package\Tarea Flujo de datos\Columna derivada"
@@ -3892,50 +3812,34 @@
           Size="189,42"
           Id="Package\Tarea Flujo de datos\Conversión de datos 1"
           TopLeft="147,95" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-          TopLeft="240,55">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40"
-              Start="0,0"
-              End="0,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
-          TopLeft="238.75,137">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46"
-              Start="0,0"
-              End="0,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Tarea Flujo de datos\CData MySQL Destination 1"
+          TopLeft="540,486" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos\División condicional"
+          TopLeft="564,381" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="373,267" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
+          TopLeft="552,270" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Tarea Flujo de datos\CData MySQL Destination"
+          TopLeft="884,376" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Tarea Flujo de datos\Origen de Excel"
+          TopLeft="160,13" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Tarea Flujo de datos\CData MySQL Source"
+          TopLeft="557,58" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
           TopLeft="233.5,225">
@@ -3950,98 +3854,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
-          TopLeft="321,290">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52,0"
-              Start="0,0"
-              End="44.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="44.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
-          TopLeft="552,270" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-          TopLeft="501,289.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="51,0"
-              Start="0,0"
-              End="43.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="43.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
-          TopLeft="647.25,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
-          TopLeft="651,312">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69"
-              Start="0,0"
-              End="0,61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4075,6 +3887,28 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[CData MySQL Source Output]"
+          TopLeft="647.75,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[UpdateFactura]"
           TopLeft="650.25,423">
           <EdgeLayout.Curve>
@@ -4098,9 +3932,157 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="240,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          TopLeft="647.25,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="501,289.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,0"
+              Start="0,0"
+              End="43.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos1]"
+          TopLeft="321,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,0"
+              Start="0,0"
+              End="44.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="238.75,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
+          TopLeft="651,312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
     <Properties>
@@ -4115,23 +4097,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\CData MySQL Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

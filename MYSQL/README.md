@@ -86,8 +86,8 @@ CREATE TABLE Vista_Ventas(
 	Impuesto float  NULL,
 	ImpuestoUSB float  NULL,
 	TipoCambio int  NULL,
-	Ganacia DECIMAL(13, 4) NULL,
-	GanaciaUSB DECIMAL(13, 4) NULL,
+	Ganacia float NULL,
+	GanaciaUSB float NULL,
 	FOREIGN KEY (Item) REFERENCES Items(IdItem),
 	FOREIGN KEY (Cliente) REFERENCES Clientes(IdCliente),
 	FOREIGN KEY (Vendedor) REFERENCES Vendedores(IdVendedor)
