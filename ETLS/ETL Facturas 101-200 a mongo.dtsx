@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/12/2019 10:53:37 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 101-200 a mongo"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{B1DAED35-B6F6-44D5-8BC2-9ED38F8B5F58}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{9C3B6F35-8466-4923-BBB4-8DBDEDE7FFDB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -281,84 +281,93 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDItem]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Factura]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFactura]"
                       cachedDataType="wstr"
                       cachedLength="36"
-                      cachedName="Factura"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Factura]" />
+                      cachedName="idFactura"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of fechaVencimiento_corregida]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaVencimiento]"
                       cachedDataType="date"
-                      cachedName="Copy of fechaVencimiento_corregida"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fechaVencimiento_corregida]" />
+                      cachedName="fechaVencimiento"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of fecha_corregida]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]"
                       cachedDataType="date"
-                      cachedName="Copy of fecha_corregida"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fecha_corregida]" />
+                      cachedName="fecha"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fecha]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDCliente]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCliente]"
                       cachedDataType="wstr"
                       cachedLength="20"
-                      cachedName="IDCliente"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]" />
+                      cachedName="idCliente"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of cantidad]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of cantidad"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of cantidad]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cantidad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="cantidad"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of precio]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of precio"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of precio]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[precio]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="precio"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[precio]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of total]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of total"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of total]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[total]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="total"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[total]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Almacén]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[almacén]"
                       cachedDataType="wstr"
                       cachedLength="8"
-                      cachedName="Almacén"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]" />
+                      cachedName="almacén"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[almacén]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDVendedor]"
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idVendedor]"
                       cachedDataType="wstr"
                       cachedLength="8"
-                      cachedName="IDVendedor"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDVendedor]" />
+                      cachedName="idVendedor"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of totalUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of totalUSD"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of totalUSD]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[totalUSD]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="totalUSD"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuesto]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of impuesto"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuesto]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuesto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="impuesto"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuestoUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of impuestoUSD"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuestoUSD]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="impuestoUSD"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of tipoCambio]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of tipoCambio"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoCambio]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="tipoCambio"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ganacia]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of ganacia"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ganacia]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ganacia]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ganacia"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]" />
                     <inputColumn
-                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of gananciaUSD]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of gananciaUSD"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]" />
+                      refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[gananciaUSD]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="gananciaUSD"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[moneda]"
                       cachedDataType="wstr"
@@ -401,7 +410,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Factura]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFactura]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -414,7 +423,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of fechaVencimiento_corregida]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaVencimiento]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -427,7 +436,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of fecha_corregida]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -441,7 +450,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDCliente]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCliente]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -461,7 +470,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
                       name="cantidad">
                       <properties>
@@ -469,12 +479,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of cantidad]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cantidad]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]"
                       name="precio">
                       <properties>
@@ -482,12 +493,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of precio]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[precio]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
                       name="total">
                       <properties>
@@ -495,7 +507,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of total]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[total]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -509,7 +521,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Almacén]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[almacén]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -523,12 +535,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDVendedor]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idVendedor]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
                       name="totalUSD">
                       <properties>
@@ -536,12 +549,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of totalUSD]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[totalUSD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
                       name="impuesto">
                       <properties>
@@ -549,12 +563,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuesto]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuesto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
                       name="impuestoUSD">
                       <properties>
@@ -562,12 +577,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuestoUSD]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[impuestoUSD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
                       name="tipoCambio">
                       <properties>
@@ -575,12 +591,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of tipoCambio]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoCambio]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
                       name="ganacia">
                       <properties>
@@ -588,12 +605,13 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ganacia]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ganacia]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
                       name="gananciaUSD">
                       <properties>
@@ -601,7 +619,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of gananciaUSD]}</property>
+                          name="InputColumnID">#{Package\Importar Ventas a Mongo\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[gananciaUSD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -728,9 +746,10 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of cantidad]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of cantidad]"
                       name="Copy of cantidad"
                       truncationRowDisposition="FailComponent">
@@ -748,9 +767,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]"
                       name="Copy of precio"
                       truncationRowDisposition="FailComponent">
@@ -768,9 +788,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]"
                       name="Copy of total"
                       truncationRowDisposition="FailComponent">
@@ -788,9 +809,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]"
                       name="Copy of totalUSD"
                       truncationRowDisposition="FailComponent">
@@ -808,9 +830,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]"
                       name="Copy of impuesto"
                       truncationRowDisposition="FailComponent">
@@ -828,9 +851,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]"
                       name="Copy of impuestoUSD"
                       truncationRowDisposition="FailComponent">
@@ -848,9 +872,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]"
                       name="Copy of tipoCambio"
                       truncationRowDisposition="FailComponent">
@@ -868,9 +893,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]"
                       name="Copy of ganacia"
                       truncationRowDisposition="FailComponent">
@@ -888,9 +914,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]"
                       name="Copy of gananciaUSD"
                       truncationRowDisposition="FailComponent">
@@ -2155,17 +2182,20 @@
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="cantidad"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[precio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="precio"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
@@ -2182,32 +2212,38 @@
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[totalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[tipoCambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[ganacia]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ganacia"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform.Inputs[JsonInput3].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
                     <inputColumn
@@ -2425,17 +2461,20 @@
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="cantidad"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[precio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="precio"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
@@ -2452,32 +2491,38 @@
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[totalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[tipoCambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[ganacia]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ganacia"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\JSON Generator Transform 1.Inputs[JsonInput1].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       lineageId="Package\Importar Ventas a Mongo\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
                     <inputColumn
@@ -4119,7 +4164,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of cantidad"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of cantidad]"
                       name="cantidad">
@@ -4136,7 +4182,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[precio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of precio"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]"
                       name="precio">
@@ -4153,7 +4200,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of total"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]"
                       name="total">
@@ -4170,7 +4218,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[totalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of totalUSD"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]"
                       name="totalUSD">
@@ -4187,7 +4236,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuesto"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]"
                       name="impuesto">
@@ -4204,7 +4254,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuestoUSD"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]"
                       name="impuestoUSD">
@@ -4221,7 +4272,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[tipoCambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of tipoCambio"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]"
                       name="tipoCambio">
@@ -4238,7 +4290,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[ganacia]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ganacia"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]"
                       name="ganacia">
@@ -4255,7 +4308,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Importar Ventas a Mongo\Ordenar.Inputs[Entrada de ordenación].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of gananciaUSD"
                       lineageId="Package\Importar Ventas a Mongo\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]"
                       name="gananciaUSD">
@@ -4298,11 +4352,11 @@
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Factura]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]"
                       dataType="wstr"
                       length="36"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Factura]"
-                      name="Factura">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idFactura]"
+                      name="idFactura">
                       <properties>
                         <property
                           containsID="true"
@@ -4312,11 +4366,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]"
-                      name="IDCliente">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idCliente]"
+                      name="idCliente">
                       <properties>
                         <property
                           containsID="true"
@@ -4341,11 +4395,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[almacén]"
                       dataType="wstr"
                       length="8"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Almacén]"
-                      name="Almacén">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[almacén]"
+                      name="almacén">
                       <properties>
                         <property
                           containsID="true"
@@ -4355,11 +4409,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDVendedor]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]"
                       dataType="wstr"
                       length="8"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[IDVendedor]"
-                      name="IDVendedor">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[idVendedor]"
+                      name="idVendedor">
                       <properties>
                         <property
                           containsID="true"
@@ -4369,10 +4423,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fecha_corregida]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
                       dataType="date"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fecha_corregida]"
-                      name="Copy of fecha_corregida">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
+                      name="fecha">
                       <properties>
                         <property
                           containsID="true"
@@ -4382,10 +4436,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fechaVencimiento_corregida]"
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]"
                       dataType="date"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of fechaVencimiento_corregida]"
-                      name="Copy of fechaVencimiento_corregida">
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[fechaVencimiento]"
+                      name="fechaVencimiento">
                       <properties>
                         <property
                           containsID="true"
@@ -4395,10 +4449,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of cantidad]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of cantidad]"
-                      name="Copy of cantidad">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[cantidad]"
+                      name="cantidad">
                       <properties>
                         <property
                           containsID="true"
@@ -4408,10 +4463,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of precio]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of precio]"
-                      name="Copy of precio">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[precio]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[precio]"
+                      name="precio">
                       <properties>
                         <property
                           containsID="true"
@@ -4421,10 +4477,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of total]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of total]"
-                      name="Copy of total">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[total]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[total]"
+                      name="total">
                       <properties>
                         <property
                           containsID="true"
@@ -4434,10 +4491,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of totalUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of totalUSD]"
-                      name="Copy of totalUSD">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
+                      name="totalUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -4447,10 +4505,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuesto]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuesto]"
-                      name="Copy of impuesto">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
+                      name="impuesto">
                       <properties>
                         <property
                           containsID="true"
@@ -4460,10 +4519,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]"
-                      name="Copy of impuestoUSD">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
+                      name="impuestoUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -4473,10 +4533,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]"
-                      name="Copy of tipoCambio">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[tipoCambio]"
+                      name="tipoCambio">
                       <properties>
                         <property
                           containsID="true"
@@ -4486,10 +4547,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ganacia]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ganacia]"
-                      name="Copy of ganacia">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[ganacia]"
+                      name="ganacia">
                       <properties>
                         <property
                           containsID="true"
@@ -4499,10 +4561,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]"
-                      dataType="decimal"
-                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]"
-                      name="Copy of gananciaUSD">
+                      refId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Importar Ventas a Mongo\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
+                      name="gananciaUSD">
                       <properties>
                         <property
                           containsID="true"
@@ -5387,6 +5450,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importar Ventas a Mongo\Items 1 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importar Ventas a Mongo\Grupo Items 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Importar Ventas a Mongo\Items">
     <Properties>

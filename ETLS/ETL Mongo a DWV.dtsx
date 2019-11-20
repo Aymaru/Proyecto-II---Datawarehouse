@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL FTFacturas de mongo a DWV"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{A4D48C47-A468-47BB-B2FD-12C785E454FA}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{E5170A70-7896-4BBF-B6E0-20284A38525F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7978,9 +7978,9 @@
               startId="Package\Clientes\MongoDB Source 1.Outputs[MongoDBSourceOutput]" />
             <path
               refId="Package\Clientes.Paths[Salida de columna derivada2]"
-              endId="Package\Clientes\Conversión de datos 3.Inputs[Entrada de conversión de datos]"
+              endId="Package\Clientes\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
-              startId="Package\Clientes\Columna derivada 1.Outputs[Salida de columna derivada]" />
+              startId="Package\Clientes\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Clientes.Paths[Salida de columna derivada1]"
               endId="Package\Clientes\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
@@ -7988,9 +7988,9 @@
               startId="Package\Clientes\Columna derivada 2.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Clientes.Paths[Salida de columna derivada]"
-              endId="Package\Clientes\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
+              endId="Package\Clientes\Conversión de datos 3.Inputs[Entrada de conversión de datos]"
               name="Salida de columna derivada"
-              startId="Package\Clientes\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Clientes\Columna derivada 1.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Clientes.Paths[Salida de combinación de mezcla]"
               endId="Package\Clientes\División condicional 1.Inputs[Entrada de división condicional]"
@@ -8150,7 +8150,8 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFechaVencimiento]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[idDimVendedor]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="idDimVendedor"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idDimVendedor]" />
@@ -8163,7 +8164,8 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[tipoCambio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
@@ -8181,43 +8183,50 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="precio"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_7]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_8]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[totalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_9]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_10]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[impuestoUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_11]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ganacia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ganacia"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_12]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[gananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       externalMetadataColumnId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_13]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
@@ -8304,7 +8313,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_7]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_7">
                       <properties>
                         <property
@@ -8315,7 +8325,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_8]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_8">
                       <properties>
                         <property
@@ -8326,7 +8337,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_9]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_9">
                       <properties>
                         <property
@@ -8337,7 +8349,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_10]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_10">
                       <properties>
                         <property
@@ -8348,7 +8361,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_11]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_11">
                       <properties>
                         <property
@@ -8359,7 +8373,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_12]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_12">
                       <properties>
                         <property
@@ -8370,7 +8385,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Facturas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_13]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Param_13">
                       <properties>
                         <property
@@ -8517,7 +8533,8 @@
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of moneda]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of tipoCambio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of tipoCambio"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]" />
                     <inputColumn
@@ -8532,42 +8549,50 @@
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of cantidad]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of precio"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of precio]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of total"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of total]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of totalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of totalUSD"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of totalUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuesto"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuesto]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of impuestoUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuestoUSD"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ganacia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ganacia"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ganacia]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of gananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of gananciaUSD"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of idVendedor]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of idVendedor"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of idVendedor]" />
                   </inputColumns>
@@ -8692,7 +8717,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
                       name="tipoCambio">
                       <properties>
@@ -8731,7 +8757,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]"
                       name="precio">
                       <properties>
@@ -8744,7 +8771,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
                       name="total">
                       <properties>
@@ -8757,7 +8785,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
                       name="totalUSD">
                       <properties>
@@ -8770,7 +8799,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
                       name="impuesto">
                       <properties>
@@ -8783,7 +8813,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
                       name="impuestoUSD">
                       <properties>
@@ -8796,7 +8827,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]"
                       name="ganacia">
                       <properties>
@@ -8809,7 +8841,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
                       name="gananciaUSD">
                       <properties>
@@ -8822,7 +8855,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idDimVendedor]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idDimVendedor]"
                       name="idDimVendedor">
                       <properties>
@@ -8901,7 +8935,8 @@
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[moneda]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[tipoCambio]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="12"
                       cachedName="tipoCambio"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[tipoCambio]" />
                     <inputColumn
@@ -8912,42 +8947,50 @@
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[almacén]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[cantidad]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="12"
                       cachedName="cantidad"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[precio]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="20"
                       cachedName="precio"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[precio]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[total]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="20"
                       cachedName="total"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[total]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[totalUSD]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="12"
                       cachedName="totalUSD"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[impuesto]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="18"
                       cachedName="impuesto"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[impuestoUSD]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="10"
                       cachedName="impuestoUSD"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[ganacia]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="22"
                       cachedName="ganacia"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Facturas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[gananciaUSD]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="14"
                       cachedName="gananciaUSD"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[gananciaUSD]" />
                     <inputColumn
@@ -9091,9 +9134,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]"
                       name="Copy of tipoCambio"
                       truncationRowDisposition="FailComponent">
@@ -9151,9 +9195,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]"
                       name="Copy of precio"
                       truncationRowDisposition="FailComponent">
@@ -9171,9 +9216,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]"
                       name="Copy of total"
                       truncationRowDisposition="FailComponent">
@@ -9191,9 +9237,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]"
                       name="Copy of totalUSD"
                       truncationRowDisposition="FailComponent">
@@ -9211,9 +9258,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]"
                       name="Copy of impuesto"
                       truncationRowDisposition="FailComponent">
@@ -9231,9 +9279,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]"
                       name="Copy of impuestoUSD"
                       truncationRowDisposition="FailComponent">
@@ -9251,9 +9300,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]"
                       name="Copy of ganacia"
                       truncationRowDisposition="FailComponent">
@@ -9271,9 +9321,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]"
                       name="Copy of gananciaUSD"
                       truncationRowDisposition="FailComponent">
@@ -9291,9 +9342,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idVendedor]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idVendedor]"
                       name="Copy of idVendedor"
                       truncationRowDisposition="FailComponent">
@@ -9444,7 +9496,8 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[tipoCambio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoCambio]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
@@ -9456,43 +9509,50 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="precio"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[precio]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[precio]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[total]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[totalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[totalUSD]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[impuesto]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[impuestoUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[impuestoUSD]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[gananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[gananciaUSD]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[idDimVendedor]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="idDimVendedor"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDimVendedor]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idDimVendedor]" />
@@ -9511,7 +9571,8 @@
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[almacen]" />
                     <inputColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[ganacia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ganacia"
                       externalMetadataColumnId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ganancia]"
                       lineageId="Package\Facturas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
@@ -9562,31 +9623,38 @@
                       name="cantidad" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="precio" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="total" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="totalUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="impuesto" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="impuestoUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="ganancia" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="gananciaUSD" />
                   </externalMetadataColumns>
                 </input>
@@ -9780,7 +9848,7 @@
                   description="Specifies SQL query to access data. This setting is ignored when access mode is set to Table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from facturas</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how you want to output columns. If you select RAW JSON Document mode then only single document will output for each record in DT_NTEXT datatype"
@@ -9931,8 +9999,9 @@
                       name="almacén" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[cantidad]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[cantidad]"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[cantidad]"
                       name="cantidad" />
                     <outputColumn
@@ -9951,14 +10020,16 @@
                       name="fechaVencimiento" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[ganacia]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[ganacia]"
+                      length="22"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[ganacia]"
                       name="ganacia" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[gananciaUSD]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[gananciaUSD]"
+                      length="14"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[gananciaUSD]"
                       name="gananciaUSD" />
                     <outputColumn
@@ -9983,14 +10054,16 @@
                       name="idVendedor" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuesto]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuesto]"
+                      length="18"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuesto]"
                       name="impuesto" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuestoUSD]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuestoUSD]"
+                      length="10"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[impuestoUSD]"
                       name="impuestoUSD" />
                     <outputColumn
@@ -10009,26 +10082,30 @@
                       name="moneda" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[precio]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[precio]"
+                      length="20"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[precio]"
                       name="precio" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[tipoCambio]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[tipoCambio]"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[tipoCambio]"
                       name="tipoCambio" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[total]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[total]"
+                      length="20"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[total]"
                       name="total" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[totalUSD]"
-                      dataType="i4"
+                      dataType="wstr"
                       externalMetadataColumnId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[totalUSD]"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].Columns[totalUSD]"
                       name="totalUSD" />
                   </outputColumns>
@@ -10056,7 +10133,8 @@
                       name="almacén" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[cantidad]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       name="cantidad" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[fecha]"
@@ -10070,11 +10148,13 @@
                       name="fechaVencimiento" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[ganacia]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="22"
                       name="ganacia" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[gananciaUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="14"
                       name="gananciaUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[idCliente]"
@@ -10092,11 +10172,13 @@
                       name="idVendedor" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuesto]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="18"
                       name="impuesto" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[impuestoUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="10"
                       name="impuestoUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[item]"
@@ -10110,19 +10192,23 @@
                       name="moneda" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[precio]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="20"
                       name="precio" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[tipoCambio]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       name="tipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[total]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="20"
                       name="total" />
                     <externalMetadataColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSourceOutput].ExternalColumns[totalUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       name="totalUSD" />
                   </externalMetadataColumns>
                 </output>
@@ -10158,7 +10244,8 @@
                       name="almacén" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[cantidad]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[cantidad]"
                       name="cantidad" />
                     <outputColumn
@@ -10175,12 +10262,14 @@
                       name="fechaVencimiento" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ganacia]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="22"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[ganacia]"
                       name="ganacia" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[gananciaUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="14"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[gananciaUSD]"
                       name="gananciaUSD" />
                     <outputColumn
@@ -10202,12 +10291,14 @@
                       name="idVendedor" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[impuesto]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="18"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[impuesto]"
                       name="impuesto" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[impuestoUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="10"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[impuestoUSD]"
                       name="impuestoUSD" />
                     <outputColumn
@@ -10224,22 +10315,26 @@
                       name="moneda" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[precio]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="20"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[precio]"
                       name="precio" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[tipoCambio]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[tipoCambio]"
                       name="tipoCambio" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[total]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="20"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[total]"
                       name="total" />
                     <outputColumn
                       refId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[totalUSD]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="12"
                       lineageId="Package\Facturas\MongoDB Source.Outputs[MongoDBSource Error Output].Columns[totalUSD]"
                       name="totalUSD" />
                     <outputColumn
@@ -10459,7 +10554,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="precio"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[precio]">
                       <properties>
@@ -10475,7 +10571,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[total]">
                       <properties>
@@ -10491,7 +10588,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[totalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[totalUSD]">
                       <properties>
@@ -10507,7 +10605,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuesto]">
                       <properties>
@@ -10523,7 +10622,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[impuestoUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuestoUSD]">
                       <properties>
@@ -10539,7 +10639,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[ganancia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ganancia"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ganancia]">
                       <properties>
@@ -10555,7 +10656,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar.Inputs[Entrada de ordenación].Columns[gananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gananciaUSD]">
                       <properties>
@@ -10716,7 +10818,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[precio]"
                       name="precio">
                       <properties>
@@ -10729,7 +10832,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[total]"
                       name="total">
                       <properties>
@@ -10742,7 +10846,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[totalUSD]"
                       name="totalUSD">
                       <properties>
@@ -10755,7 +10860,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[impuesto]"
                       name="impuesto">
                       <properties>
@@ -10768,7 +10874,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[impuestoUSD]"
                       name="impuestoUSD">
                       <properties>
@@ -10781,7 +10888,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[ganancia]"
                       name="ganancia">
                       <properties>
@@ -10794,7 +10902,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar.Outputs[Salida de ordenación].Columns[gananciaUSD]"
                       name="gananciaUSD">
                       <properties>
@@ -10933,7 +11042,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of tipoCambio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of tipoCambio"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of tipoCambio]">
                       <properties>
@@ -10981,7 +11091,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of precio"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of precio]">
                       <properties>
@@ -10997,7 +11108,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of total"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of total]">
                       <properties>
@@ -11013,7 +11125,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of totalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of totalUSD"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of totalUSD]">
                       <properties>
@@ -11029,7 +11142,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuesto"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuesto]">
                       <properties>
@@ -11045,7 +11159,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of impuestoUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of impuestoUSD"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of impuestoUSD]">
                       <properties>
@@ -11061,7 +11176,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of ganacia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ganacia"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ganacia]">
                       <properties>
@@ -11077,7 +11193,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of gananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of gananciaUSD"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of gananciaUSD]">
                       <properties>
@@ -11093,7 +11210,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Facturas\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of idVendedor]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of idVendedor"
                       lineageId="Package\Facturas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of idVendedor]">
                       <properties>
@@ -11202,7 +11320,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of tipoCambio]"
                       name="Copy of tipoCambio">
                       <properties>
@@ -11241,7 +11360,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of precio]"
                       name="Copy of precio">
                       <properties>
@@ -11254,7 +11374,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of total]"
                       name="Copy of total">
                       <properties>
@@ -11267,7 +11388,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of totalUSD]"
                       name="Copy of totalUSD">
                       <properties>
@@ -11280,7 +11402,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuesto]"
                       name="Copy of impuesto">
                       <properties>
@@ -11293,7 +11416,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of impuestoUSD]"
                       name="Copy of impuestoUSD">
                       <properties>
@@ -11306,7 +11430,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ganacia]"
                       name="Copy of ganacia">
                       <properties>
@@ -11319,7 +11444,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of gananciaUSD]"
                       name="Copy of gananciaUSD">
                       <properties>
@@ -11332,7 +11458,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of idVendedor]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of idVendedor]"
                       name="Copy of idVendedor">
                       <properties>
@@ -11503,64 +11630,71 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[precio]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[precio]"
                       name="precio"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[total]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[total]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[total]"
                       name="total"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[totalUSD]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[totalUSD]"
                       name="totalUSD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[impuesto]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuesto]"
                       name="impuesto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[impuestoUSD]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[impuestoUSD]"
                       name="impuestoUSD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ganancia]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ganancia]"
                       name="ganancia"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[gananciaUSD]"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gananciaUSD]"
                       name="gananciaUSD"
                       truncationRowDisposition="FailComponent" />
@@ -11611,31 +11745,38 @@
                       name="cantidad" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="precio" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="total" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="totalUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="impuesto" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="impuestoUSD" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="ganancia" />
                     <externalMetadataColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="gananciaUSD" />
                   </externalMetadataColumns>
                 </output>
@@ -11698,37 +11839,44 @@
                       name="cantidad" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[precio]"
                       name="precio" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[total]"
                       name="total" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[totalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[totalUSD]"
                       name="totalUSD" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[impuesto]"
                       name="impuesto" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[impuestoUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[impuestoUSD]"
                       name="impuestoUSD" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ganancia]"
                       name="ganancia" />
                     <outputColumn
                       refId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[gananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Facturas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[gananciaUSD]"
                       name="gananciaUSD" />
                     <outputColumn
@@ -17005,13 +17153,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="119,42"
+          Id="Package\Clientes"
+          TopLeft="309,326" />
+        <NodeLayout
           Size="122,42"
           Id="Package\Facturas"
           TopLeft="251,416" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\Clientes"
-          TopLeft="309,326" />
+          Size="106,42"
+          Id="Package\Items"
+          TopLeft="286,220" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Vendedores"
+          TopLeft="238,112" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="368.5,368">
@@ -17046,10 +17202,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="106,42"
-          Id="Package\Items"
-          TopLeft="286,220" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="339,262">
@@ -17084,10 +17236,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Vendedores"
-          TopLeft="238,112" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="307,154">
@@ -17125,6 +17273,848 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Clientes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Clientes\Ordenar 1"
+          TopLeft="929,570" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Clientes\MongoDB Source 1"
+          TopLeft="70,42" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Clientes\Origen de OLE DB"
+          TopLeft="902,487" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Clientes\Destino de OLE DB"
+          TopLeft="1018,726" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Clientes\JSON Parser Transform 3"
+          TopLeft="360,219" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Clientes\División condicional 1"
+          TopLeft="787,726" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Clientes\Unión de todo"
+          TopLeft="539,465" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Clientes\División condicional"
+          TopLeft="52,146" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Clientes\Columna derivada 1"
+          TopLeft="210,414" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Clientes\Conversión de datos 3"
+          TopLeft="301,504" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Clientes\Comando de OLE DB"
+          TopLeft="783,832" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Clientes\JSON Parser Transform 2"
+          TopLeft="365,144" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Clientes\Combinación de mezcla"
+          TopLeft="783,653" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Clientes\Ordenar"
+          TopLeft="586,645" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Clientes\JSON Parser Transform 1"
+          TopLeft="25,478" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Clientes\Conversión de datos 1"
+          TopLeft="239,634" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Clientes\JSON Parser Transform"
+          TopLeft="57,355" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Clientes\Conversión de datos"
+          TopLeft="536,577" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Clientes\Columna derivada 2"
+          TopLeft="69,556" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Clientes\Columna derivada"
+          TopLeft="255,290" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Clientes\Conversión de datos 2"
+          TopLeft="402,396" />
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de conversión de datos]"
+          TopLeft="626,619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.5,26"
+              Start="0,0"
+              End="19.5,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="15.5,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.5,13"
+                    Point2="19.5,13"
+                    Point3="19.5,17" />
+                  <mssgle:LineSegment
+                    End="19.5,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de combinación de mezcla]"
+          TopLeft="880.25,695">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de columna derivada2]"
+          TopLeft="339,332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157.5,64"
+              Start="0,0"
+              End="157.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="153.5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153.5,32"
+                    Point2="157.5,32"
+                    Point3="157.5,36" />
+                  <mssgle:LineSegment
+                    End="157.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de columna derivada1]"
+          TopLeft="157.5,598">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.833333333333,36"
+              Start="0,0"
+              End="145.833333333333,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4186778593914" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4186778593914"
+                    Point2="0,21.4186778593914"
+                    Point3="4,21.4186778593914" />
+                  <mssgle:LineSegment
+                    End="141.833333333333,21.4186778593914" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.833333333333,21.4186778593914"
+                    Point2="145.833333333333,21.4186778593914"
+                    Point3="145.833333333333,25.4186778593914" />
+                  <mssgle:LineSegment
+                    End="145.833333333333,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de columna derivada]"
+          TopLeft="298.5,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97,48"
+              Start="0,0"
+              End="97,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="93,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93,24"
+                    Point2="97,24"
+                    Point3="97,28" />
+                  <mssgle:LineSegment
+                    End="97,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[MongoDBSourceOutput]"
+          TopLeft="157.5,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,62"
+              Start="0,0"
+              End="-17.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-13.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,31"
+                    Point2="-17.5,31"
+                    Point3="-17.5,35" />
+                  <mssgle:LineSegment
+                    End="-17.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[JsonParserTransformOutput3]"
+          TopLeft="254,376">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.5,38"
+              Start="0,0"
+              End="44.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.5,0"
+                    Point2="44.5,0"
+                    Point3="44.5,4" />
+                  <mssgle:LineSegment
+                    End="44.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[JsonParserTransformOutput2]"
+          TopLeft="128,520">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5,36"
+              Start="0,0"
+              End="29.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="25.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,18"
+                    Point2="29.5,18"
+                    Point3="29.5,22" />
+                  <mssgle:LineSegment
+                    End="29.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[JsonParserTransformOutput1]"
+          TopLeft="463,261">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.333333333333,204"
+              Start="0,0"
+              End="126.333333333333,196.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.082099596231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,117.082099596231"
+                    Point2="0,121.082099596231"
+                    Point3="4,121.082099596231" />
+                  <mssgle:LineSegment
+                    End="122.333333333333,121.082099596231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.333333333333,121.082099596231"
+                    Point2="126.333333333333,121.082099596231"
+                    Point3="126.333333333333,125.082099596231" />
+                  <mssgle:LineSegment
+                    End="126.333333333333,196.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[JsonParserTransformOutput]"
+          TopLeft="465.5,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Incompleto]"
+          TopLeft="140,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="199,102"
+              Start="0,0"
+              End="199,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="195,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="195,51"
+                    Point2="199,51"
+                    Point3="199,55" />
+                  <mssgle:LineSegment
+                    End="199,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="74.0663671875,56,50.867265625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[ConZona]"
+          TopLeft="98,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,290"
+              Start="0,0"
+              End="30,282.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.5522388059701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,95.5522388059701"
+                    Point2="0,99.5522388059701"
+                    Point3="4,99.5522388059701" />
+                  <mssgle:LineSegment
+                    End="26,99.5522388059701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,99.5522388059701"
+                    Point2="30,99.5522388059701"
+                    Point3="30,103.55223880597" />
+                  <mssgle:LineSegment
+                    End="30,282.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.96087890625,104.55223880597,39.9217578125,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[ConCanal]"
+          TopLeft="112,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5,167"
+              Start="0,0"
+              End="43.5,159.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.7027027027027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.7027027027027"
+                    Point2="0,67.7027027027027"
+                    Point3="4,67.7027027027027" />
+                  <mssgle:LineSegment
+                    End="39.5,67.7027027027027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,67.7027027027027"
+                    Point2="43.5,67.7027027027027"
+                    Point3="43.5,71.7027027027027" />
+                  <mssgle:LineSegment
+                    End="43.5,159.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.5553515625,72.7027027027027,42.389296875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Completo]"
+          TopLeft="228,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137,0"
+              Start="0,0"
+              End="129.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="129.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.20544921875,5,43.0891015625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[AgregarCliente]"
+          TopLeft="972,747">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,0"
+              Start="0,0"
+              End="38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.0444140625,5,66.588828125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[UpdateCliente]"
+          TopLeft="877.5,768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.29529296875,22.4453125,62.5905859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de Unión de todo 1]"
+          TopLeft="635.666666666667,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.66666666666663,70"
+              Start="0,0"
+              End="-9.66666666666663,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4522207267833" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4522207267833"
+                    Point2="0,28.4522207267833"
+                    Point3="-4,28.4522207267833" />
+                  <mssgle:LineSegment
+                    End="-5.66666666666663,28.4522207267833" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.66666666666663,28.4522207267833"
+                    Point2="-9.66666666666663,28.4522207267833"
+                    Point3="-9.66666666666663,32.4522207267833" />
+                  <mssgle:LineSegment
+                    End="-9.66666666666663,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de origen de OLE DB]"
+          TopLeft="990,529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de ordenación1]"
+          TopLeft="993,612">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112,41"
+              Start="0,0"
+              End="-112,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-108,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108,20.5"
+                    Point2="-112,20.5"
+                    Point3="-112,24.5" />
+                  <mssgle:LineSegment
+                    End="-112,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de ordenación]"
+          TopLeft="705,666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78,8"
+              Start="0,0"
+              End="70.5,8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,0"
+                    Point2="39,0"
+                    Point3="39,4" />
+                  <mssgle:LineSegment
+                    End="39,4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39,4"
+                    Point2="39,8"
+                    Point3="43,8" />
+                  <mssgle:LineSegment
+                    End="70.5,8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de conversión de datos3]"
+          TopLeft="490,525">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,-39"
+              Start="0,0"
+              End="41.5,-39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,0"
+                    Point2="24.5,0"
+                    Point3="24.5,-4" />
+                  <mssgle:LineSegment
+                    End="24.5,-35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,-35"
+                    Point2="24.5,-39"
+                    Point3="28.5,-39" />
+                  <mssgle:LineSegment
+                    End="41.5,-39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de conversión de datos2]"
+          TopLeft="363.666666666667,634">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="225.666666666667,-127"
+              Start="0,0"
+              End="225.666666666667,-119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-59.3125461254613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-59.3125461254613"
+                    Point2="0,-63.3125461254613"
+                    Point3="4,-63.3125461254613" />
+                  <mssgle:LineSegment
+                    End="221.666666666667,-63.3125461254613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="221.666666666667,-63.3125461254613"
+                    Point2="225.666666666667,-63.3125461254613"
+                    Point3="225.666666666667,-67.3125461254613" />
+                  <mssgle:LineSegment
+                    End="225.666666666667,-119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de conversión de datos1]"
+          TopLeft="496.5,438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.166666666667,27"
+              Start="0,0"
+              End="139.166666666667,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0255720053836" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0255720053836"
+                    Point2="0,16.0255720053836"
+                    Point3="4,16.0255720053836" />
+                  <mssgle:LineSegment
+                    End="135.166666666667,16.0255720053836" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.166666666667,16.0255720053836"
+                    Point2="139.166666666667,16.0255720053836"
+                    Point3="139.166666666667,20.0255720053836" />
+                  <mssgle:LineSegment
+                    End="139.166666666667,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Facturas">
     <LayoutInfo>
@@ -17460,814 +18450,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Clientes">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Clientes\Ordenar 1"
-          TopLeft="929,570" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Clientes\MongoDB Source 1"
-          TopLeft="70,42" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Clientes\Origen de OLE DB"
-          TopLeft="902,487" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Clientes\Destino de OLE DB"
-          TopLeft="1018,726" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Clientes\JSON Parser Transform 3"
-          TopLeft="360,219" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Clientes\División condicional 1"
-          TopLeft="787,726" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Clientes\Unión de todo"
-          TopLeft="539,465" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Clientes\División condicional"
-          TopLeft="52,146" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Clientes\Columna derivada 1"
-          TopLeft="210,414" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Clientes\Conversión de datos 3"
-          TopLeft="301,504" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Clientes\Comando de OLE DB"
-          TopLeft="783,832" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Clientes\JSON Parser Transform 2"
-          TopLeft="365,144" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Clientes\Combinación de mezcla"
-          TopLeft="783,653" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Clientes\Ordenar"
-          TopLeft="586,645" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Clientes\JSON Parser Transform 1"
-          TopLeft="25,478" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Clientes\Conversión de datos 1"
-          TopLeft="239,634" />
-        <NodeLayout
-          Size="197,42"
-          Id="Package\Clientes\JSON Parser Transform"
-          TopLeft="57,355" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Clientes\Conversión de datos"
-          TopLeft="536,577" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Clientes\Columna derivada 2"
-          TopLeft="69,556" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Clientes\Columna derivada"
-          TopLeft="255,290" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Clientes\Conversión de datos 2"
-          TopLeft="402,396" />
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de conversión de datos]"
-          TopLeft="626,619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="19.5,26"
-              Start="0,0"
-              End="19.5,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9"
-                    Point2="0,13"
-                    Point3="4,13" />
-                  <mssgle:LineSegment
-                    End="15.5,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.5,13"
-                    Point2="19.5,13"
-                    Point3="19.5,17" />
-                  <mssgle:LineSegment
-                    End="19.5,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de combinación de mezcla]"
-          TopLeft="880.25,695">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de columna derivada2]"
-          TopLeft="298.5,456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="97,48"
-              Start="0,0"
-              End="97,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="93,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="93,24"
-                    Point2="97,24"
-                    Point3="97,28" />
-                  <mssgle:LineSegment
-                    End="97,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de columna derivada1]"
-          TopLeft="157.5,598">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="145.833333333333,36"
-              Start="0,0"
-              End="145.833333333333,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.4186778593914" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.4186778593914"
-                    Point2="0,21.4186778593914"
-                    Point3="4,21.4186778593914" />
-                  <mssgle:LineSegment
-                    End="141.833333333333,21.4186778593914" />
-                  <mssgle:CubicBezierSegment
-                    Point1="141.833333333333,21.4186778593914"
-                    Point2="145.833333333333,21.4186778593914"
-                    Point3="145.833333333333,25.4186778593914" />
-                  <mssgle:LineSegment
-                    End="145.833333333333,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de columna derivada]"
-          TopLeft="339,332">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="157.5,64"
-              Start="0,0"
-              End="157.5,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28"
-                    Point2="0,32"
-                    Point3="4,32" />
-                  <mssgle:LineSegment
-                    End="153.5,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="153.5,32"
-                    Point2="157.5,32"
-                    Point3="157.5,36" />
-                  <mssgle:LineSegment
-                    End="157.5,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[MongoDBSourceOutput]"
-          TopLeft="157.5,84">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.5,62"
-              Start="0,0"
-              End="-17.5,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27"
-                    Point2="0,31"
-                    Point3="-4,31" />
-                  <mssgle:LineSegment
-                    End="-13.5,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5,31"
-                    Point2="-17.5,31"
-                    Point3="-17.5,35" />
-                  <mssgle:LineSegment
-                    End="-17.5,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[JsonParserTransformOutput3]"
-          TopLeft="254,376">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.5,38"
-              Start="0,0"
-              End="44.5,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="40.5,0"
-                    Point2="44.5,0"
-                    Point3="44.5,4" />
-                  <mssgle:LineSegment
-                    End="44.5,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[JsonParserTransformOutput2]"
-          TopLeft="128,520">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="29.5,36"
-              Start="0,0"
-              End="29.5,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="4,18" />
-                  <mssgle:LineSegment
-                    End="25.5,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5,18"
-                    Point2="29.5,18"
-                    Point3="29.5,22" />
-                  <mssgle:LineSegment
-                    End="29.5,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[JsonParserTransformOutput1]"
-          TopLeft="463,261">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="126.333333333333,204"
-              Start="0,0"
-              End="126.333333333333,196.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,117.082099596231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,117.082099596231"
-                    Point2="0,121.082099596231"
-                    Point3="4,121.082099596231" />
-                  <mssgle:LineSegment
-                    End="122.333333333333,121.082099596231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="122.333333333333,121.082099596231"
-                    Point2="126.333333333333,121.082099596231"
-                    Point3="126.333333333333,125.082099596231" />
-                  <mssgle:LineSegment
-                    End="126.333333333333,196.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[JsonParserTransformOutput]"
-          TopLeft="465.5,186">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33"
-              Start="0,0"
-              End="0,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Incompleto]"
-          TopLeft="140,188">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="199,102"
-              Start="0,0"
-              End="199,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47"
-                    Point2="0,51"
-                    Point3="4,51" />
-                  <mssgle:LineSegment
-                    End="195,51" />
-                  <mssgle:CubicBezierSegment
-                    Point1="195,51"
-                    Point2="199,51"
-                    Point3="199,55" />
-                  <mssgle:LineSegment
-                    End="199,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="74.0663671875,56,50.867265625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[ConZona]"
-          TopLeft="98,188">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30,290"
-              Start="0,0"
-              End="30,282.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,95.5522388059701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,95.5522388059701"
-                    Point2="0,99.5522388059701"
-                    Point3="4,99.5522388059701" />
-                  <mssgle:LineSegment
-                    End="26,99.5522388059701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26,99.5522388059701"
-                    Point2="30,99.5522388059701"
-                    Point3="30,103.55223880597" />
-                  <mssgle:LineSegment
-                    End="30,282.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-4.96087890625,104.55223880597,39.9217578125,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[ConCanal]"
-          TopLeft="112,188">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="43.5,167"
-              Start="0,0"
-              End="43.5,159.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63.7027027027027" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,63.7027027027027"
-                    Point2="0,67.7027027027027"
-                    Point3="4,67.7027027027027" />
-                  <mssgle:LineSegment
-                    End="39.5,67.7027027027027" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39.5,67.7027027027027"
-                    Point2="43.5,67.7027027027027"
-                    Point3="43.5,71.7027027027027" />
-                  <mssgle:LineSegment
-                    End="43.5,159.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0.5553515625,72.7027027027027,42.389296875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Completo]"
-          TopLeft="228,166">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137,0"
-              Start="0,0"
-              End="129.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="129.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="43.20544921875,5,43.0891015625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[AgregarCliente]"
-          TopLeft="972,747">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="46,0"
-              Start="0,0"
-              End="38.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="38.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.0444140625,5,66.588828125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[UpdateCliente]"
-          TopLeft="877.5,768">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.29529296875,22.4453125,62.5905859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de Unión de todo 1]"
-          TopLeft="635.666666666667,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.66666666666663,70"
-              Start="0,0"
-              End="-9.66666666666663,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.4522207267833" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.4522207267833"
-                    Point2="0,28.4522207267833"
-                    Point3="-4,28.4522207267833" />
-                  <mssgle:LineSegment
-                    End="-5.66666666666663,28.4522207267833" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.66666666666663,28.4522207267833"
-                    Point2="-9.66666666666663,28.4522207267833"
-                    Point3="-9.66666666666663,32.4522207267833" />
-                  <mssgle:LineSegment
-                    End="-9.66666666666663,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de origen de OLE DB]"
-          TopLeft="990,529">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de ordenación1]"
-          TopLeft="993,612">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-112,41"
-              Start="0,0"
-              End="-112,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
-                  <mssgle:LineSegment
-                    End="-108,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-108,20.5"
-                    Point2="-112,20.5"
-                    Point3="-112,24.5" />
-                  <mssgle:LineSegment
-                    End="-112,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de ordenación]"
-          TopLeft="705,666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78,8"
-              Start="0,0"
-              End="70.5,8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35,0"
-                    Point2="39,0"
-                    Point3="39,4" />
-                  <mssgle:LineSegment
-                    End="39,4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39,4"
-                    Point2="39,8"
-                    Point3="43,8" />
-                  <mssgle:LineSegment
-                    End="70.5,8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de conversión de datos3]"
-          TopLeft="490,525">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="49,-39"
-              Start="0,0"
-              End="41.5,-39">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="20.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.5,0"
-                    Point2="24.5,0"
-                    Point3="24.5,-4" />
-                  <mssgle:LineSegment
-                    End="24.5,-35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.5,-35"
-                    Point2="24.5,-39"
-                    Point3="28.5,-39" />
-                  <mssgle:LineSegment
-                    End="41.5,-39" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de conversión de datos2]"
-          TopLeft="363.666666666667,634">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="225.666666666667,-127"
-              Start="0,0"
-              End="225.666666666667,-119.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-59.3125461254613" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-59.3125461254613"
-                    Point2="0,-63.3125461254613"
-                    Point3="4,-63.3125461254613" />
-                  <mssgle:LineSegment
-                    End="221.666666666667,-63.3125461254613" />
-                  <mssgle:CubicBezierSegment
-                    Point1="221.666666666667,-63.3125461254613"
-                    Point2="225.666666666667,-63.3125461254613"
-                    Point3="225.666666666667,-67.3125461254613" />
-                  <mssgle:LineSegment
-                    End="225.666666666667,-119.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Clientes.Paths[Salida de conversión de datos1]"
-          TopLeft="496.5,438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="139.166666666667,27"
-              Start="0,0"
-              End="139.166666666667,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0255720053836" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0255720053836"
-                    Point2="0,16.0255720053836"
-                    Point3="4,16.0255720053836" />
-                  <mssgle:LineSegment
-                    End="135.166666666667,16.0255720053836" />
-                  <mssgle:CubicBezierSegment
-                    Point1="135.166666666667,16.0255720053836"
-                    Point2="139.166666666667,16.0255720053836"
-                    Point3="139.166666666667,20.0255720053836" />
-                  <mssgle:LineSegment
-                    End="139.166666666667,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\Items">
     <LayoutInfo>
       <GraphLayout
@@ -18383,7 +18565,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18417,7 +18601,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18451,7 +18637,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18485,7 +18673,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18519,7 +18709,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18553,7 +18745,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18575,7 +18769,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18609,7 +18805,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18723,7 +18921,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18751,7 +18951,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18773,7 +18975,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18807,7 +19011,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18913,7 +19119,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18947,7 +19155,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 401-500 a mysql"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{991D8950-D2E1-42D0-8301-8A76B4B790D1}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{465505C0-16CB-4328-BEA7-C5A6E96F3505}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           <Property
             Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADzc8cvZ4TWaVoz2AxkyBWytmIGuelsAmWPk1DxSPYpnQAAAAAOgAAAAAIAACAAAADCCxrmM84A8TPTn0rR9w2c9xjJI43swsf99stzOFyWMRAAAACOh9ZwO8MU/NqurRGVgF5hQAAAAP2/DFo4rKRlvPw6QPc39y8goMFeCicWbH/5qTtgeIVhLAzMItamLa3KfFPNrXtqZqOtLATetIKX2BMfmognW+g</Property>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzJPqzC2+U02nvDE67HaP5QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC2MgnAfxN3yp47FSBv0ArkaBeadJd/O8iynNqdv8krXQAAAAAOgAAAAAIAACAAAABU2SXgw6hSP3PdMQoyUMP8Twpw60SK/Iw+GHTvA7j5ThAAAAC085bdjWl+vPh6kSQrPmRvQAAAABn+d5BPAH/334wMJ4bWGhU7Z1/4xFBSal3jif+t3I8VclPaDiE/3/gieaXAW+z1hHKroYG2V1E3vFnnW7YKIhg</Property>
           <Property
             Name="ConnectionString">database=ventas_proyectofinal;port=3307;rtk='';server=localhost;user=root</Property>
         </MySQLConnectionManager>
@@ -855,13 +855,15 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Precio"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Precio]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Precio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Total"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Total]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Total]" />
@@ -879,19 +881,22 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Vendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[ImpuestoUSB]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ImpuestoUSB"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[ImpuestoUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ImpuestoUSB]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Impuesto"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Impuesto]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[TotalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="TotalUSD"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[TotalUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalUSD]" />
@@ -903,13 +908,15 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[Ganancia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Ganancia"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganancia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].Columns[GananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="GananciaUSD"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]" />
@@ -971,53 +978,53 @@
                       name="Moneda" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Precio]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Precio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Total]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Total" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Almacen]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="Almacen" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Vendedor]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="Vendedor" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[TotalUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="TotalUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Impuesto]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Impuesto" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[ImpuestoUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="ImpuestoUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[TipoCambio]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
@@ -1191,13 +1198,15 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Precio"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Precio]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Precio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Total"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Total]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Total]" />
@@ -1215,13 +1224,15 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Vendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[ImpuestoUSB]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="ImpuestoUSB"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[ImpuestoUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ImpuestoUSB]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Impuesto"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Impuesto]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]" />
@@ -1233,7 +1244,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdFacturaExistente]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[TotalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="TotalUSD"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[TotalUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalUSD]" />
@@ -1245,13 +1257,15 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[Ganancia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Ganancia"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganancia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].Columns[GananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="GananciaUSD"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]" />
@@ -1313,53 +1327,53 @@
                       name="Moneda" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Precio]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Precio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Total]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Total" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Almacen]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="Almacen" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Vendedor]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="Vendedor" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[TotalUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="TotalUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Impuesto]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Impuesto" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[ImpuestoUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="ImpuestoUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[TipoCambio]"
                       dataType="i4"
-                      length="255"
+                      length="50"
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[Ganacia]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Destination 1.Inputs[CData MySQL Destination Input].ExternalColumns[GanaciaUSB]"
-                      dataType="r8"
-                      length="255"
+                      dataType="wstr"
+                      length="50"
                       name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </input>
@@ -1548,17 +1562,19 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Precio]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Precio]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Precio]"
                       name="Precio"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Total]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Total]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Total]"
                       name="Total"
                       truncationRowDisposition="FailComponent" />
@@ -1580,25 +1596,28 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[TotalUSB]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[TotalUSB]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[TotalUSB]"
                       name="TotalUSB"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Impuesto]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Impuesto]"
                       name="Impuesto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[ImpuestoUSB]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[ImpuestoUSB]"
                       name="ImpuestoUSB"
                       truncationRowDisposition="FailComponent" />
@@ -1612,17 +1631,19 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[Ganacia]"
                       name="Ganacia"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].Columns[GanaciaUSB]"
                       name="GanaciaUSB"
                       truncationRowDisposition="FailComponent" />
@@ -1681,11 +1702,13 @@
                       name="Moneda" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Precio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Total" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Almacen]"
@@ -1697,15 +1720,18 @@
                       name="Vendedor" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[TotalUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="TotalUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Impuesto" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="ImpuestoUSB" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[TipoCambio]"
@@ -1713,11 +1739,13 @@
                       name="TipoCambio" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[Ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="Ganacia" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Output].ExternalColumns[GanaciaUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="GanaciaUSB" />
                   </externalMetadataColumns>
                 </output>
@@ -1790,12 +1818,14 @@
                       name="Moneda" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Precio]"
                       name="Precio" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Total]"
                       name="Total" />
                     <outputColumn
@@ -1810,17 +1840,20 @@
                       name="Vendedor" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[TotalUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[TotalUSB]"
                       name="TotalUSB" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Impuesto]"
                       name="Impuesto" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[ImpuestoUSB]"
                       name="ImpuestoUSB" />
                     <outputColumn
@@ -1830,12 +1863,14 @@
                       name="TipoCambio" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[Ganacia]"
                       name="Ganacia" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\CData MySQL Source.Outputs[CData MySQL Source Error Output].Columns[GanaciaUSB]"
                       name="GanaciaUSB" />
                     <outputColumn
@@ -2149,12 +2184,14 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Precio"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Precio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Total"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Total]" />
                     <inputColumn
@@ -2169,17 +2206,20 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Vendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of TotalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of TotalUSD"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ImpuestoUSB]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ImpuestoUSB"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSB]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Impuesto"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Impuesto]" />
                     <inputColumn
@@ -2189,12 +2229,14 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Ganancia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Ganancia"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganancia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of GananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]" />
                   </inputColumns>
@@ -2389,7 +2431,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Precio]"
                       name="Precio">
                       <properties>
@@ -2402,7 +2445,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Total]"
                       name="Total">
                       <properties>
@@ -2441,7 +2485,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalUSD]"
                       name="TotalUSD">
                       <properties>
@@ -2454,7 +2499,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ImpuestoUSB]"
                       name="ImpuestoUSB">
                       <properties>
@@ -2467,7 +2513,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Impuesto]"
                       name="Impuesto">
                       <properties>
@@ -2493,7 +2540,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Ganancia]"
                       name="Ganancia">
                       <properties>
@@ -2506,7 +2554,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[GananciaUSD]"
                       name="GananciaUSD">
                       <properties>
@@ -2739,9 +2788,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Precio]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Precio]"
                       name="Copy of Precio"
                       truncationRowDisposition="FailComponent">
@@ -2759,9 +2809,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]"
                       name="Copy of Total"
                       truncationRowDisposition="FailComponent">
@@ -2819,9 +2870,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]"
                       name="Copy of TotalUSD"
                       truncationRowDisposition="FailComponent">
@@ -2839,9 +2891,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSB]"
                       name="Copy of ImpuestoUSB"
                       truncationRowDisposition="FailComponent">
@@ -2859,9 +2912,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]"
                       name="Copy of Impuesto"
                       truncationRowDisposition="FailComponent">
@@ -2899,9 +2953,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganancia]"
                       name="Copy of Ganancia"
                       truncationRowDisposition="FailComponent">
@@ -2919,9 +2974,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
                       name="Copy of GananciaUSD"
                       truncationRowDisposition="FailComponent">
@@ -3415,7 +3471,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Precio]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Precio"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Precio]">
                       <properties>
@@ -3431,7 +3488,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Total]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Total"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]">
                       <properties>
@@ -3447,7 +3505,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Almacen]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Almacen"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Almacen]">
                       <properties>
@@ -3463,7 +3522,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Vendedor]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Vendedor"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Vendedor]">
                       <properties>
@@ -3479,7 +3539,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of TotalUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of TotalUSD"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]">
                       <properties>
@@ -3495,7 +3556,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of ImpuestoUSB]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ImpuestoUSB"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSB]">
                       <properties>
@@ -3511,7 +3573,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Impuesto]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Impuesto"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]">
                       <properties>
@@ -3543,7 +3606,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of Ganancia]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Ganancia"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Ganancia]">
                       <properties>
@@ -3559,7 +3623,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Copy of GananciaUSD]"
-                      cachedDataType="r8"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of GananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]">
                       <properties>
@@ -3733,7 +3798,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Precio]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Precio]"
                       name="Copy of Precio">
                       <properties>
@@ -3746,7 +3812,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Total]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Total]"
                       name="Copy of Total">
                       <properties>
@@ -3785,7 +3852,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
                       name="Copy of TotalUSD">
                       <properties>
@@ -3798,7 +3866,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSB]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSB]"
                       name="Copy of ImpuestoUSB">
                       <properties>
@@ -3811,7 +3880,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
                       name="Copy of Impuesto">
                       <properties>
@@ -3837,7 +3907,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganancia]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of Ganancia]"
                       name="Copy of Ganancia">
                       <properties>
@@ -3850,7 +3921,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
                       name="Copy of GananciaUSD">
                       <properties>
@@ -4335,67 +4407,69 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="119,42"
-          Id="Package\Tarea Flujo de datos\Ordenar"
-          TopLeft="477,244" />
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Tarea Flujo de datos\CData MySQL Source"
-          TopLeft="443,112" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[CData MySQL Source Output]"
-          TopLeft="536.75,154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,90"
-              Start="0,0"
-              End="0,82.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,82.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Tarea Flujo de datos\Origen de Excel"
-          TopLeft="174,106" />
+          Size="128,42"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="190,345" />
         <NodeLayout
           Size="180,42"
           Id="Package\Tarea Flujo de datos\Conversión de datos"
           TopLeft="171,264" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
-          TopLeft="190,345" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
-          TopLeft="445,348" />
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada"
+          TopLeft="172,184" />
         <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos\División condicional"
           TopLeft="449,449" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\Tarea Flujo de datos\CData MySQL Destination"
-          TopLeft="709,453" />
-        <NodeLayout
           Size="217,42"
           Id="Package\Tarea Flujo de datos\CData MySQL Destination 1"
           TopLeft="424,545" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada"
-          TopLeft="172,184" />
+          Size="119,42"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="477,244" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Tarea Flujo de datos\Origen de Excel"
+          TopLeft="174,106" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
+          TopLeft="445,348" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Tarea Flujo de datos\CData MySQL Destination"
+          TopLeft="709,453" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Tarea Flujo de datos\CData MySQL Source"
+          TopLeft="443,112" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[UpdateFactura]"
+          TopLeft="534.75,491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.5173046875,17.4453125,65.034609375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
           TopLeft="254.25,148">
@@ -4410,72 +4484,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-          TopLeft="258.5,226">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
-          TopLeft="257.5,306">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39"
-              Start="0,0"
-              End="0,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-          TopLeft="318,367.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127,0"
-              Start="0,0"
-              End="119.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="119.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4507,6 +4515,50 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="318,367.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127,0"
+              Start="0,0"
+              End="119.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="119.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="257.5,306">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
           TopLeft="540,390">
           <EdgeLayout.Curve>
@@ -4520,6 +4572,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="258.5,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4553,34 +4627,32 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[UpdateFactura]"
-          TopLeft="534.75,491">
+          Id="Package\Tarea Flujo de datos.Paths[CData MySQL Source Output]"
+          TopLeft="536.75,154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,90"
               Start="0,0"
-              End="0,46.5">
+              End="0,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,82.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.5173046875,17.4453125,65.034609375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\CData MySQL Source">
+    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4609,7 +4681,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\CData MySQL Destination 1">
+    design-time-name="Package\Tarea Flujo de datos\CData MySQL Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/15/2019 1:10:23 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="22538"
   DTS:ObjectName="ETL Facturas 301-400 a mongo"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{E632139F-E935-4F33-8FE1-F5DD4DEC53A3}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{23871BE2-C2BE-405B-8333-AA7FB82443FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -510,7 +510,8 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[IDCliente]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Cantidad"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]" />
                     <inputColumn
@@ -521,7 +522,8 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Total"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]" />
                     <inputColumn
@@ -537,22 +539,26 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IDVendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of TotalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of TotalUSD"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Impuesto"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of ImpuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ImpuestoUSD"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of Tipo de cambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Tipo de cambio"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]" />
                     <inputColumn
@@ -563,7 +569,8 @@
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Ganacia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of GananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of GananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]" />
                   </inputColumns>
@@ -663,7 +670,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]"
                       name="cantidad">
                       <properties>
@@ -690,7 +698,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]"
                       name="total">
                       <properties>
@@ -730,7 +739,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]"
                       name="totalUSD">
                       <properties>
@@ -743,7 +753,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]"
                       name="impuesto">
                       <properties>
@@ -756,7 +767,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]"
                       name="impuestoUSD">
                       <properties>
@@ -769,7 +781,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]"
                       name="tipoCambio">
                       <properties>
@@ -796,7 +809,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]"
                       name="gananciaUSD">
                       <properties>
@@ -1051,9 +1065,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Cantidad]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Cantidad]"
                       name="Copy of Cantidad"
                       truncationRowDisposition="FailComponent">
@@ -1071,9 +1086,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]"
                       name="Copy of Total"
                       truncationRowDisposition="FailComponent">
@@ -1091,9 +1107,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]"
                       name="Copy of TotalUSD"
                       truncationRowDisposition="FailComponent">
@@ -1111,9 +1128,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]"
                       name="Copy of Impuesto"
                       truncationRowDisposition="FailComponent">
@@ -1131,9 +1149,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSD]"
                       name="Copy of ImpuestoUSD"
                       truncationRowDisposition="FailComponent">
@@ -1151,9 +1170,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Tipo de cambio]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Tipo de cambio]"
                       name="Copy of Tipo de cambio"
                       truncationRowDisposition="FailComponent">
@@ -1192,9 +1212,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]"
                       name="Copy of GananciaUSD"
                       truncationRowDisposition="FailComponent">
@@ -3404,7 +3425,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="cantidad"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
@@ -3415,7 +3437,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
@@ -3431,22 +3454,26 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[totalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[tipoCambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
                     <inputColumn
@@ -3457,7 +3484,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform.Inputs[JsonInput1].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
                     <inputColumn
@@ -3669,7 +3697,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idItem]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="cantidad"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cantidad]" />
                     <inputColumn
@@ -3680,7 +3709,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[moneda]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="total"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[total]" />
                     <inputColumn
@@ -3696,22 +3726,26 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idVendedor]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[totalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="totalUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[totalUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuesto"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuesto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[impuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="impuestoUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[impuestoUSD]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[tipoCambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="tipoCambio"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoCambio]" />
                     <inputColumn
@@ -3722,7 +3756,8 @@
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ganacia]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\JSON Generator Transform 1.Inputs[JsonInput1].Columns[gananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="gananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[gananciaUSD]" />
                     <inputColumn
@@ -4442,7 +4477,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Cantidad]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Cantidad"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Cantidad]">
                       <properties>
@@ -4458,7 +4494,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Total]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Total"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Total]">
                       <properties>
@@ -4474,7 +4511,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of TotalUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of TotalUSD"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalUSD]">
                       <properties>
@@ -4490,7 +4528,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Impuesto]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Impuesto"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Impuesto]">
                       <properties>
@@ -4506,7 +4545,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of ImpuestoUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of ImpuestoUSD"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ImpuestoUSD]">
                       <properties>
@@ -4522,7 +4562,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of Tipo de cambio]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of Tipo de cambio"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Tipo de cambio]">
                       <properties>
@@ -4555,7 +4596,8 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of GananciaUSD]"
-                      cachedDataType="decimal"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="Copy of GananciaUSD"
                       lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of GananciaUSD]">
                       <properties>
@@ -4700,7 +4742,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Cantidad]"
                       name="Copy of Cantidad">
                       <properties>
@@ -4713,7 +4756,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Total]"
                       name="Copy of Total">
                       <properties>
@@ -4726,7 +4770,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of TotalUSD]"
                       name="Copy of TotalUSD">
                       <properties>
@@ -4739,7 +4784,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Impuesto]"
                       name="Copy of Impuesto">
                       <properties>
@@ -4752,7 +4798,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of ImpuestoUSD]"
                       name="Copy of ImpuestoUSD">
                       <properties>
@@ -4765,7 +4812,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of Tipo de cambio]"
                       name="Copy of Tipo de cambio">
                       <properties>
@@ -4792,7 +4840,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
-                      dataType="decimal"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Copy of GananciaUSD]"
                       name="Copy of GananciaUSD">
                       <properties>
@@ -5136,13 +5185,49 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="223,42"
+          Id="Package\Tarea Flujo de datos\JSON Generator Transform 1"
+          TopLeft="278,618" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Tarea Flujo de datos\Grupo Items"
+          TopLeft="886,375" />
+        <NodeLayout
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items 1"
+          TopLeft="652,320" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="360,254" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos 1"
+          TopLeft="69,113" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada 1"
+          TopLeft="73,206" />
+        <NodeLayout
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items 2"
+          TopLeft="54,491" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="126,278" />
+        <NodeLayout
           Size="139,42"
           Id="Package\Tarea Flujo de datos\Grupo Items 1"
           TopLeft="50,638" />
         <NodeLayout
-          Size="223,42"
-          Id="Package\Tarea Flujo de datos\JSON Generator Transform 1"
-          TopLeft="278,618" />
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos\División condicional"
+          TopLeft="278,422" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
+          TopLeft="216,342" />
         <NodeLayout
           Size="214,42"
           Id="Package\Tarea Flujo de datos\JSON Generator Transform"
@@ -5153,44 +5238,96 @@
           TopLeft="63,28" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada 1"
-          TopLeft="73,206" />
+          Id="Package\Tarea Flujo de datos\Columna derivada 2"
+          TopLeft="295,501" />
         <NodeLayout
-          Size="195,42"
-          Id="Package\Tarea Flujo de datos\MongoDB Destination 1"
-          TopLeft="579,635" />
+          Size="106,42"
+          Id="Package\Tarea Flujo de datos\Items"
+          TopLeft="479,172" />
         <NodeLayout
           Size="186,42"
           Id="Package\Tarea Flujo de datos\MongoDB Destination"
           TopLeft="766,552" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos\Conversión de datos"
-          TopLeft="368,27" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Tarea Flujo de datos\Grupo Items"
-          TopLeft="886,375" />
-        <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items 1"
-          TopLeft="652,320" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada 2"
-          TopLeft="295,501" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Tarea Flujo de datos\Conversión de datos 1"
-          TopLeft="69,113" />
+          Size="195,42"
+          Id="Package\Tarea Flujo de datos\MongoDB Destination 1"
+          TopLeft="579,635" />
         <NodeLayout
           Size="168,42"
           Id="Package\Tarea Flujo de datos\Columna derivada"
           TopLeft="372,112" />
         <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items 2"
-          TopLeft="54,491" />
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="368,27" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
+          TopLeft="705,362">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31,88"
+              Start="0,0"
+              End="-31,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="-4,44" />
+                  <mssgle:LineSegment
+                    End="-27,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27,44"
+                    Point2="-31,44"
+                    Point3="-31,48" />
+                  <mssgle:LineSegment
+                    End="-31,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
+          TopLeft="532,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-108,40"
+              Start="0,0"
+              End="-108,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-104,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-104,20"
+                    Point2="-108,20"
+                    Point3="-108,24" />
+                  <mssgle:LineSegment
+                    End="-108,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
           TopLeft="107,533">
@@ -5260,40 +5397,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel4]"
-          TopLeft="705,362">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-31,88"
-              Start="0,0"
-              End="-31,80.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40"
-                    Point2="0,44"
-                    Point3="-4,44" />
-                  <mssgle:LineSegment
-                    End="-27,44" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-27,44"
-                    Point2="-31,44"
-                    Point3="-31,48" />
-                  <mssgle:LineSegment
-                    End="-31,80.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
           TopLeft="189,659">
           <EdgeLayout.Curve>
@@ -5319,6 +5422,68 @@
                     Point3="48.5,-20" />
                   <mssgle:LineSegment
                     End="81.5,-20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          TopLeft="424,296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.6666666666667,46"
+              Start="0,0"
+              End="-78.6666666666667,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3765182186235"
+                    Point2="0,27.3765182186235"
+                    Point3="-4,27.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-74.6666666666667,27.3765182186235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.6666666666667,27.3765182186235"
+                    Point2="-78.6666666666667,27.3765182186235"
+                    Point3="-78.6666666666667,31.3765182186235" />
+                  <mssgle:LineSegment
+                    End="-78.6666666666667,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="245,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.6666666666667,43"
+              Start="0,0"
+              End="37.6666666666667,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.6666666666667,0"
+                    Point2="37.6666666666667,0"
+                    Point3="37.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="37.6666666666667,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5372,6 +5537,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
+          TopLeft="314,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,38"
+              Start="0,0"
+              End="52,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="48,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48,19"
+                    Point2="52,19"
+                    Point3="52,23" />
+                  <mssgle:LineSegment
+                    End="52,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
           TopLeft="383.5,543">
           <EdgeLayout.Curve>
@@ -5406,6 +5605,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+          TopLeft="161.5,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,30"
+              Start="0,0"
+              End="24,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="20,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,15"
+                    Point2="24,15"
+                    Point3="24,19" />
+                  <mssgle:LineSegment
+                    End="24,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
           TopLeft="372,133.5">
           <EdgeLayout.Curve>
@@ -5425,6 +5658,42 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[noexiste]"
+          TopLeft="366,464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,37"
+              Start="0,0"
+              End="17.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="13.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,18.5"
+                    Point2="17.5,18.5"
+                    Point3="17.5,22.5" />
+                  <mssgle:LineSegment
+                    End="17.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.07296875,23.5,37.6459375,9.470703125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5496,212 +5765,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[CsvSourceOutput]"
-          TopLeft="289,48.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="79,0"
-              Start="0,0"
-              End="71.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="71.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="106,42"
-          Id="Package\Tarea Flujo de datos\Items"
-          TopLeft="479,172" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Tarea Flujo de datos\Ordenar"
-          TopLeft="126,278" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-          TopLeft="161.5,248">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="24,30"
-              Start="0,0"
-              End="24,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
-                  <mssgle:LineSegment
-                    End="20,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20,15"
-                    Point2="24,15"
-                    Point3="24,19" />
-                  <mssgle:LineSegment
-                    End="24,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
-          TopLeft="360,254" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel3]"
-          TopLeft="532,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-108,40"
-              Start="0,0"
-              End="-108,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="-4,20" />
-                  <mssgle:LineSegment
-                    End="-104,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-104,20"
-                    Point2="-108,20"
-                    Point3="-108,24" />
-                  <mssgle:LineSegment
-                    End="-108,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Tarea Flujo de datos\Combinación de mezcla"
-          TopLeft="216,342" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-          TopLeft="245,299">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="37.6666666666667,43"
-              Start="0,0"
-              End="37.6666666666667,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="33.6666666666667,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="33.6666666666667,0"
-                    Point2="37.6666666666667,0"
-                    Point3="37.6666666666667,4" />
-                  <mssgle:LineSegment
-                    End="37.6666666666667,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
-          TopLeft="424,296">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-78.6666666666667,46"
-              Start="0,0"
-              End="-78.6666666666667,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3765182186235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3765182186235"
-                    Point2="0,27.3765182186235"
-                    Point3="-4,27.3765182186235" />
-                  <mssgle:LineSegment
-                    End="-74.6666666666667,27.3765182186235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-74.6666666666667,27.3765182186235"
-                    Point2="-78.6666666666667,27.3765182186235"
-                    Point3="-78.6666666666667,31.3765182186235" />
-                  <mssgle:LineSegment
-                    End="-78.6666666666667,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Tarea Flujo de datos\División condicional"
-          TopLeft="278,422" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de combinación de mezcla]"
-          TopLeft="314,384">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52,38"
-              Start="0,0"
-              End="52,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
-                  <mssgle:LineSegment
-                    End="48,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48,19"
-                    Point2="52,19"
-                    Point3="52,23" />
-                  <mssgle:LineSegment
-                    End="52,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[existe]"
           TopLeft="454,443">
           <EdgeLayout.Curve>
@@ -5738,57 +5801,30 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[noexiste]"
-          TopLeft="366,464">
+          Id="Package\Tarea Flujo de datos.Paths[CsvSourceOutput]"
+          TopLeft="289,48.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.5,37"
+              EndConnector="79,0"
               Start="0,0"
-              End="17.5,29.5">
+              End="71.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="4,18.5" />
-                  <mssgle:LineSegment
-                    End="13.5,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,18.5"
-                    Point2="17.5,18.5"
-                    Point3="17.5,22.5" />
-                  <mssgle:LineSegment
-                    End="17.5,29.5" />
+                    End="71.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-10.07296875,23.5,37.6459375,9.470703125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Grupo Items 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Grupo Items">
     <Properties>
@@ -5817,6 +5853,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Items 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Grupo Items 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
